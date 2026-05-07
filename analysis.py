@@ -22,12 +22,6 @@ PERCENT_LABELS = {
 
 
 def load_results(results_dir: str) -> dict[int, list[dict]]:
-    """
-    Reads txt files and sorts by their percent_ai version (0, 25, 75, 100).
-
-    Returns:
-        {percent_ai: [{"score_pct": float, "binary": int, "correct": bool}, ...]}
-    """
     files = [os.path.join(RESULTS_DIR, file) for file in os.listdir(RESULTS_DIR) if file.endswith(".txt")]
 
     if not files:
@@ -65,7 +59,7 @@ def load_results(results_dir: str) -> dict[int, list[dict]]:
             print(f"  Skipping '{filename}' — no 'ai_score' field found.")
             continue
 
-        score_pct = float(raw_score) * 100          # convert 0–1 → 0–100
+        score_pct = float(raw_score) * 100
         binary    = 1 if raw_score >= BINARY_THRESHOLD else 0
 
         # Correct = called human when truly human, or called AI when truly AI

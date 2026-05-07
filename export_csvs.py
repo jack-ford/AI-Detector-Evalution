@@ -30,12 +30,6 @@ def parse_chunk_id(chunk_id: str) -> Tuple[int, int, int]:
 
 
 def load_records(results_dir: Path) -> List[Dict]:
-    """Read all .txt files in results_dir and return a sorted list of records.
-
-    Each record: {
-      'chunk_id', 'text_id', 'ai_amount', 'chunk', 'word_count', 'ai_score', 'text'
-    }
-    """
     if not results_dir.exists():
         raise FileNotFoundError(f"Results directory not found: {results_dir}")
 
@@ -123,12 +117,6 @@ def write_detection_csv(records: List[Dict], outpath: Path):
 
 
 def write_statistics_csv(outpath: Path):
-    """Write the summary as a CSV suitable for Google Sheets import.
-
-    The CSV contains two tables separated by a blank row:
-      - One-Proportion Z-Test: Version, p_hat, z, p_value, Reject H0?
-      - One-Sample T-Test:    Version, x_bar (%), mu0 (%), t, p_value, Reject H0?
-    """
     outpath.parent.mkdir(parents=True, exist_ok=True)
     try:
         import analysis

@@ -1,6 +1,5 @@
 import os
 import requests
-import csv
 
 API_KEY = "TVCYKO0IGJXOYQ0FJQNHDB3S52XGNGPQ"
 
