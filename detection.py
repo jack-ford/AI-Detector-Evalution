@@ -1,8 +1,6 @@
 import os
 import requests
 
-API_KEY = "TVCYKO0IGJXOYQ0FJQNHDB3S52XGNGPQ"
-
 def split_data_into_chunks(data: str, chunk_size: int):
     """Splits the input data into chunks of specified size."""
     words = data.split(" ")
@@ -23,7 +21,7 @@ def read_all_files_in_directory(directory: str):
                 file_contents[filename] = content
     return file_contents
 
-def run_ai_detector(text: str):
+def run_ai_detector(text: str, apiKey: str):
     """Sends text to the Winston AI detector and returns the response payload."""
 
     if (not text):
@@ -36,10 +34,9 @@ def run_ai_detector(text: str):
         "https://api.sapling.ai/api/v1/aidetect",
         headers={
             "Content-Type": "application/json",
-            "Authorization": API_KEY
         },
         json={
-            "key": API_KEY,
+            "key": apiKey,
             "text": text,
             "sent_scores": False
         },
@@ -83,9 +80,11 @@ def main():
             if os.path.exists(result_path):
                 print(f"Result already exists for {chunk_id}, skipping analysis.")
                 continue
-        
+                
+            key = os.getenv("API_KEY")
+
             # Run AI detector and handle response
-            response = run_ai_detector(chunk)
+            response = run_ai_detector(chunk, key)
 
             if "error" in response:
                 if response["error"] != 0:
