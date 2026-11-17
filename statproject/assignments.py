@@ -26,9 +26,6 @@ PARAPHRASE_SHARE = 0.16
 AI_SOURCE = "Claude Fable 5.2, written directly for this project"
 
 GENRE_BRIEFS = {
-    "news": "a news article with the headline",
-    "encyclopedia": "an encyclopedia article about",
-    "speech": "a US president's State of the Union address, namely",
     "forum": "a forum answer to the question",
     "fiction": "a work of prose fiction comparable to",
     "student": "a school essay on the assigned topic",

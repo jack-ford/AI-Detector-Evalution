@@ -21,6 +21,7 @@ CUTOFF_METRICS = ["hit_rate_at_0.5", "fpr_at_0.5", "tpr_at_0.5"]
 LENGTH_BINS = {"under 150 words": 0, "150-249 words": 150, "250+ words": 250}
 UNPAIRED_STYLES = ["student", "anti_ai", "casual"]
 ALL_STYLES = ["plain", *UNPAIRED_STYLES, "paraphrase"]
+EM_DASH = chr(0x2014)
 N_BOOT = 2000
 N_PERM = 10_000
 SEED = 0
@@ -85,6 +86,15 @@ def breakdown(corpus: pd.DataFrame, column: str) -> pd.DataFrame:
         for value, part in corpus.groupby(column, sort=False)
         for detector in LOCAL_DETECTORS
     ]
+    return pd.DataFrame(rows)
+
+
+def plain_by_genre(corpus: pd.DataFrame) -> pd.DataFrame:
+    """The easiest case, AI text written with no style instructions, genre by genre."""
+    rows = []
+    for genre, part in corpus.groupby("genre"):
+        part = part[(part["label"] == "human") | (part["prompt_style"] == "plain")]
+        rows += [{"genre": genre} | detection_row(part, d, part["cluster"]) for d in LOCAL_DETECTORS]
     return pd.DataFrame(rows)
 
 
@@ -271,6 +281,36 @@ def ell_probe(probe: pd.DataFrame, thresholds: dict[str, float]) -> pd.DataFrame
     return table
 
 
+def corpus_summary(subsets: dict[str, pd.DataFrame]) -> pd.DataFrame:
+    corpus = pd.concat(subsets.values())
+    grouped = corpus.groupby(["subset", "genre", "label", "prompt_style"], sort=False)
+    return grouped["n_words"].agg(n="size", mean_words="mean", sd_words="std").reset_index()
+
+
+def em_dash_check(corpus: pd.DataFrame) -> pd.DataFrame:
+    """Human fiction came from Gutenberg, whose plain text writes dashes as
+    double hyphens, which were turned into em dashes. Do the detectors treat
+    passages with an em dash differently from those without?"""
+    fiction = corpus[(corpus["label"] == "human") & (corpus["genre"] == "fiction")].reset_index(drop=True)
+    has_dash = load_texts(fiction["id"]).str.contains(EM_DASH).to_numpy()
+    rows = []
+    for detector in LOCAL_DETECTORS:
+        scores = fiction[detector].to_numpy()
+
+        def dash_scores_higher(rows_: np.ndarray) -> float:
+            return stats.roc_auc(scores[rows_], has_dash[rows_])
+
+        replicates = stats.cluster_bootstrap(
+            dash_scores_higher, np.arange(len(fiction)), strata=has_dash, n_boot=N_BOOT, seed=SEED
+        )
+        lo, hi = stats.percentile_interval(replicates)
+        rows.append({
+            "detector": detector, "n_with_dash": int(has_dash.sum()), "n_without": int((~has_dash).sum()),
+            "p_dash_scores_higher": stats.roc_auc(scores, has_dash), "lo": lo, "hi": hi,
+        })
+    return pd.DataFrame(rows)
+
+
 def imitation_probe(probe: pd.DataFrame) -> pd.DataFrame:
     """Real student essays against AI passages written to imitate each one."""
     humans = probe[probe["label"] == "human"].set_index("id")
@@ -367,9 +407,13 @@ def run() -> None:
     subsets, chunks = load_corpus()
     main = subsets["main"]
     tables = {
+        "corpus_summary": corpus_summary(subsets),
         "overall": overall(main),
+        "length_baseline": pd.DataFrame([detection_row(main, "n_words", main["cluster"])]),
+        "em_dash_check": em_dash_check(main),
         "by_genre": breakdown(main, "genre"),
         "by_length": breakdown(main, "length"),
+        "plain_by_genre": plain_by_genre(main),
         "by_style": by_style(main),
         "style_tests": style_tests(main),
         "matched_pairs": matched_pairs(main),

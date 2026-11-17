@@ -1,0 +1,5 @@
+detector,n_ell,n_other,p_ell_scores_higher,lo,hi,p_value,ell_above_5pct_cutoff,other_above_5pct_cutoff,ell_flagged_at_0.5,other_flagged_at_0.5,p_holm
+roberta_fakespot,50,50,0.2400,0.1520,0.3380,0.0001,0.0000,0.0800,0.0000,0.1400,0.0004
+roberta_openai,50,50,0.4908,0.3692,0.6016,0.8764,0.0600,0.0800,0.0600,0.0400,0.8764
+fast_detectgpt,50,50,0.4204,0.3084,0.5360,0.1736,0.0600,0.0800,,,0.3472
+log_likelihood,50,50,0.2660,0.1700,0.3704,0.0002,0.0200,0.0800,,,0.0006

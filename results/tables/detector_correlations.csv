@@ -1,0 +1,5 @@
+detector,roberta_fakespot,roberta_openai,fast_detectgpt,log_likelihood
+roberta_fakespot,1.0000,0.1455,0.4105,0.5619
+roberta_openai,0.1455,1.0000,0.1322,0.1122
+fast_detectgpt,0.4105,0.1322,1.0000,0.6511
+log_likelihood,0.5619,0.1122,0.6511,1.0000

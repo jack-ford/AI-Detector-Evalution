@@ -27,7 +27,7 @@ DETECTOR_STYLE = {
     "fast_detectgpt": ("Fast-DetectGPT", "#eda100", ":"),
     "log_likelihood": ("Log-likelihood", "#e87ba4", (0, (5, 1, 1, 1, 1, 1))),
 }
-GENRE_ORDER = ["student", "news", "encyclopedia", "speech", "forum", "fiction"]
+GENRE_ORDER = ["student", "forum", "fiction"]
 STYLE_LABELS = {
     "plain": "plain",
     "student": '"write like a student"',
@@ -132,12 +132,12 @@ def _dot_rows(ax: plt.Axes, table: pd.DataFrame, row_column: str, row_labels: di
 
 def auc_by_genre() -> None:
     table = _table("by_genre")
-    fig, ax = plt.subplots(figsize=(7.5, 5))
+    fig, ax = plt.subplots(figsize=(7.5, 3.6))
     _dot_rows(ax, table, "genre", {genre: genre for genre in GENRE_ORDER}, "auc")
     ax.axvline(0.5, color=INK_SECONDARY, linewidth=0.8)
     ax.annotate("coin flip", xy=(0.5, -0.5), xytext=(3, 0), textcoords="offset points", fontsize=8, color=INK_SECONDARY, va="top")
     ax.set(title="Detection by genre (AUC, 95% bootstrap interval)", xlabel="AUC", xlim=(0, 1.02))
-    ax.legend(loc="upper center", bbox_to_anchor=(0.5, -0.12), ncol=2)
+    ax.legend(loc="upper center", bbox_to_anchor=(0.5, -0.2), ncol=2)
     _save(fig, "auc_by_genre")
 
 

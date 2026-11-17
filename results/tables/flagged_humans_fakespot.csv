@@ -1,0 +1,21 @@
+id,genre,n_words,source,title,roberta_fakespot
+h-fiction-014,fiction,278,Project Gutenberg,"That Lass O' Lowrie's 1877 (Burnett, Frances Hodgson, 1849-1924)",0.9922
+h-fiction-028,fiction,101,Project Gutenberg,"Beyond our control (Garrett, Randall, 1927-1987; Kluga, Richard [Illustrator])",0.9826
+h-fiction-046,fiction,176,Project Gutenberg,"David Ives (Pier, Arthur Stanwood, 1874-1966; Wood, Franklin [Illustrator])",0.9768
+h-student-020,student,241,PERSUADE 2.0,Distance learning,0.9569
+h-fiction-037,fiction,133,Project Gutenberg,"The Worst Joke in the World (Holding, Elisabeth Sanxay, 1889-1955)",0.9377
+h-student-027,student,151,PERSUADE 2.0,Phones and driving,0.9249
+h-forum-030,forum,154,Stack Exchange (travel),Is traveling to Italy safe during the COVID-19 outbreak?,0.9207
+h-student-042,student,102,PERSUADE 2.0,Seeking multiple opinions,0.8870
+h-fiction-042,fiction,130,Project Gutenberg,"The famous killer who— (Humphreys, Ray, 1893-1973)",0.8467
+h-student-034,student,225,PERSUADE 2.0,Distance learning,0.8275
+h-forum-019,forum,140,Stack Exchange (diy),How can I break up a small boulder without power tools?,0.7952
+h-fiction-008,fiction,266,Project Gutenberg,"Rope (Hall, Holworthy, 1887-1936)",0.7390
+h-fiction-045,fiction,219,Project Gutenberg,"The Wooden Horse (Walpole, Hugh, 1884-1941)",0.7152
+h-student-039,student,304,PERSUADE 2.0,Grades for extracurricular activities,0.7103
+h-fiction-012,fiction,180,Project Gutenberg,"Airplane Boys Discover the Secrets of Cuzco (Craine, E. J. (Edith Janice), 1881-)",0.7017
+h-fiction-027,fiction,264,Project Gutenberg,"The Wreck of the Grosvenor, Volume 3 of 3 An account of the mutiny of the crew and the loss of the ship when trying to make the Bermudas (Russell, William Clark, 1844-1911)",0.5775
+h-fiction-020,fiction,170,Project Gutenberg,"Chain of Command (Arr, Stephen, 1921-2012; Ashman, William [Illustrator])",0.5322
+h-forum-033,forum,83,Stack Exchange (money),Can I start 529 plans for my niece & nephew without my sibling knowing?,0.5222
+h-forum-031,forum,166,Stack Exchange (parenting),How should a jobless father advise his son when he refuses to study because of his educated jobless dad?,0.5128
+h-fiction-040,fiction,312,Project Gutenberg,"The Ranch Girls at Home Again (Vandercook, Margaret, 1876-1958; Coleman, Ralph P. (Ralph Pallen), 1892-1968 [Illustrator])",0.5123

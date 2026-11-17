@@ -1,0 +1,5 @@
+detector,n_with_dash,n_without,p_dash_scores_higher,lo,hi
+roberta_fakespot,31,19,0.4856,0.3141,0.6537
+roberta_openai,31,19,0.6061,0.4431,0.7657
+fast_detectgpt,31,19,0.5178,0.3582,0.6893
+log_likelihood,31,19,0.4228,0.2733,0.5790

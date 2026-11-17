@@ -1,0 +1,5 @@
+detector,n_pairs,ai_outscores_twin,lo,hi
+roberta_fakespot,126,0.5159,0.4365,0.6032
+roberta_openai,126,0.3968,0.3095,0.4841
+fast_detectgpt,126,0.5635,0.4762,0.6508
+log_likelihood,126,0.5159,0.4286,0.6032

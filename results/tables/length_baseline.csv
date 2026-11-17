@@ -1,0 +1,2 @@
+detector,n_human,n_ai,auc,auc_lo,auc_hi,tpr_at_1pct_fpr,tpr_at_1pct_fpr_lo,tpr_at_1pct_fpr_hi,tpr_at_5pct_fpr,tpr_at_5pct_fpr_lo,tpr_at_5pct_fpr_hi
+n_words,150,150,0.5328,0.4601,0.6034,0.0067,0.0000,0.0933,0.0933,0.0395,0.1600
