@@ -287,6 +287,14 @@ def corpus_summary(subsets: dict[str, pd.DataFrame]) -> pd.DataFrame:
     return grouped["n_words"].agg(n="size", mean_words="mean", sd_words="std").reset_index()
 
 
+def length_match(corpus: pd.DataFrame) -> pd.DataFrame:
+    """Written length of each AI passage as a share of the word count it was asked for."""
+    plan = pd.read_csv(paths.ASSIGNMENTS, usecols=["id", "target_words"]).set_index("id")
+    ai = corpus[corpus["label"] == "ai"].set_index("id")
+    ratio = ai["n_words"] / plan.loc[ai.index, "target_words"]
+    return ratio.groupby(ai["prompt_style"]).agg(n="size", mean="mean", min="min", max="max").reset_index()
+
+
 def em_dash_check(corpus: pd.DataFrame) -> pd.DataFrame:
     """Human fiction came from Gutenberg, whose plain text writes dashes as
     double hyphens, which were turned into em dashes. Do the detectors treat
@@ -408,6 +416,7 @@ def run() -> None:
     main = subsets["main"]
     tables = {
         "corpus_summary": corpus_summary(subsets),
+        "length_match": length_match(pd.concat(subsets.values())),
         "overall": overall(main),
         "length_baseline": pd.DataFrame([detection_row(main, "n_words", main["cluster"])]),
         "em_dash_check": em_dash_check(main),

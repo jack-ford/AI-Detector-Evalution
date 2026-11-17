@@ -77,7 +77,7 @@ def fiction(rng: random.Random) -> Iterator[Document]:
             doc_id=f"gutenberg:{book_id}",
             title=" ".join(f"{book['Title']} ({book['Authors']})".split()),
             url=f"https://www.gutenberg.org/ebooks/{book_id}",
-            date="before 1964",
+            date="unknown (US public domain)",
             source="Project Gutenberg",
             license="Public domain (US)",
             paragraphs=_body_paragraphs(response.text),
