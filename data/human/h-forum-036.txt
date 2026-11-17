@@ -1,0 +1,5 @@
+Maybe not what you want to read, but being able to read and understand code is a VERY important skill for a developer and fixing (and searching for) bugs is an excellent opportunity to improve this ability.
+
+Moreover, coding is not about writing code, but about thinking how to write good, maintainable and efficient code. I suppose this is a pretty complex (and maybe legacy) system, so this is a chance to understand how not to do things and try to find ways to improve stuff.
+
+This website doesn't answer what you should do, so I won't tell you to keep working there, nor will I tell you to leave. Just remember that you can search for other jobs while you are employed. You don't need to quit before resuming your job hunt.

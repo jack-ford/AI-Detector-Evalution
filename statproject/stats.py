@@ -103,6 +103,8 @@ def stratified_correlation_pvalue(
     members = [np.flatnonzero(strata == value) for value in np.unique(strata)]
     rng = np.random.default_rng(seed)
     observed = abs(np.corrcoef(x, y)[0, 1])
+    if np.isnan(observed):
+        return np.nan
     hits = 0
     for _ in range(n_perm):
         shuffled = y.copy()

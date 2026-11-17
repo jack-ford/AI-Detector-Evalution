@@ -271,6 +271,19 @@ def ell_probe(probe: pd.DataFrame, thresholds: dict[str, float]) -> pd.DataFrame
     return table
 
 
+def imitation_probe(probe: pd.DataFrame) -> pd.DataFrame:
+    """Real student essays against AI passages written to imitate each one."""
+    humans = probe[probe["label"] == "human"].set_index("id")
+    ai = probe[probe["label"] == "ai"]
+    rows = []
+    for detector in LOCAL_DETECTORS:
+        row = detection_row(probe, detector, probe["cluster"])
+        gap = ai[detector].to_numpy() - humans.loc[ai["pair_id"], detector].to_numpy()
+        row["ai_outscores_twin"] = np.mean(gap > 0) + 0.5 * np.mean(gap == 0)
+        rows.append(row)
+    return pd.DataFrame(rows)
+
+
 def legacy_summary(chunks: pd.DataFrame) -> pd.DataFrame:
     """Sapling and the local detectors on the original human and fully-AI chunks.
 
@@ -337,20 +350,22 @@ def _length_bin(n_words: pd.Series) -> pd.Series:
     return pd.cut(n_words, bins=edges, labels=labels, right=False).astype(str)
 
 
-def load_corpus() -> tuple[pd.DataFrame, pd.DataFrame, pd.DataFrame]:
-    """Returns the main corpus, the English-learner probe, and the original
-    Sapling chunks, each with the local detector scores attached."""
+def load_corpus() -> tuple[dict[str, pd.DataFrame], pd.DataFrame]:
+    """Returns the passage corpus split by subset, and the original Sapling
+    chunks, each with the local detector scores attached."""
     scores = load_scores()
     metadata = load_metadata().join(scores, on="id")
     metadata["length"] = _length_bin(metadata["n_words"])
-    main = metadata[metadata["subset"] == "main"].reset_index(drop=True)
-    probe = metadata[metadata["subset"] == "ell_probe"].reset_index(drop=True)
+    subsets = {
+        name: part.reset_index(drop=True) for name, part in metadata.groupby("subset")
+    }
     chunks = load_legacy_chunks().join(scores, on="id")
-    return main, probe, chunks
+    return subsets, chunks
 
 
 def run() -> None:
-    main, probe, chunks = load_corpus()
+    subsets, chunks = load_corpus()
+    main = subsets["main"]
     tables = {
         "overall": overall(main),
         "by_genre": breakdown(main, "genre"),
@@ -362,7 +377,8 @@ def run() -> None:
         "false_positives_by_genre": false_positives_by_genre(main),
         "flagged_humans_fakespot": flagged_humans(main, "roberta_fakespot"),
         "feature_associations": feature_associations(main),
-        "ell_probe": ell_probe(probe, human_thresholds(main)),
+        "ell_probe": ell_probe(subsets["ell_probe"], human_thresholds(main)),
+        "imitation_probe": imitation_probe(subsets["imitation_probe"]),
         "detector_correlations": main[LOCAL_DETECTORS].corr(method="spearman").reset_index(names="detector"),
         "legacy_summary": legacy_summary(chunks),
         "legacy_by_version": legacy_by_version(chunks),

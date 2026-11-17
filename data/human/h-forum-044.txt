@@ -1,0 +1,9 @@
+Except you are pumping hot air out of the room. You are trying to create a vacuum in the room, and nature abhors a vacuum. It will push an equivalent amount of air back into the room via every possible path, in proportion to their air resistance.
+
+Most likely it is simply going to push air down your skylight, handing your hot air right back to you.
+
+Most of those portable air conditioners that put a hose on the condenser output, also have options to also put a hose on the condenser input. You'll want to figure that out.
+
+keep in mind you only drew the two air conditioner outputs. There are also two air inputs - one to the condenser, and one to the evaporator (which outputs cold air). On most units they are separate, or at least separable.
+
+Since only the condenser output leaves the room, only the condenser input needs to be drawn from outside the room. The evaporator outputs into the room, so the evaporator input can also be inside the room.

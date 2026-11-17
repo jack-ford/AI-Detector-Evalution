@@ -7,7 +7,7 @@ from dataclasses import dataclass
 
 from . import paths
 from .corpus import write_metadata
-from .sources import Document, gutenberg, persuade, stackexchange, wikimedia
+from .sources import Document, gutenberg, persuade, stackexchange
 from .text import cut_passage, normalize, word_count
 
 log = logging.getLogger(__name__)
@@ -30,14 +30,13 @@ class Recipe:
 
 
 RECIPES = (
-    Recipe("news", wikimedia.wikinews, 50, from_start=True),
-    Recipe("encyclopedia", wikimedia.wikipedia, 50, from_start=False),
-    Recipe("speech", wikimedia.state_of_the_union, 50, from_start=False),
     Recipe("forum", stackexchange.answers, 50, from_start=True),
     Recipe("fiction", gutenberg.fiction, 50, from_start=False),
     Recipe("student", persuade.essays, 50, from_start=True),
     # Human-only side set for the false-positive analysis, never paired with AI text.
     Recipe("student", persuade.ell_matched_pairs, 100, from_start=True, subset="ell_probe"),
+    # Real student essays that the AI is later asked to imitate one for one.
+    Recipe("student", persuade.essays, 30, from_start=True, subset="imitation_probe"),
 )
 
 

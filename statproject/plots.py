@@ -74,11 +74,14 @@ def _roc_panel(ax: plt.Axes, frame: pd.DataFrame, detectors: list[str], title: s
         title=title, xlabel="Share of human texts flagged", ylabel="Share of AI texts flagged",
         xlim=(-0.01, 1.01), ylim=(-0.01, 1.01), aspect="equal",
     )
-    ax.legend(title="Detector and AUC", loc="lower right", fontsize=8.5, title_fontsize=8.5, handlelength=3.2)
+    ax.legend(
+        title="Detector and AUC", loc="upper center", bbox_to_anchor=(0.5, -0.14), ncol=2,
+        fontsize=8.5, title_fontsize=8.5, handlelength=3.2,
+    )
 
 
 def roc_curves(main: pd.DataFrame, chunks: pd.DataFrame) -> None:
-    fig, (left, right) = plt.subplots(1, 2, figsize=(10.5, 5.2))
+    fig, (left, right) = plt.subplots(1, 2, figsize=(10.5, 6))
     binary = chunks[chunks["label"] != "mixed"]
     _roc_panel(left, binary, ["sapling", *LOCAL_DETECTORS], "Original essays: 30 human vs 30 AI chunks")
     _roc_panel(right, main, LOCAL_DETECTORS, f"New corpus: {(main['label'] == 'human').sum()} human vs {(main['label'] == 'ai').sum()} AI passages")
@@ -102,7 +105,8 @@ def sapling_by_version(chunks: pd.DataFrame) -> None:
         ax.set(xticks=range(1, 6), xlim=(0.4, 5.6), ylim=(-0.03, 1.03))
         ax.grid(axis="y")
     axes[0].set_ylabel("Sapling score")
-    axes[0].annotate(
+    # Labelled in a panel where no dots sit near the line.
+    axes[2].annotate(
         "0.5 cutoff", xy=(0.45, FLAG_THRESHOLD), xytext=(0, 3), textcoords="offset points",
         fontsize=8, color=INK_SECONDARY,
     )
@@ -175,7 +179,8 @@ def human_scores_by_genre(main: pd.DataFrame, detector: str = "roberta_fakespot"
 
 def run() -> None:
     _style()
-    main, _, chunks = load_corpus()
+    subsets, chunks = load_corpus()
+    main = subsets["main"]
     roc_curves(main, chunks)
     sapling_by_version(chunks)
     auc_by_genre()

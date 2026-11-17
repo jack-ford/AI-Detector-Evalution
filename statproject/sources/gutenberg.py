@@ -75,7 +75,7 @@ def fiction(rng: random.Random) -> Iterator[Document]:
         response.encoding = "utf-8"
         yield Document(
             doc_id=f"gutenberg:{book_id}",
-            title=f"{book['Title']} ({book['Authors']})",
+            title=" ".join(f"{book['Title']} ({book['Authors']})".split()),
             url=f"https://www.gutenberg.org/ebooks/{book_id}",
             date="before 1964",
             source="Project Gutenberg",

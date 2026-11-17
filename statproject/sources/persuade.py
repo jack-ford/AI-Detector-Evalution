@@ -6,6 +6,7 @@ import re
 import sys
 from collections import defaultdict
 from collections.abc import Iterator
+from functools import cache
 
 import requests
 
@@ -22,6 +23,7 @@ REPO_URL = "https://github.com/scrosseye/persuade_corpus_2.0"
 _PLACEHOLDER = re.compile(r"\b[A-Z]+_[A-Z_]+\b|Generic_\w+")
 
 
+@cache
 def _essays() -> list[dict]:
     path = CACHE / "persuade_train.csv"
     if not path.exists():
