@@ -1,0 +1,9 @@
+its a bit of both honestly. at my place the devs roll in anywhere from like 8 to 1030 and nobody cares, meanwhile support has to be at their desks at 9 sharp bc thats when the phones turn on. its not that devs are special its just that nothing breaks if im not there at 9. my work is a ticket that needs to be done by thursday, doesnt matter if i do it at 7am or 11 at night
+
+compare that to sales or front desk or whoever, their job IS being available when customers are. cant really answer a phone call 3 hours later lol
+
+also theres the hiring thing. good devs are hard to find and expensive to replace and flex hours cost the company basicaly nothing so its an easy perk to hand out. if they tried to make us do strict 9-5 half the team would have a new job in a month and managment knows it
+
+that said dont assume were working less. we have on call rotations, i got paged at 2am twice last month. release weeks are brutal. and a lot of us are thinking about the problem even when were not at the keyboard, i fixed a bug in my head walking the dog last week. so the hours are looser but theyre not really shorter if that makes sense
+
+one more thing, it depends on the company a LOT. ive worked at a bank where devs badged in and out and had core hours 9 to 4 no exceptions. so its not a law of nature its just common in tech bc the work allows it

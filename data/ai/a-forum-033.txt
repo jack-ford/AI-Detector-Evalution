@@ -1,0 +1,9 @@
+Start with the cheap stuff. Kill the power at the disconnect, pull the cover off the condenser and look at the lugs on the contactor. Then do the same at the breaker in your panel. A loose or burnt connection adds resistance right where the compressor pulls its biggest gulp of current, and I've seen a single scorched lug cause exactly what you describe. Tighten everything. If the insulation looks brown or brittle near a terminal, cut the wire back and re-terminate.
+
+If that all checks out, the next suspect is the capacitor. It's the silver can, usually oval, with three terminals marked HERM, FAN and C. A bulged top means it's dead, but they also go weak without showing it. A meter with a capacitance setting will tell you; mine read 28 µF on a can labelled 45, and that unit dimmed every lamp in the house for a full second.
+
+Why it matters: a single-phase compressor motor can't start itself. It needs a second winding fed slightly out of step with the first, and the capacitor is what creates that shift. When the cap fades, the motor sits nearly stalled for longer, drawing locked-rotor current, which can be five or six times the running amps. On a 3-ton unit that's well over 100 A for a moment. Your service drop and the transformer on the pole both sag under it, and the lights tell you so.
+
+A new capacitor is about $20. If the compressor is past ten years old I'd add a hard start kit while you're in there, another $30 or so, two wires. My neighbour's 2009 Goodman went from a visible flicker to nothing you'd notice.
+
+If it still dips badly after all that, ring the utility and ask them to check the neutral at the pole. They do that free here.
