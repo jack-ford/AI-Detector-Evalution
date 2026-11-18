@@ -14,7 +14,7 @@ from src import registry
 ROOT = Path(__file__).resolve().parent.parent
 RESULTS = ROOT / "results"
 OUT = Path(__file__).resolve().parent
-FIGURES = ["fig0_teaser", "fig1_overview", "fig2_style", "fig3_human_percentile", "fig4_genre", "fig5_threshold_transfer", "fig6_human_side"]
+FIGURES = ["fig1_overview", "fig2_style", "fig3_human_percentile", "fig4_genre", "fig5_threshold_transfer", "fig6_human_side"]
 
 
 def table(name: str) -> pd.DataFrame:

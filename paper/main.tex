@@ -40,16 +40,6 @@
 \IEEEauthorblockA{\textit{The Haverford School}\\
 Haverford, PA, USA}}
 
-\IEEEaftertitletext{%
-\vspace{0.7\baselineskip}%
-\begin{center}
-\includegraphics[width=\textwidth]{fig0_teaser.pdf}\\[4pt]
-\refstepcounter{figure}\label{fig:design}%
-{\footnotesize Fig.~\thefigure.\ Study design and headline result. Each AI passage is a twin of one human passage and was written by Claude in one of five styles; nine open-source detectors score every passage. Right: for the six detectors that beat chance on plain AI text, one instruction to avoid AI tells pushes the \auc\ below 0.5 (Section~\ref{sec:evasion}).}
-\end{center}
-\vspace{-0.4\baselineskip}%
-}
-
 \maketitle
 
 \begin{abstract}
@@ -65,7 +55,7 @@ Detectors for AI-written text are used by some schools to judge student work. A 
 
 That leaves four questions mostly unanswered. First, how well do detectors work when the human and AI passages are matched in genre, length and topic, so that none of these can be the signal? Second, what happens when the AI is simply told how to write: to sound like a student, to avoid sounding like AI, to write quickly and sloppily? Third, does a cutoff chosen on one kind of writing carry over to another? Fourth, among human text, what do the false positives have in common?
 
-We answer these with a matched-twin design (Fig.~\ref{fig:design}). Each of 150 human passages (student essays, forum answers and fiction, all written before 2021) has an AI twin written by Claude to match its subject, length and position in its document, in one of five styles. We score all 300 passages, plus three probe sets, with nine open-source detectors. Our contributions are:
+We answer these with a matched-twin design. Each of 150 human passages (student essays, forum answers and fiction, all written before 2021) has an AI twin written by Claude to match its subject, length and position in its document, in one of five styles. We score all 300 passages, plus three probe sets, with nine open-source detectors. Our contributions are:
 (i) a corpus design that pairs human and AI passages and varies only the instruction given to the AI, with per-passage instruction records;
 (ii) a controlled evaluation of nine open-source detectors with confidence intervals that resample whole source documents and multiple-comparison correction;
 (iii) evidence that a one-sentence instruction and a change of genre each break most detectors, and that false-positive-rate cutoffs do not transfer between genres; and
