@@ -48,7 +48,10 @@ def p_format(p: float) -> str:
     return "$<$0.001" if p < 0.001 else f"{p:.3f}"
 
 
-def write(name: str, lines: list[str]) -> None:
+def write(name: str, header: str, body: list[str]) -> None:
+    """A complete tabular environment. A \\multicolumn row can't be the first
+    thing an \\input'd file puts after \\midrule, so the rules live in the file."""
+    lines = [r"\begin{tabular}{@{}lcccc@{}}", r"\toprule", header, r"\midrule", *body, r"\bottomrule", r"\end{tabular}"]
     (OUT / "tables").mkdir(exist_ok=True)
     (OUT / "tables" / f"{name}.tex").write_text("\n".join(lines) + "\n", encoding="utf-8")
 
@@ -76,7 +79,8 @@ def overall() -> None:
         tpr = rf"\textbf{{{tpr}}}" if row["tpr_at_5pct_fpr"] == best_tpr else tpr
         return rf"{registry.label(name)} & {auc} & {tpr} & {row['tpr_at_1pct_fpr'] * 100:.0f}\% & {p_format(row['p_holm'])} \\"
 
-    write("overall", rows_by_family(render))
+    header = r"Detector & \auc\ [95\% CI] & \tpr\ at 5\% \fpr\ [95\% CI] & \tpr\ at 1\% \fpr & $p_{\text{Holm}}$ \\"
+    write("overall", header, rows_by_family(render))
 
 
 def rewrites() -> None:
@@ -91,7 +95,7 @@ def rewrites() -> None:
         row = trend.loc[name]
         return rf"{registry.label(name)} & {cells[0]} & {cells[1]} & {cells[2]} & {num(row['trend_spearman'], signed=True)} \\"
 
-    write("rewrites", rows_by_family(render))
+    write("rewrites", r"Detector & 25\% & 75\% & 100\% & $\rho$ \\", rows_by_family(render))
 
 
 def human_side() -> None:
@@ -106,13 +110,8 @@ def human_side() -> None:
             rf"& {num(m['rank_gap_matched'] * 100, 0, signed=True)} & {p_format(m['p_holm'])} \\"
         )
 
-    lines = []
-    for family in (registry.SUPERVISED, registry.ZERO_SHOT):
-        lines.append(rf"\multicolumn{{5}}{{@{{}}l}}{{\textit{{{family.capitalize()}}}}} \\")
-        lines += [render(d.name) for d in registry.DETECTORS if d.family == family]
-        if family == registry.SUPERVISED:
-            lines.append(r"\addlinespace")
-    write("human_side", lines)
+    header = r"Detector & Quality $\rho$ [95\% CI] & Learners [95\% CI] & Matched gap & $p_{\text{Holm}}$ \\"
+    write("human_side", header, rows_by_family(render))
 
 
 def copy_figures() -> None:

@@ -246,13 +246,7 @@ Pairing each AI passage with its own human twin gives the same ranking: Desklib 
 \label{tab:overall}
 \centering
 \footnotesize
-\begin{tabular}{@{}lcccc@{}}
-\toprule
-Detector & \auc\ [95\% CI] & \tpr\ at 5\% \fpr\ [95\% CI] & \tpr\ at 1\% \fpr & $p_{\text{Holm}}$ \\
-\midrule
 \input{tables/overall.tex}
-\bottomrule
-\end{tabular}
 \end{table*}
 
 \subsection{One instruction changes the outcome}
@@ -315,13 +309,7 @@ Surface features do not explain which human passages are flagged. We tested ten 
 \label{tab:humanside}
 \centering
 \footnotesize
-\begin{tabular}{@{}lcccc@{}}
-\toprule
-Detector & Quality $\rho$ [95\% CI] & Learners [95\% CI] & Matched gap & $p_{\text{Holm}}$ \\
-\midrule
 \input{tables/human_side.tex}
-\bottomrule
-\end{tabular}
 \end{table*}
 
 \subsection{Imitation and partial AI use}
@@ -336,13 +324,7 @@ On the essay-rewrite set (Table~\ref{tab:rewrites}) only Desklib and Fakespot ca
 \centering
 \footnotesize
 \setlength{\tabcolsep}{3pt}
-\begin{tabular}{@{}lcccc@{}}
-\toprule
-Detector & 25\% & 75\% & 100\% & $\rho$ \\
-\midrule
 \input{tables/rewrites.tex}
-\bottomrule
-\end{tabular}
 \end{table}
 
 \subsection{Robustness checks}

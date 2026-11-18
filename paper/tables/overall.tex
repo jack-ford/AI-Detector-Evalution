@@ -1,3 +1,7 @@
+\begin{tabular}{@{}lcccc@{}}
+\toprule
+Detector & \auc\ [95\% CI] & \tpr\ at 5\% \fpr\ [95\% CI] & \tpr\ at 1\% \fpr & $p_{\text{Holm}}$ \\
+\midrule
 \multicolumn{5}{@{}l}{\textit{Supervised}} \\
 Desklib DeBERTa-v3-large & \textbf{0.63 [0.56, 0.70]} & \textbf{28\% [16\%, 39\%]} & 18\% & 0.003 \\
 Fakespot RoBERTa-base & 0.58 [0.51, 0.64] & 10\% [5\%, 18\%] & 7\% & 0.130 \\
@@ -10,3 +14,5 @@ OpenAI RoBERTa-base (GPT-2) & 0.38 [0.32, 0.45] & 4\% [1\%, 8\%] & 2\% & 0.003 \
 Binoculars (Qwen2.5-1.5B) & 0.50 [0.44, 0.57] & 7\% [2\%, 17\%] & 3\% & 1.000 \\
 Fast-DetectGPT (GPT-Neo-2.7B) & 0.56 [0.49, 0.63] & 14\% [8\%, 23\%] & 7\% & 0.279 \\
 Log-likelihood (GPT-Neo-2.7B) & 0.50 [0.43, 0.57] & 11\% [3\%, 18\%] & 4\% & 1.000 \\
+\bottomrule
+\end{tabular}
