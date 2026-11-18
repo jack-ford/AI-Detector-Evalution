@@ -16,8 +16,6 @@
 \usepackage{array}
 \usepackage{microtype}
 \usepackage{balance}
-\usepackage{tikz}
-\usetikzlibrary{arrows.meta}
 \usepackage{hyperref}
 
 \graphicspath{{figures/}}
@@ -29,72 +27,30 @@
 \hypersetup{colorlinks=true, linkcolor=deepblue, citecolor=deepblue, urlcolor=deepblue}
 
 \newcommand{\repo}{\texttt{[repository URL]}}
+\renewcommand{\arraystretch}{1.1}
 \newcommand{\auc}{\textsc{auc}}
 \newcommand{\fpr}{\textsc{fpr}}
 \newcommand{\tpr}{\textsc{tpr}}
 
 \begin{document}
 
-\title{Polish, Not Provenance: Testing Open-Source AI-Text\\Detectors on Matched Human and AI Writing}
+\title{Polish, Not Provenance:\\[4pt]{\large Testing Open-Source AI-Text Detectors on Matched Human and AI Writing}}
 
 \author{\IEEEauthorblockN{Author Name}
 \IEEEauthorblockA{\textit{The Haverford School}\\
 Haverford, PA, USA}}
 
+\IEEEaftertitletext{%
+\vspace{0.7\baselineskip}%
+\begin{center}
+\includegraphics[width=\textwidth]{fig0_teaser.pdf}\\[4pt]
+\refstepcounter{figure}\label{fig:design}%
+{\footnotesize Fig.~\thefigure.\ Study design and headline result. Each AI passage is a twin of one human passage and was written by Claude in one of five styles; nine open-source detectors score every passage. Right: for the six detectors that beat chance on plain AI text, one instruction to avoid AI tells pushes the \auc\ below 0.5 (Section~\ref{sec:evasion}).}
+\end{center}
+\vspace{-0.4\baselineskip}%
+}
+
 \maketitle
-
-\begin{figure*}[t]
-\centering
-\resizebox{\textwidth}{!}{%
-\begin{tikzpicture}[
-    font=\sffamily\footnotesize,
-    box/.style={draw=inkgray!70, rounded corners=2pt, fill=white, minimum height=0.62cm, text width=3.3cm, align=center, inner sep=2pt},
-    hum/.style={box, draw=accentblue, fill=accentblue!10},
-    ai/.style={box, draw=accentorange, fill=accentorange!10},
-    det/.style={box, draw=deepblue, fill=deepblue!8, minimum height=1.05cm},
-    metric/.style={box, draw=inkgray, fill=inkgray!8},
-    head/.style={font=\sffamily\small\bfseries, text=inkgray},
-    arr/.style={-{Stealth[length=2.3mm]}, line width=0.9pt, draw=inkgray},
-    stat/.style={font=\sffamily\bfseries\Large, text=accentorange},
-    statlabel/.style={font=\sffamily\footnotesize, text=inkgray, text width=4.1cm, align=left}
-]
-\node[head] at (0,2.35) {1. Human text};
-\node[hum] at (0,1.55) {Student essays (PERSUADE)};
-\node[hum] at (0,0.8)  {Forum answers (Stack Exchange)};
-\node[hum] at (0,0.05) {Fiction (Project Gutenberg)};
-\node[font=\sffamily\scriptsize, text=inkgray] at (0,-0.6) {150 passages, written before 2021};
-
-\node[head] at (4.9,2.35) {2. AI twins written by Claude};
-\node[ai] at (4.9,1.8)  {Plain \quad Student voice};
-\node[ai] at (4.9,1.2)  {Avoid AI tells \quad Casual};
-\node[ai] at (4.9,0.6)  {Paraphrased};
-\node[font=\sffamily\scriptsize, text=inkgray, text width=3.4cm, align=center] at (4.9,-0.35) {150 passages, one twin per human passage: same genre, length and topic};
-
-\node[head] at (9.8,2.35) {3. Nine open-source detectors};
-\node[det] at (9.8,1.5)  {Supervised (6)\\[-1pt]\scriptsize Desklib, Fakespot, RADAR, HC3, OpenAI$\times$2};
-\node[det] at (9.8,0.25) {Zero-shot (3)\\[-1pt]\scriptsize Binoculars, Fast-DetectGPT, log-likelihood};
-
-\node[head] at (14.7,2.35) {4. What we measure};
-\node[metric] at (14.7,1.8)  {Ranking: \auc, \tpr\ at 1\% and 5\% \fpr};
-\node[metric] at (14.7,1.05) {Evasion by one instruction};
-\node[metric] at (14.7,0.3)  {Cutoff transfer across genres};
-\node[metric] at (14.7,-0.45) {Quality and false positives};
-
-\draw[arr] (1.75,0.8) -- (3.15,0.8);
-\draw[arr] (6.65,0.9) -- (8.05,0.9);
-\draw[arr] (11.55,0.9) -- (12.95,0.9);
-
-\draw[inkgray!40, line width=0.5pt] (-1.7,-1.25) -- (16.4,-1.25);
-\node[stat] at (0.15,-2.05) {0.63};
-\node[statlabel] at (3.0,-2.05) {best \auc, one of nine detectors};
-\node[stat] at (6.2,-2.05) {5 of 6};
-\node[statlabel] at (9.2,-2.05) {detectors that beat chance fall below it when told to avoid AI tells};
-\node[stat] at (12.2,-2.05) {22\%};
-\node[statlabel] at (15.0,-2.05) {false positives at a nominal 5\% when the cutoff moves to a new genre};
-\end{tikzpicture}}
-\caption{Study design. Each AI passage is a twin of one human passage and was written by Claude in one of five styles. Nine open-source detectors score every passage; we measure ranking quality, evasion by instruction, cutoff transfer across genres, and what gets flagged among human writing. Headline numbers are from Sections~\ref{sec:overall}--\ref{sec:domain}.}
-\label{fig:design}
-\end{figure*}
 
 \begin{abstract}
 Free AI-text detectors are used to judge student writing, but most evaluations test them on the kind of text they were trained on. We ask how nine open-source detectors, six supervised and three zero-shot, behave when human and AI text are matched in genre, length and topic, and when the AI is told how to write. We build a corpus of 150 human passages (student essays, forum answers, fiction), each paired with a twin written by Claude in one of five styles, plus three probe sets. The best detector, Desklib DeBERTa-v3-large, reaches an \auc\ of 0.63 (95\% CI 0.56--0.70) and catches 28\% of AI passages at a 5\% false positive rate; RADAR and two GPT-2-era detectors rank AI text below human text. A single instruction to avoid AI tells pushes five of the six detectors that beat chance on plain AI text below chance. Detection works on student essays (\auc\ up to 0.96 on plainly prompted AI essays) and mostly fails on forum answers and fiction, and cutoffs tuned on two genres misfire on the third (up to 22\% false positives at a nominal 5\%). Among human essays, better writing scores as more AI-like for three detectors (Spearman up to 0.42), which may be why English-learner essays were not flagged more often. These results suggest that current open-source detectors measure how polished and predictable writing is, not who wrote it.
