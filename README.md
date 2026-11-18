@@ -8,7 +8,7 @@ The project started as a senior stats project: five student essays, rewritten by
 
 Human text comes from three open sources, all written before 2021 so that no chatbot could have touched it: Stack Exchange answers (CC BY-SA), public-domain fiction from Project Gutenberg, and PERSUADE 2.0, a corpus of essays by US students in grades 6 to 12 (CC BY 4.0). I took 50 passages from each (plus extra student essays for two side checks), roughly 80 to 380 words, cut at sentence boundaries. Source, license, URL and date for every passage are in `data/metadata.csv`. I had planned news, encyclopedia and speech genres from Wikimedia too, but Wikimedia limits scripts without contact details to 10 requests a minute and the collection was crawling, so I dropped it. Three genres is thinner than I wanted.
 
-AI text was written directly by Claude (Anthropic's model, Fable 5.2, the model running this session). No API, no local model and no script produced any of it; each of the 180 passages is a file the model wrote by hand after reading an instruction. The 156 non-paraphrase passages were written in six parallel writing sessions of about 26 passages each, and the 24 paraphrases were written afterwards in the main session. Three of the six sessions hit a usage limit after saving all their files but before reporting back. I checked their lengths and shortened six overlong passages from one of them by deleting sentences by hand, so I can't vouch for what those three sessions did beyond what the files show. The exact instruction for every passage is in `data/ai/assignments.csv`.
+AI text was written directly by Claude (Anthropic's models). No API, no local model and no script produced any of it; each of the 180 passages is a file a model wrote by hand after reading an instruction. The 156 non-paraphrase passages were written by Claude Fable 5.2 in six parallel writing sessions of about 26 passages each. The 24 paraphrases, and the hand trims described next, were written afterwards in the main session, which had been switched to Claude Sonnet 5.5 by then, so the paraphrases come from a different model than the passages they paraphrase. Three of the six sessions hit a usage limit after saving all their files but before reporting back. I checked their lengths and shortened six overlong passages from one of them by deleting sentences by hand, so I can't vouch for what those three sessions did beyond what the files show. The exact instruction for every passage is in `data/ai/assignments.csv`.
 
 Each AI passage is tied to a specific human passage, its twin, and was asked to match that passage's subject, length, and position in its document (the opening of a forum answer, the middle of a chapter) without reusing its wording. The instruction came in five flavors, and the point of those is to make the hard cases hard:
 
@@ -20,7 +20,7 @@ Each AI passage is tied to a specific human passage, its twin, and was asked to 
 | casual | write fast and sloppy, typos and run-ons included | 24 |
 | paraphrase | reword an earlier plain passage, same content and length | 24 |
 
-Length and genre are controlled by construction. Every AI passage was written to its twin's word count and came out between 0.92 and 1.10 times its target (`results/tables/length_match.csv`). Word count alone separates the two groups with an AUC of 0.53 (95% interval 0.46 to 0.60), so length isn't what any detector is picking up. One leftover difference: 62% of the human fiction passages contain an em dash (Gutenberg writes them as double hyphens, which I converted) against 8% of the AI fiction passages. No detector's scores differ detectably between human fiction passages with and without one (every interval includes 0.5).
+Length and genre are controlled by construction. Every AI passage was written to its twin's word count and came out between 0.92 and 1.09 times its target (`results/tables/length_match.csv`). Word count alone separates the two groups with an AUC of 0.53 (95% interval 0.46 to 0.60), so length isn't what any detector is picking up. One leftover difference: 62% of the human fiction passages contain an em dash (Gutenberg writes them as double hyphens, which I converted) against 8% of the AI fiction passages. No detector's scores differ detectably between human fiction passages with and without one (every interval includes 0.5).
 
 | Set | Human | AI | Used for |
 |---|---|---|---|
@@ -38,7 +38,7 @@ All free, all run locally on a laptop GPU, none used to write any text. Every sc
 | Detector | Type, year | Notes |
 |---|---|---|
 | Desklib DeBERTa-v3-large | supervised, 2025 | fine-tuned on the RAID benchmark; MIT license |
-| Fakespot RoBERTa-base | supervised, 2025 | trained on recent chat-model output; Apache-2.0 |
+| Fakespot RoBERTa-base | supervised, 2025 | its model card doesn't list the training data; Apache-2.0 |
 | RADAR RoBERTa-large | supervised, 2023 | trained against a paraphraser, on Vicuna-7B text; non-commercial license |
 | HC3 RoBERTa-base | supervised, 2023 | trained on ChatGPT answers (the HC3 corpus); license not stated |
 | OpenAI RoBERTa-large and -base | supervised, 2019 | trained on GPT-2 output; MIT; kept as dated baselines |
@@ -54,7 +54,7 @@ Every detector produces a score, and I treat it as a ranking: how well does it s
 
 The number that matters in practice is the share of AI text caught at a fixed false positive rate. Accusing a human is the expensive mistake, so I set the cutoff to allow 1% or 5% of human passages through and report what share of AI passages exceed it. Where a detector outputs something shaped like a probability, I also report what a 0.5 cutoff does.
 
-All intervals are 95% bootstrap intervals that resample whole source documents, not passages: a paraphrase moves with the passage it paraphrases, and the five rewrite essays resample as five units. Human and AI documents are resampled separately so group sizes stay fixed. P-values come from permutation tests that shuffle group labels between documents, or from a paired sign-flip test for paraphrases against their sources, and I adjust with Holm's method within each family of tests. The statistics are in `statproject/stats.py` and tested against hand-computed cases in `tests/`.
+All intervals are 95% bootstrap intervals that resample whole source documents, not passages: a paraphrase moves with the passage it paraphrases, and the five rewrite essays resample as five units. Human and AI documents are resampled separately so group sizes stay fixed. P-values come from permutation tests that shuffle group labels between documents, or from a paired sign-flip test for paraphrases against their sources, and I adjust with Holm's method within each family of tests. The statistics are in `src/stats.py` and tested against hand-computed cases in `tests/`.
 
 ## Results
 
@@ -163,7 +163,7 @@ I expected the detectors that were trained to resist paraphrasing to do better a
 
 ## Limits
 
-There is one AI writer, and it is a recent frontier model that was told to write in specific ways. Detectors tuned against other models may behave differently, and Claude's attempts at "sloppy" and "student" writing are its own interpretation. Six writing sessions of one model aren't six independent writers.
+There is one AI vendor, and the text comes from two of its recent models (Fable 5.2 for the 156 passages, Sonnet 5.5 for the 24 paraphrases) that were told to write in specific ways. Detectors tuned against other models may behave differently, and Claude's attempts at "sloppy" and "student" writing are its own interpretation. Six writing sessions of one model aren't six independent writers.
 
 Three genres, 150 passages per class, and 24 per style are small. The style intervals are wide, and several of the style comparisons are between cells of 24.
 
@@ -180,15 +180,15 @@ The corpus and all scores are committed, so the tables and figures rerun without
 ```bash
 python -m venv .venv
 .venv/Scripts/python -m pip install -r requirements.txt
-.venv/Scripts/python -m statproject evaluate   # results/tables and results/manifest.json, about 5 minutes
-.venv/Scripts/python -m statproject figures    # results/figures, PDF and PNG
+.venv/Scripts/python -m src evaluate   # results/tables and results/manifest.json, about 5 minutes
+.venv/Scripts/python -m src figures    # results/figures, PDF and PNG
 .venv/Scripts/python -m pytest                 # statistics, text handling, and the detector formulas
 ```
 
-For a GPU, install `torch` from pytorch.org first so pip doesn't pull the CPU build. To rescore everything yourself, `python -m statproject score` downloads the models (about 24 GB in the Hugging Face cache) and takes about 6 minutes on a laptop GPU; `--only` limits it to named detectors.
+For a GPU, install `torch` from pytorch.org first so pip doesn't pull the CPU build. To rescore everything yourself, `python -m src score` downloads the models (about 24 GB in the Hugging Face cache) and takes about 6 minutes on a laptop GPU; `--only` limits it to named detectors.
 
-`python -m statproject collect` re-downloads the human passages, but the Stack Exchange and Gutenberg listings change over time, so a fresh run gives different passages; the committed `data/` is the dataset. It refuses to run if `data/metadata.csv` exists. The AI passages cannot be regenerated, because the model wrote them by hand; `data/ai/assignments.csv` records what each was asked to do. `build-rewrites`, `plan-ai` and `register-ai` are the steps that built the chunk file, the plan, and the metadata.
+`python -m src collect` re-downloads the human passages, but the Stack Exchange and Gutenberg listings change over time, so a fresh run gives different passages; the committed `data/` is the dataset. It refuses to run if `data/metadata.csv` exists. The AI passages cannot be regenerated, because the model wrote them by hand; `data/ai/assignments.csv` records what each was asked to do. `build-rewrites`, `plan-ai` and `register-ai` are the steps that built the chunk file, the plan, and the metadata.
 
 No API key is needed for anything, and the code makes no calls to any paid service.
 
-Layout: `data/human` and `data/ai` hold the passages, `data/metadata.csv` describes them, `data/scores` holds each detector's scores and model revisions, `data/rewrites` holds the original essays and their chunks. Code is in `statproject/`, one module per job (`sources/`, `collect`, `assignments`, `registry`, `detectors`, `scoring`, `features`, `stats`, `evaluate`, `plots`), with `cli.py` as the entry point. Two supplementary figures, ROC curves for every detector split by plain and evasive AI text and the correlation matrix among detectors, are in `results/figures` as `figS1_roc` and `figS2_correlations`.
+Layout: `data/human` and `data/ai` hold the passages, `data/metadata.csv` describes them, `data/scores` holds each detector's scores and model revisions, `data/rewrites` holds the original essays and their chunks. Code is in `src/`, one module per job (`sources/`, `collect`, `assignments`, `registry`, `detectors`, `scoring`, `features`, `stats`, `evaluate`, `plots`), with `cli.py` as the entry point. Two supplementary figures, ROC curves for every detector split by plain and evasive AI text and the correlation matrix among detectors, are in `results/figures` as `figS1_roc` and `figS2_correlations`.
