@@ -1,5 +1,3 @@
-"""Surface features of a passage, for asking what the flagged human texts share."""
-
 import re
 
 import numpy as np

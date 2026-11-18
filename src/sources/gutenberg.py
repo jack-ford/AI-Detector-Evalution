@@ -59,7 +59,6 @@ def _body_paragraphs(raw: str) -> list[str]:
 
 
 def fiction(rng: random.Random) -> Iterator[Document]:
-    """Public-domain novels and stories, at most one book per author."""
     books = [row for row in _catalog() if _is_candidate(row)]
     rng.shuffle(books)
     seen_authors: set[str] = set()

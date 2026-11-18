@@ -1,9 +1,3 @@
-"""Write the LaTeX table bodies and copy the figures the paper uses.
-
-Run from the repository root after `evaluate` and `figures`:
-    python -m paper.make_tables
-"""
-
 import shutil
 from pathlib import Path
 
@@ -22,7 +16,6 @@ def table(name: str) -> pd.DataFrame:
 
 
 def num(x: float, digits: int = 2, signed: bool = False) -> str:
-    """A number with a typeset minus sign."""
     text = f"{x:+.{digits}f}" if signed else f"{x:.{digits}f}"
     return text.replace("-", "$-$").replace("+", "$+$")
 
@@ -36,7 +29,6 @@ def ci(row: pd.Series, value: str, digits: int = 2) -> str:
 
 
 def bounds(row: pd.Series, value: str, digits: int = 2) -> str:
-    """A value with the plain lo/hi columns some tables use."""
     return interval(row[value], row["lo"], row["hi"], digits)
 
 
@@ -49,8 +41,6 @@ def p_format(p: float) -> str:
 
 
 def write(name: str, header: str, body: list[str]) -> None:
-    """A complete tabular environment. A \\multicolumn row can't be the first
-    thing an \\input'd file puts after \\midrule, so the rules live in the file."""
     lines = [r"\begin{tabular}{@{}lcccc@{}}", r"\toprule", header, r"\midrule", *body, r"\bottomrule", r"\end{tabular}"]
     (OUT / "tables").mkdir(exist_ok=True)
     (OUT / "tables" / f"{name}.tex").write_text("\n".join(lines) + "\n", encoding="utf-8")

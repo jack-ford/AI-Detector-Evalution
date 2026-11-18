@@ -17,5 +17,4 @@ TABLES = RESULTS / "tables"
 MANIFEST = RESULTS / "manifest.json"
 FIGURES = RESULTS / "figures"
 
-# Downloads that are too big or too boring to commit (Gutenberg catalog, PERSUADE csv).
 CACHE = ROOT / ".cache"

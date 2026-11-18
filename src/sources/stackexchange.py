@@ -63,7 +63,6 @@ def _site_answers(site: str, rng: random.Random) -> list[Document]:
 
 
 def answers(rng: random.Random) -> Iterator[Document]:
-    """Answers from a spread of non-programming sites, dealt round-robin."""
     per_site = [_site_answers(site, rng) for site in SITES]
     for round_ in zip(*per_site):
         yield from round_

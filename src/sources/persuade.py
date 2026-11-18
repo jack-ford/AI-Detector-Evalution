@@ -1,5 +1,3 @@
-"""PERSUADE 2.0: argumentative essays by US students in grades 6-12 (Crossley et al., 2024)."""
-
 import csv
 import random
 import re
@@ -13,7 +11,6 @@ import requests
 from ..paths import CACHE
 from . import Document
 
-# The authors host the csv on Google Drive; the link is in their GitHub README.
 DOWNLOAD_URL = (
     "https://drive.usercontent.google.com/download"
     "?id=13phHyDzIsb0MHyJr6q-B-qIa9P2tM135&export=download&confirm=t"
@@ -69,15 +66,12 @@ def _by_prompt(essays: list[dict], rng: random.Random) -> list[list[dict]]:
 
 
 def essays(rng: random.Random) -> Iterator[Document]:
-    """Essays dealt round-robin over the 15 writing prompts."""
     for round_ in zip(*_by_prompt(_essays(), rng)):
         for essay in round_:
             yield _document(essay)
 
 
 def ell_matched_pairs(rng: random.Random) -> Iterator[Document]:
-    """Alternates an English-learner essay with a non-learner essay on the same
-    prompt from the same grade, so the two groups differ in little else."""
     pool = _essays()
     learners = [e for e in pool if e["ell_status"].strip() == "Yes"]
     others: dict[tuple[str, str], list[dict]] = defaultdict(list)

@@ -1,5 +1,3 @@
-"""Reading and writing the passage corpus and the essay-rewrite set."""
-
 import csv
 import logging
 from pathlib import Path
@@ -48,7 +46,6 @@ def load_texts(ids: pd.Series) -> pd.Series:
 
 
 def build_rewrite_chunks() -> pd.DataFrame:
-    """Cut each essay version into consecutive 100-word chunks, six at most."""
     rows = []
     for path in sorted(paths.REWRITE_ESSAYS.glob("*.txt")):
         essay, percent_ai = (int(part) for part in path.stem.split("-"))
@@ -77,7 +74,6 @@ def load_rewrite_chunks() -> pd.DataFrame:
 
 
 def load_scores() -> pd.DataFrame:
-    """One row per scored text, one column per local detector."""
     frames = [
         pd.read_csv(path, index_col="id")["score"].rename(path.stem)
         for path in sorted(paths.SCORES_DIR.glob("*.csv"))

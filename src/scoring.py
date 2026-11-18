@@ -1,5 +1,3 @@
-"""Run the detectors over the corpus and the essay-rewrite chunks."""
-
 import json
 import logging
 

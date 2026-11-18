@@ -1,9 +1,3 @@
-"""Ranking metrics and resampling inference for detector scores.
-
-Scores are "higher means more AI-like" throughout. Nothing here assumes a
-score is a calibrated probability.
-"""
-
 from collections.abc import Callable
 from itertools import product
 
@@ -14,7 +8,6 @@ Statistic = Callable[[np.ndarray], float | np.ndarray]
 
 
 def roc_auc(scores: np.ndarray, is_ai: np.ndarray) -> float:
-    """Chance that a random AI text outscores a random human text (ties count half)."""
     is_ai = np.asarray(is_ai, dtype=bool)
     n_ai, n_human = is_ai.sum(), (~is_ai).sum()
     if n_ai == 0 or n_human == 0:
@@ -25,7 +18,6 @@ def roc_auc(scores: np.ndarray, is_ai: np.ndarray) -> float:
 
 
 def roc_curve(scores: np.ndarray, is_ai: np.ndarray) -> tuple[np.ndarray, np.ndarray]:
-    """False- and true-positive rates as the cutoff sweeps from high to low."""
     scores, is_ai = np.asarray(scores), np.asarray(is_ai, dtype=bool)
     cutoffs = np.unique(scores)[::-1]
     fpr = [np.mean(scores[~is_ai] >= c) for c in cutoffs]
@@ -34,8 +26,6 @@ def roc_curve(scores: np.ndarray, is_ai: np.ndarray) -> tuple[np.ndarray, np.nda
 
 
 def threshold_at_fpr(human_scores: np.ndarray, max_fpr: float) -> float:
-    """Lowest cutoff such that flagging scores strictly above it flags at most
-    max_fpr of the human texts."""
     ordered = np.sort(human_scores)
     allowed = int(np.floor(max_fpr * len(ordered)))
     return ordered[len(ordered) - allowed - 1]
@@ -59,15 +49,6 @@ def cluster_bootstrap(
     n_boot: int = 2000,
     seed: int = 0,
 ) -> np.ndarray:
-    """Bootstrap replicates of statistic(row_indices), resampling whole clusters.
-
-    The statistic may return one number or an array of several.
-
-    Rows that share a cluster (chunks of one essay, a passage and its
-    paraphrase) move together, so their correlation shows up as wider
-    intervals instead of being ignored. With strata, clusters are resampled
-    within each stratum, which keeps the human/AI group sizes fixed.
-    """
     clusters = np.asarray(clusters)
     strata = np.zeros(len(clusters), dtype=int) if strata is None else np.asarray(strata)
     rows_by_stratum = []
@@ -97,8 +78,6 @@ def percentile_interval(replicates: np.ndarray, level: float = 0.95) -> tuple[fl
 def stratified_correlation_pvalue(
     x: np.ndarray, y: np.ndarray, strata: np.ndarray, n_perm: int = 10000, seed: int = 0
 ) -> float:
-    """Two-sided permutation p-value for the correlation of x and y, shuffling y
-    only among rows of the same stratum."""
     x, y, strata = np.asarray(x, dtype=float), np.asarray(y, dtype=float), np.asarray(strata)
     members = [np.flatnonzero(strata == value) for value in np.unique(strata)]
     rng = np.random.default_rng(seed)
@@ -121,8 +100,6 @@ def cluster_permutation_pvalue(
     n_perm: int = 10000,
     seed: int = 0,
 ) -> float:
-    """Two-sided p-value for statistic(in_group), shuffling group membership
-    between clusters. Every cluster must sit wholly inside or outside the group."""
     in_group = np.asarray(in_group, dtype=bool)
     names, cluster_of_row = np.unique(clusters, return_inverse=True)
     cluster_in_group = np.zeros(len(names), dtype=bool)
@@ -147,8 +124,6 @@ def stratified_group_pvalue(
     n_perm: int = 10000,
     seed: int = 0,
 ) -> float:
-    """Two-sided p-value for statistic(in_group), shuffling group membership only
-    among rows of the same stratum, so the group sizes in each stratum stay fixed."""
     in_group = np.asarray(in_group, dtype=bool)
     members = [np.flatnonzero(np.asarray(strata) == value) for value in np.unique(strata)]
     rng = np.random.default_rng(seed)
@@ -163,8 +138,6 @@ def stratified_group_pvalue(
 
 
 def sign_flip_pvalue(differences: np.ndarray) -> float:
-    """Exact two-sided paired test: under the null each difference is as likely
-    to be negative as positive, so enumerate all 2^n sign patterns."""
     differences = np.asarray(differences, dtype=float)
     observed = abs(differences.sum())
     sums = [abs(np.dot(signs, differences)) for signs in product((1, -1), repeat=len(differences))]
@@ -172,7 +145,6 @@ def sign_flip_pvalue(differences: np.ndarray) -> float:
 
 
 def paired_permutation_pvalue(differences: np.ndarray, n_perm: int = 10000, seed: int = 0) -> float:
-    """Monte Carlo version of sign_flip_pvalue for when 2^n is too many."""
     differences = np.asarray(differences, dtype=float)
     rng = np.random.default_rng(seed)
     observed = abs(differences.sum())
@@ -182,7 +154,6 @@ def paired_permutation_pvalue(differences: np.ndarray, n_perm: int = 10000, seed
 
 
 def holm(pvalues: np.ndarray) -> np.ndarray:
-    """Holm step-down adjusted p-values, in the original order."""
     pvalues = np.asarray(pvalues, dtype=float)
     order = np.argsort(pvalues)
     scaled = pvalues[order] * (len(pvalues) - np.arange(len(pvalues)))

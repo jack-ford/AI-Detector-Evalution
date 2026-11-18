@@ -1,5 +1,3 @@
-"""Turn detector scores into the tables under results/tables."""
-
 import json
 import logging
 import platform
@@ -44,11 +42,6 @@ def _metrics(scores: np.ndarray, is_ai: np.ndarray, with_cutoff: bool) -> np.nda
 
 
 def detection_row(frame: pd.DataFrame, detector: str, clusters: pd.Series, stratify: bool = True) -> dict:
-    """Point estimates and cluster-bootstrap intervals for one detector on one slice.
-
-    stratify=True resamples human and AI clusters separately; turn it off when
-    a cluster holds both labels (the essay rewrites).
-    """
     scores = frame[detector].to_numpy(dtype=float)
     is_ai = (frame["label"] == "ai").to_numpy()
     with_cutoff = detector in registry.PROBABILITY_NAMES
@@ -85,8 +78,6 @@ def overall(corpus: pd.DataFrame) -> pd.DataFrame:
 
 
 def auc_contrasts(corpus: pd.DataFrame) -> pd.DataFrame:
-    """Every pair of detectors on the same passages, with the AUC difference
-    bootstrapped over the same resamples so the shared passages cancel out."""
     scores = corpus[DETECTORS].to_numpy(dtype=float)
     is_ai = (corpus["label"] == "ai").to_numpy()
 
@@ -101,7 +92,6 @@ def auc_contrasts(corpus: pd.DataFrame) -> pd.DataFrame:
     for i, j in combinations(range(len(DETECTORS)), 2):
         diff = replicates[:, i] - replicates[:, j]
         lo, hi = stats.percentile_interval(diff)
-        # Share of resamples on the other side of zero, doubled for a two-sided p.
         tail = min(np.mean(diff <= 0), np.mean(diff >= 0))
         rows.append({
             "detector_a": DETECTORS[i], "detector_b": DETECTORS[j],
@@ -123,7 +113,6 @@ def breakdown(corpus: pd.DataFrame, column: str) -> pd.DataFrame:
 
 
 def plain_by_genre(corpus: pd.DataFrame) -> pd.DataFrame:
-    """The easiest case, AI text written with no style instructions, genre by genre."""
     rows = []
     for genre, part in corpus.groupby("genre"):
         part = part[(part["label"] == "human") | (part["prompt_style"] == "plain")]
@@ -132,8 +121,6 @@ def plain_by_genre(corpus: pd.DataFrame) -> pd.DataFrame:
 
 
 def by_style(corpus: pd.DataFrame) -> pd.DataFrame:
-    """Each style's AI passages against all human passages. The humans are the
-    same in every row, so the 5% cutoff is shared across styles."""
     humans = corpus[corpus["label"] == "human"]
     rows = []
     for style in ALL_STYLES:
@@ -146,11 +133,6 @@ def by_style(corpus: pd.DataFrame) -> pd.DataFrame:
 
 
 def style_tests(corpus: pd.DataFrame) -> pd.DataFrame:
-    """Does a style score lower than plain AI text?
-
-    Three styles are separate passages, compared to the plain ones by
-    permutation. Paraphrases are compared to their own source passage.
-    """
     ai = corpus[corpus["label"] == "ai"].set_index("id")
     plain = ai[ai["prompt_style"] == "plain"]
     paraphrases = ai[ai["prompt_style"] == "paraphrase"]
@@ -188,7 +170,6 @@ def style_tests(corpus: pd.DataFrame) -> pd.DataFrame:
 
 
 def matched_pairs(corpus: pd.DataFrame) -> pd.DataFrame:
-    """How often an AI passage outscores the human passage it was matched to."""
     ai = corpus[(corpus["label"] == "ai") & (corpus["prompt_style"] != "paraphrase")]
     by_id = corpus.set_index("id")
     rows = []
@@ -207,8 +188,6 @@ def matched_pairs(corpus: pd.DataFrame) -> pd.DataFrame:
 
 
 def by_writer(corpus: pd.DataFrame) -> pd.DataFrame:
-    """AUC per writing session, as a check that no single batch of AI passages
-    is driving the results."""
     humans = corpus[corpus["label"] == "human"]
     rows = []
     for writer, written in corpus[corpus["label"] == "ai"].groupby("writer"):
@@ -225,9 +204,6 @@ def human_thresholds(corpus: pd.DataFrame, max_fpr: float = LOOSE_FPR) -> dict[s
 
 
 def threshold_transfer(corpus: pd.DataFrame) -> pd.DataFrame:
-    """Fix the cutoff to allow 5% false positives on the human text of two
-    genres, then use it on the third. If a cutoff set in one place carried over,
-    the held-out false positive rate would stay near 5%."""
     is_ai = (corpus["label"] == "ai").to_numpy()
     genre = corpus["genre"].to_numpy()
     plain = (corpus["prompt_style"] == "plain").to_numpy()
@@ -275,7 +251,6 @@ def false_positives_by_genre(corpus: pd.DataFrame) -> pd.DataFrame:
 
 
 def flagged_humans(corpus: pd.DataFrame) -> pd.DataFrame:
-    """Human passages that at least one probability-style detector calls AI."""
     humans = corpus[corpus["label"] == "human"].copy()
     humans["n_detectors_flagging"] = (humans[PROBABILITY] >= FLAG_THRESHOLD).sum(axis=1)
     flagged = humans[humans["n_detectors_flagging"] > 0].sort_values("n_detectors_flagging", ascending=False)
@@ -287,9 +262,6 @@ def _within_group_ranks(values: pd.Series, groups: pd.Series) -> np.ndarray:
 
 
 def feature_associations(corpus: pd.DataFrame) -> pd.DataFrame:
-    """Rank correlation between each detector's score and each surface feature,
-    over human passages only, computed within genre so that "student essays
-    are short and misspelled" doesn't masquerade as a property of the detector."""
     humans = corpus[corpus["label"] == "human"].reset_index(drop=True)
     features = feature_table(load_texts(humans["id"]))
     rows = []
@@ -313,7 +285,6 @@ def feature_associations(corpus: pd.DataFrame) -> pd.DataFrame:
 
 
 def ell_probe(probe: pd.DataFrame, thresholds: dict[str, float]) -> pd.DataFrame:
-    """English learners against matched non-learners; all of it human writing."""
     is_ell = probe["detail"].str.contains("ell=Yes").to_numpy()
     rows = []
     for detector in DETECTORS:
@@ -350,9 +321,6 @@ def ell_probe(probe: pd.DataFrame, thresholds: dict[str, float]) -> pd.DataFrame
 
 
 def ell_quality_matched(probe: pd.DataFrame) -> pd.DataFrame:
-    """The English-learner gap again, comparing learners and non-learners only
-    within the same holistic score (percentile-rank difference, learners minus
-    others, averaged over scores weighted by how many essays have them)."""
     is_ell = probe["detail"].str.contains("ell=Yes").to_numpy()
     quality = probe["detail"].str.extract(r"holistic_score=(\d)")[0].astype(float).to_numpy()
     rows = []
@@ -382,9 +350,6 @@ def ell_quality_matched(probe: pd.DataFrame) -> pd.DataFrame:
 
 
 def quality_probe(subsets: dict[str, pd.DataFrame]) -> pd.DataFrame:
-    """Do better human essays look more like AI? Rank correlation between the
-    PERSUADE holistic score (1-6) and each detector's score, within prompt,
-    over every human student essay in the corpus."""
     essays = pd.concat([
         subsets[name][subsets[name]["label"] == "human"] for name in ("main", "ell_probe", "imitation_probe")
     ])
@@ -417,7 +382,6 @@ def quality_probe(subsets: dict[str, pd.DataFrame]) -> pd.DataFrame:
 
 
 def imitation_probe(probe: pd.DataFrame) -> pd.DataFrame:
-    """Real student essays against AI passages written to imitate each one."""
     humans = probe[probe["label"] == "human"].set_index("id")
     ai = probe[probe["label"] == "ai"]
     rows = []
@@ -436,7 +400,6 @@ def corpus_summary(subsets: dict[str, pd.DataFrame]) -> pd.DataFrame:
 
 
 def length_match(corpus: pd.DataFrame) -> pd.DataFrame:
-    """Written length of each AI passage as a share of the word count it was asked for."""
     plan = pd.read_csv(paths.ASSIGNMENTS, usecols=["id", "target_words"]).set_index("id")
     ai = corpus[corpus["label"] == "ai"].set_index("id")
     ratio = ai["n_words"] / plan.loc[ai.index, "target_words"]
@@ -444,9 +407,6 @@ def length_match(corpus: pd.DataFrame) -> pd.DataFrame:
 
 
 def em_dash_check(corpus: pd.DataFrame) -> pd.DataFrame:
-    """Human fiction came from Gutenberg, whose plain text writes dashes as
-    double hyphens, which were turned into em dashes. Do the detectors treat
-    passages with an em dash differently from those without?"""
     fiction = corpus[(corpus["label"] == "human") & (corpus["genre"] == "fiction")].reset_index(drop=True)
     has_dash = load_texts(fiction["id"]).str.contains(EM_DASH).to_numpy()
     rows = []
@@ -468,8 +428,6 @@ def em_dash_check(corpus: pd.DataFrame) -> pd.DataFrame:
 
 
 def rewrites_by_version(chunks: pd.DataFrame) -> pd.DataFrame:
-    """Mean score for each essay at each level of AI involvement, plus the
-    within-essay rank trend across levels."""
     rows = []
     for detector in DETECTORS:
         means = chunks.groupby(["essay", "percent_ai"])[detector].mean().unstack()
@@ -490,12 +448,6 @@ def rewrites_by_version(chunks: pd.DataFrame) -> pd.DataFrame:
 
 
 def rewrites_versus_human(chunks: pd.DataFrame) -> pd.DataFrame:
-    """Each AI version of the essays against the human originals. The 25 and 75
-    versions are hybrids, so only the 100 comparison has a clean meaning; the
-    others show how detection grows with the share of AI involvement.
-
-    Both versions of an essay share a cluster, and there are five essays, so
-    the intervals are rough."""
     rows = []
     for percent_ai in (25, 75, 100):
         part = chunks[chunks["percent_ai"].isin([0, percent_ai])].copy()
@@ -507,8 +459,6 @@ def rewrites_versus_human(chunks: pd.DataFrame) -> pd.DataFrame:
 
 
 def load_corpus() -> tuple[dict[str, pd.DataFrame], pd.DataFrame]:
-    """Returns the passage corpus split by subset, and the essay-rewrite chunks,
-    each with the detector scores attached."""
     scores = load_scores()
     metadata = load_metadata().join(scores, on="id")
     labels = [*LENGTH_BINS]

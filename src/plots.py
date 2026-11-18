@@ -1,8 +1,3 @@
-"""Figures for the paper-style writeup, drawn from the tables evaluate.py wrote.
-
-Each figure is saved twice: a vector PDF for a manuscript and a PNG for the README.
-"""
-
 import logging
 
 import matplotlib
@@ -25,7 +20,6 @@ INK_SECONDARY = "#555555"
 GRID = "#e4e3df"
 FAMILY_COLOR = {registry.SUPERVISED: "#2a78d6", registry.ZERO_SHOT: "#eb6834"}
 GENRE_COLOR = {"student": "#2a78d6", "forum": "#eb6834", "fiction": "#1baf7a"}
-# Red below 0.5 (the detector ranks backwards), gray at a coin flip, blue above.
 AUC_MAP = LinearSegmentedColormap.from_list(
     "auc", [(0.0, "#a52a2a"), (0.25, "#e8827f"), (0.5, "#f0efec"), (0.75, "#86b6ef"), (1.0, "#184f95")]
 )
@@ -189,8 +183,6 @@ def genre_matrix() -> None:
 
 
 def human_percentile_boxes(main: pd.DataFrame) -> None:
-    """Every score restated as the share of human passages scoring below it, so
-    all detectors share one scale and the 5% false-positive cutoff is at 0.95."""
     humans = main[main["label"] == "human"]
     ai = main[main["label"] == "ai"]
     fig, axes = plt.subplots(1, len(ALL_STYLES), figsize=(FULL_WIDTH, 3.4), sharey=True, gridspec_kw={"wspace": 0.08})

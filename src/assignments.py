@@ -1,11 +1,3 @@
-"""Plan the AI half of the corpus and register it once it has been written.
-
-This module decides what each AI passage should be (genre, style, length,
-which human passage it shadows) and records the instruction. It writes no
-passage text: every file in data/ai was written directly by the model, one
-passage at a time, following the instruction stored here.
-"""
-
 import logging
 import random
 
@@ -81,7 +73,6 @@ def _genre_plan(genre: str, humans: pd.DataFrame, rng: random.Random) -> list[di
             "pair_id": human["id"],
             "target_words": human["n_words"],
             "paraphrase_of": "",
-            # Dealt in order, so every writer gets the same mix of styles.
             "writer": f"w{(k - 1) % N_WRITERS + 1}",
             "prompt": PASSAGE_PROMPT.format(
                 n_words=human["n_words"], brief=GENRE_BRIEFS[genre], title=human["title"],
@@ -99,8 +90,8 @@ def _genre_plan(genre: str, humans: pd.DataFrame, rng: random.Random) -> list[di
             "pair_id": source["pair_id"],
             "target_words": source["target_words"],
             "paraphrase_of": source["id"],
-            # Paraphrases are written afterwards in the main session, not by
-            # the writer of the source passage.
+            # Paraphrases are written afterwards, not by the writer of the
+            # source passage.
             "writer": "w0",
             "prompt": PARAPHRASE_PROMPT.format(source=source["id"]),
         })
@@ -149,11 +140,6 @@ def plan_ai_passages() -> pd.DataFrame:
 
 
 def register_ai_passages() -> None:
-    """Add the written AI passages to the metadata file.
-
-    The only edit made to the text is the same whitespace and quote
-    normalisation the human passages went through.
-    """
     plan = pd.read_csv(paths.ASSIGNMENTS, dtype=str, keep_default_na=False)
     missing = [i for i in plan["id"] if not passage_path(i).exists()]
     if missing:

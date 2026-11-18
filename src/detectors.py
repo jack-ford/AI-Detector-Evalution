@@ -1,8 +1,3 @@
-"""Open-source detectors, run locally. They only ever read text; none writes any.
-
-Every scorer returns one number per text where higher means more AI-like.
-"""
-
 import logging
 from dataclasses import dataclass
 from pathlib import Path
@@ -35,7 +30,6 @@ BATCH_SIZE = 16
 @dataclass(frozen=True)
 class Classifier:
     hub_id: str
-    # A label name looked up in the model's config, or a raw output index.
     ai_class: str | int
     # The Fakespot card asks for single-line input.
     single_line: bool = False
@@ -61,7 +55,6 @@ def _device() -> str:
 
 
 def _revision(hub_id: str) -> str:
-    """The commit the local copy of a model was downloaded at."""
     return Path(snapshot_download(hub_id, local_files_only=True)).name
 
 
@@ -88,7 +81,6 @@ def classifier_scores(spec: Classifier, texts: list[str]) -> tuple[np.ndarray, R
 
 
 class DesklibModel(PreTrainedModel):
-    """The architecture from the Desklib model card: DeBERTa, mean pooling, one logit."""
 
     config_class = AutoConfig
 
@@ -120,13 +112,6 @@ def desklib_scores(texts: list[str]) -> tuple[np.ndarray, Revisions]:
 
 
 def sampling_discrepancy(logits: torch.Tensor, token_ids: torch.Tensor) -> tuple[float, float]:
-    """Fast-DetectGPT's analytic curvature (Bao et al., 2024) and the mean token
-    log-likelihood, from next-token logits [T, V] and the tokens that came next [T].
-
-    The curvature asks how much more likely the actual text is than what the
-    model would expect of text sampled from its own next-token distributions,
-    in units of that expectation's standard deviation.
-    """
     log_probs = logits.float().log_softmax(-1)
     probs = log_probs.exp()
     log_likelihood = log_probs.gather(-1, token_ids[:, None]).squeeze(-1)
@@ -137,12 +122,6 @@ def sampling_discrepancy(logits: torch.Tensor, token_ids: torch.Tensor) -> tuple
 
 
 def binoculars_ratio(observer_logits: torch.Tensor, performer_logits: torch.Tensor, token_ids: torch.Tensor) -> float:
-    """Binoculars (Hans et al., 2024): the performer's log-perplexity of the text
-    divided by the cross-perplexity between the two models' predictions. Low
-    values mean machine-written, so callers negate it.
-
-    Logits are [T, V] for the next-token predictions, token_ids is [T].
-    """
     performer_log_probs = performer_logits.float().log_softmax(-1)
     log_perplexity = -performer_log_probs.gather(-1, token_ids[:, None]).mean()
     cross_perplexity = -(observer_logits.float().softmax(-1) * performer_log_probs).sum(-1).mean()
@@ -184,15 +163,12 @@ def zero_shot_scores(texts: list[str]) -> tuple[Scores, Revisions]:
         log_likelihoods.append(log_likelihood)
     scores = {
         "fast_detectgpt": np.array(curvatures),
-        # The classic perplexity detector: text the model finds predictable is suspect.
         "log_likelihood": np.array(log_likelihoods),
     }
     return scores, {ZERO_SHOT_MODEL: _revision(ZERO_SHOT_MODEL)}
 
 
 def score_detector(name: str, texts: list[str]) -> tuple[Scores, Revisions]:
-    """Scores for one detector name; the zero-shot pair share a model, so asking
-    for either returns both."""
     if name in CLASSIFIERS:
         scores, revisions = classifier_scores(CLASSIFIERS[name], texts)
         return {name: scores}, revisions

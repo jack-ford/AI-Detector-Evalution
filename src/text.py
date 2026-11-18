@@ -1,7 +1,6 @@
 import re
 from html.parser import HTMLParser
 
-# Curly quotes, no-break/thin spaces, zero-width space, BOM.
 _ASCII_PUNCT = {
     0x2018: "'", 0x2019: "'", 0x201C: '"', 0x201D: '"',
     0x00A0: " ", 0x2009: " ", 0x200B: None, 0xFEFF: None,
@@ -14,11 +13,6 @@ _ABBREVIATIONS = {
 
 
 def normalize(text: str) -> str:
-    """Straight quotes, single spaces, paragraphs separated by one blank line.
-
-    Applied to human and AI text alike so that curly quotes or odd whitespace
-    can't act as a label.
-    """
     text = text.translate(_ASCII_PUNCT)
     paragraphs = (" ".join(p.split()) for p in re.split(r"\n\s*\n", text))
     return "\n\n".join(p for p in paragraphs if p)
@@ -49,10 +43,6 @@ def split_sentences(paragraph: str) -> list[str]:
 
 
 def cut_passage(paragraphs: list[str], target_words: int, start: int = 0) -> str:
-    """Whole sentences from paragraphs[start:], stopping once target_words is reached.
-
-    Returns fewer words than asked if the document runs out.
-    """
     taken: list[str] = []
     total = 0
     for paragraph in paragraphs[start:]:

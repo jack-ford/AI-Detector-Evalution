@@ -1,5 +1,3 @@
-"""Build the human half of the corpus from open sources."""
-
 import logging
 import random
 from collections.abc import Callable, Iterator

@@ -1,5 +1,3 @@
-"""What the detectors are called and where they come from. No model code lives here."""
-
 from dataclasses import dataclass
 
 

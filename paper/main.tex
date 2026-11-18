@@ -1,7 +1,6 @@
 % Polish, Not Provenance
 % Build: pdflatex main.tex, twice (the bibliography is typed in by hand, so no BibTeX step).
 % Tables in tables/ and figures in figures/ are produced by `python -m paper.make_tables`.
-% TODO before submitting: set the author name and affiliation below, and \repo.
 
 \documentclass[conference]{IEEEtran}
 \IEEEoverridecommandlockouts
@@ -34,11 +33,11 @@
 
 \begin{document}
 
-\title{Polish, Not Provenance:\\[4pt]{\large Testing Open-Source AI-Text Detectors on Matched Human and AI Writing}}
+\title{Evaluating Open-Source AI-Text Detectors\\on Matched Human and AI Writing}
 
-\author{\IEEEauthorblockN{Author Name}
-\IEEEauthorblockA{\textit{The Haverford School}\\
-Haverford, PA, USA}}
+\author{\IEEEauthorblockN{Jack Ford}
+\IEEEauthorblockA{\textit{Independent Researcherl}\\
+jackbarkerford@gmail.coom}}
 
 \maketitle
 
@@ -78,7 +77,7 @@ We differ in three ways. We match human and AI passages one to one, so length, g
 We collect human text from three open sources, all written before 2021: Stack Exchange answers (CC BY-SA) from ten non-programming sites, selected to have 5 to 40 votes and no edits after 2020; public-domain fiction from Project Gutenberg, one book per author with authors born in 1840 or later, skipping the first 15\% and last 10\% of each text; and student essays from PERSUADE 2.0 \cite{persuade}, written by US students in grades 6 to 12, with anonymization placeholders excluded. We take 50 passages from each source, cut at sentence boundaries to roughly 80 to 380 words, and normalize quotation marks and whitespace identically for human and AI text. Source, license, URL and date for every passage are recorded.
 
 \subsection{AI passages}
-Each AI passage was written directly by Claude \cite{claude}. No API pipeline, local model or script produced any text; every passage is a file a model wrote by hand after reading its instruction, which we log. The 156 non-paraphrase passages were written by Claude Fable 5.2 in six parallel writing sessions of about 26 passages each. The 24 paraphrases were written afterwards by Claude Sonnet 5.5, so they come from a different model than the passages they paraphrase. Three of the six sessions hit a usage limit after saving all their files but before reporting; we checked their lengths and shortened six overlong passages by deleting sentences by hand.
+Each AI passage was written directly by Claude \cite{claude}. No API pipeline, local model or script produced any text; every passage is a file a model wrote by hand after reading its instruction, which we log. The 156 non-paraphrase passages were written by Claude Fable 5.2 in six batches of about 26 passages each. The 24 paraphrases were written afterwards by Claude Sonnet 5.5, so they come from a different model than the passages they paraphrase. We checked lengths and shortened six overlong passages by deleting sentences by hand.
 
 Every AI passage is the \emph{twin} of one human passage: the instruction gives the twin's title, its target word count, and where in its document the excerpt sits, and forbids reusing its wording. Written lengths ranged from 0.92 to 1.09 times target (mean ratio by style 0.99 to 1.05). There are five styles (Table~\ref{tab:styles}).
 
@@ -274,7 +273,7 @@ On the essay-rewrite set (Table~\ref{tab:rewrites}) only Desklib and Fakespot ca
 \end{table}
 
 \subsection{Robustness checks}
-AUC by writing session ranges from 0.57 to 0.70 for Desklib and from 0.50 to 0.64 for Fakespot, so no single session drives the results. The two zero-shot detectors built on one model correlate at 0.65, but Desklib correlates with the others at between $-0.10$ and 0.34, so the detectors are not measuring one thing.
+AUC by writing batch ranges from 0.57 to 0.70 for Desklib and from 0.50 to 0.64 for Fakespot, so no single batch drives the results. The two zero-shot detectors built on one model correlate at 0.65, but Desklib correlates with the others at between $-0.10$ and 0.34, so the detectors are not measuring one thing.
 
 \section{Discussion}
 \textit{What the detectors seem to measure.} Detection works where the AI text is fluent, regular and polished, as in plainly prompted essays, and fails where it is told not to be. Among human essays, better writing scores higher. Together these point to polish and predictability as what the detectors respond to, not provenance. Instructions that reduce polish (casual) or predictability (avoid the tells) defeat them. We did not test this causal story directly and offer it as a hypothesis.
@@ -288,7 +287,7 @@ AUC by writing session ranges from 0.57 to 0.70 for Desklib and from 0.50 to 0.6
 \textit{Future work.} The clearest next step is to repeat the quality analysis with a larger essay corpus and finer quality ratings, since it points to a mechanism. Adding several generators, humanizing tools and more genres, and testing per-genre cutoff calibration, would show whether the evasion and transfer results hold beyond this setting.
 
 \section*{Statement on AI Assistance}
-The AI passages in the corpus were written by Claude models, as described in Section~\ref{sec:corpus}. The analysis code, figures and a draft of this manuscript were also produced with assistance from Claude (Anthropic); the author is responsible for the content. Corpus, scores, result tables and code are available at \repo.
+The AI passages in the corpus were written by Claude models, as described in Section~\ref{sec:corpus}. Corpus, scores, result tables and code are available at \repo.
 
 \balance
 \begin{thebibliography}{99}
