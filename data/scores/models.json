@@ -1,0 +1,30 @@
+{
+  "binoculars": {
+    "Qwen/Qwen2.5-1.5B": "8faed761d45a263340a0528343f099c05c9a4323",
+    "Qwen/Qwen2.5-1.5B-Instruct": "989aa7980e4cf806f80c7fef2b1adb7bc71aa306"
+  },
+  "chatgpt_roberta": {
+    "Hello-SimpleAI/chatgpt-detector-roberta": "d2b342c61775d5dd0221808a79983ed3b86ffd86"
+  },
+  "desklib": {
+    "desklib/ai-text-detector-v1.01": "5fdea974cd4287c61674951ec78803aa274e2fb7"
+  },
+  "fast_detectgpt": {
+    "EleutherAI/gpt-neo-2.7B": "e24fa291132763e59f4a5422741b424fb5d59056"
+  },
+  "log_likelihood": {
+    "EleutherAI/gpt-neo-2.7B": "e24fa291132763e59f4a5422741b424fb5d59056"
+  },
+  "openai_base": {
+    "openai-community/roberta-base-openai-detector": "6cba99c003b711c7fe94f8a3aa2be35a792cb6fa"
+  },
+  "openai_large": {
+    "openai-community/roberta-large-openai-detector": "38f3e0ccf205e9c4e0b38ae9d75ec948141bf832"
+  },
+  "radar": {
+    "TrustSafeAI/RADAR-Vicuna-7B": "4ff1f23a69a36aa1df47b0933be6279f1b896c9b"
+  },
+  "roberta_fakespot": {
+    "fakespot-ai/roberta-base-ai-text-detection-v1": "f9cdb14d1f8b105f597d80fa7b56f20c6ea0e9db"
+  }
+}

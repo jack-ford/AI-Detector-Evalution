@@ -1,0 +1,10 @@
+detector,n_pairs,ai_outscores_twin,lo,hi
+desklib,126,0.6984,0.6190,0.7778
+roberta_fakespot,126,0.5159,0.4365,0.6032
+radar,126,0.1111,0.0556,0.1667
+chatgpt_roberta,126,0.5317,0.4444,0.6190
+openai_large,126,0.2857,0.2143,0.3651
+openai_base,126,0.3730,0.2937,0.4524
+binoculars,126,0.4921,0.4048,0.5794
+fast_detectgpt,126,0.5635,0.4762,0.6508
+log_likelihood,126,0.5159,0.4286,0.6032

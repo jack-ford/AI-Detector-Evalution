@@ -1,0 +1,5 @@
+I spent my first fourteen months out of school fixing bugs in a billing system written in 2003. Hated it for about six of them. Then one afternoon I traced a rounding error through four stored procedures and a cron job nobody remembered, and realised I could now read other people's ugly code faster than anyone who'd joined with me.
+
+That's what you're being paid to learn right now, whether or not anyone told you so at the interview. New features are the easy part. Working out why a function someone wrote eight years ago returns null on Tuesdays is harder, and it's most of the job at most companies.
+
+Whether to stay is your call and I'm not going to make it. But nothing stops you sending out CVs on a Sunday while the paycheques keep arriving.

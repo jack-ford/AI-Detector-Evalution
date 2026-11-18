@@ -1,0 +1,461 @@
+id,label,subset,genre,prompt_style,n_words,source,license,title,url,date,cluster,pair_id,writer,detail
+h-forum-001,human,main,forum,,138,Stack Exchange (travel),CC BY-SA 3.0,"What's the deal with the ""string people"" in central Paris?",https://travel.stackexchange.com/a/13335,2013-02-07,stackexchange:travel:13335,,human,
+h-forum-002,human,main,forum,,153,Stack Exchange (workplace),CC BY-SA 3.0,How to clock time on a mandatory shuttle?,https://workplace.stackexchange.com/a/21468,2014-03-27,stackexchange:workplace:21468,,human,
+h-forum-003,human,main,forum,,345,Stack Exchange (parenting),CC BY-SA 3.0,Is bribing children with cash incentives a good idea?,https://parenting.stackexchange.com/a/86,2011-03-30,stackexchange:parenting:86,,human,
+h-forum-004,human,main,forum,,120,Stack Exchange (movies),CC BY-SA 3.0,How can Penny afford a one bedroom apartment on a waitress salary?,https://movies.stackexchange.com/a/11752,2013-06-01,stackexchange:movies:11752,,human,
+h-forum-005,human,main,forum,,99,Stack Exchange (gardening),CC BY-SA 3.0,Is there any way to prevent vole lawn-destruction during snow-cover?,https://gardening.stackexchange.com/a/525,2011-06-15,stackexchange:gardening:525,,human,
+h-forum-006,human,main,forum,,104,Stack Exchange (money),CC BY-SA 3.0,Is losing money in my 401K normal?,https://money.stackexchange.com/a/59248,2016-02-12,stackexchange:money:59248,,human,
+h-forum-007,human,main,forum,,115,Stack Exchange (cooking),CC BY-SA 3.0,"Cooking steak in frying pan, problem with oil splatter",https://cooking.stackexchange.com/a/61928,2015-09-22,stackexchange:cooking:61928,,human,
+h-forum-008,human,main,forum,,152,Stack Exchange (travel),CC BY-SA 3.0,How to successfully haggle / bargain in markets,https://travel.stackexchange.com/a/5314,2012-02-02,stackexchange:travel:5314,,human,
+h-forum-009,human,main,forum,,145,Stack Exchange (diy),CC BY-SA 3.0,"When finishing drywall, is it a common practice not to mud the bottom of horizontally-hung drywall?",https://diy.stackexchange.com/a/23269,2013-01-10,stackexchange:diy:23269,,human,
+h-forum-010,human,main,forum,,184,Stack Exchange (workplace),CC BY-SA 3.0,Bad review for my first internship - not convinced!,https://workplace.stackexchange.com/a/13342,2013-07-23,stackexchange:workplace:13342,,human,
+h-forum-011,human,main,forum,,203,Stack Exchange (parenting),CC BY-SA 3.0,"In what way does reading story books to babies help them (besides falling sleep), and at what age should it be started?",https://parenting.stackexchange.com/a/8028,2013-05-13,stackexchange:parenting:8028,,human,
+h-forum-012,human,main,forum,,162,Stack Exchange (movies),CC BY-SA 3.0,How did Sherlock survive the fall?,https://movies.stackexchange.com/a/3347,2012-07-19,stackexchange:movies:3347,,human,
+h-forum-013,human,main,forum,,86,Stack Exchange (gardening),CC BY-SA 3.0,How can I strengthen a part of lawn that is sometimes driven over by cars?,https://gardening.stackexchange.com/a/30273,2016-12-20,stackexchange:gardening:30273,,human,
+h-forum-014,human,main,forum,,197,Stack Exchange (outdoors),CC BY-SA 4.0,How do people drown while wearing a life jacket?,https://outdoors.stackexchange.com/a/22765,2019-08-03,stackexchange:outdoors:22765,,human,
+h-forum-015,human,main,forum,,299,Stack Exchange (money),CC BY-SA 4.0,What are some effective ways to help someone financially?,https://money.stackexchange.com/a/130257,2020-08-25,stackexchange:money:130257,,human,
+h-forum-016,human,main,forum,,149,Stack Exchange (academia),CC BY-SA 3.0,Is watching porn in university a crime?,https://academia.stackexchange.com/a/66411,2016-04-06,stackexchange:academia:66411,,human,
+h-forum-017,human,main,forum,,210,Stack Exchange (cooking),CC BY-SA 2.5,How to make extra crispy and crunchy breading like KFC?,https://cooking.stackexchange.com/a/5773,2010-08-22,stackexchange:cooking:5773,,human,
+h-forum-018,human,main,forum,,84,Stack Exchange (travel),CC BY-SA 3.0,Can I travel to North Korea overland (via train)?,https://travel.stackexchange.com/a/4158,2011-12-17,stackexchange:travel:4158,,human,
+h-forum-019,human,main,forum,,140,Stack Exchange (diy),CC BY-SA 3.0,How can I break up a small boulder without power tools?,https://diy.stackexchange.com/a/90135,2016-05-06,stackexchange:diy:90135,,human,
+h-forum-020,human,main,forum,,219,Stack Exchange (workplace),CC BY-SA 4.0,Demoted through no fault of my own. Required to pay company if I leave. Advice?,https://workplace.stackexchange.com/a/159318,2020-06-16,stackexchange:workplace:159318,,human,
+h-forum-021,human,main,forum,,123,Stack Exchange (movies),CC BY-SA 3.0,Why is Buzz the only toy that does not believe he is a toy?,https://movies.stackexchange.com/a/4385,2012-09-25,stackexchange:movies:4385,,human,
+h-forum-022,human,main,forum,,204,Stack Exchange (gardening),CC BY-SA 3.0,How do I manage different water flows with a drip irrigation system in my vegetable garden?,https://gardening.stackexchange.com/a/720,2011-06-19,stackexchange:gardening:720,,human,
+h-forum-023,human,main,forum,,104,Stack Exchange (outdoors),CC BY-SA 3.0,"Can I safely camp in deer tick country, and if so, how?",https://outdoors.stackexchange.com/a/16262,2017-06-06,stackexchange:outdoors:16262,,human,
+h-forum-024,human,main,forum,,148,Stack Exchange (travel),CC BY-SA 4.0,"Warning about needing ""authorization"" when booking ticket",https://travel.stackexchange.com/a/139918,2019-06-05,stackexchange:travel:139918,,human,
+h-forum-025,human,main,forum,,96,Stack Exchange (workplace),CC BY-SA 4.0,"I'm leaving a toxic work environment, my boss won't stop pressuring me to stay. How should I handle this?",https://workplace.stackexchange.com/a/152152,2020-01-29,stackexchange:workplace:152152,,human,
+h-forum-026,human,main,forum,,136,Stack Exchange (parenting),CC BY-SA 3.0,"My son wants to bring a present to a birthday party where ""no presents"" was specified on the invitation",https://parenting.stackexchange.com/a/12820,2014-06-02,stackexchange:parenting:12820,,human,
+h-forum-027,human,main,forum,,150,Stack Exchange (movies),CC BY-SA 3.0,Why can't Joey eat that dessert when he was on a date with Phoebe's friend?,https://movies.stackexchange.com/a/87504,2018-03-21,stackexchange:movies:87504,,human,
+h-forum-028,human,main,forum,,107,Stack Exchange (outdoors),CC BY-SA 3.0,How can you make a MSR WhisperLite stove simmer?,https://outdoors.stackexchange.com/a/3470,2013-01-08,stackexchange:outdoors:3470,,human,
+h-forum-029,human,main,forum,,156,Stack Exchange (academia),CC BY-SA 4.0,PhD: When to quit and move on?,https://academia.stackexchange.com/a/132727,2019-07-01,stackexchange:academia:132727,,human,
+h-forum-030,human,main,forum,,154,Stack Exchange (travel),CC BY-SA 4.0,Is traveling to Italy safe during the COVID-19 outbreak?,https://travel.stackexchange.com/a/154438,2020-02-29,stackexchange:travel:154438,,human,
+h-forum-031,human,main,forum,,166,Stack Exchange (parenting),CC BY-SA 3.0,How should a jobless father advise his son when he refuses to study because of his educated jobless dad?,https://parenting.stackexchange.com/a/21847,2015-08-28,stackexchange:parenting:21847,,human,
+h-forum-032,human,main,forum,,101,Stack Exchange (movies),CC BY-SA 3.0,Does producing blue meth make Walter a chemistry genius?,https://movies.stackexchange.com/a/47129,2016-02-02,stackexchange:movies:47129,,human,
+h-forum-033,human,main,forum,,83,Stack Exchange (money),CC BY-SA 4.0,Can I start 529 plans for my niece & nephew without my sibling knowing?,https://money.stackexchange.com/a/103345,2018-12-26,stackexchange:money:103345,,human,
+h-forum-034,human,main,forum,,111,Stack Exchange (cooking),CC BY-SA 3.0,What's the purpose of clarifying butter?,https://cooking.stackexchange.com/a/16973,2011-08-19,stackexchange:cooking:16973,,human,
+h-forum-035,human,main,forum,,295,Stack Exchange (diy),CC BY-SA 3.0,How can I stop my lights dimming when my Air Conditioning turns on?,https://diy.stackexchange.com/a/12017,2012-02-05,stackexchange:diy:12017,,human,
+h-forum-036,human,main,forum,,133,Stack Exchange (workplace),CC BY-SA 4.0,"Job is not exactly what I expected, I'm bored",https://workplace.stackexchange.com/a/145717,2019-09-30,stackexchange:workplace:145717,,human,
+h-forum-037,human,main,forum,,110,Stack Exchange (parenting),CC BY-SA 3.0,How do we teach a pre-schooler about money and shopping?,https://parenting.stackexchange.com/a/1591,2011-05-23,stackexchange:parenting:1591,,human,
+h-forum-038,human,main,forum,,88,Stack Exchange (movies),CC BY-SA 3.0,What is the perception of Tyrion's story about his cousin Orson and the beetles?,https://movies.stackexchange.com/a/19908,2014-06-02,stackexchange:movies:19908,,human,
+h-forum-039,human,main,forum,,101,Stack Exchange (gardening),CC BY-SA 3.0,"""Softening"" plants before they go inside?",https://gardening.stackexchange.com/a/24344,2016-04-27,stackexchange:gardening:24344,,human,
+h-forum-040,human,main,forum,,113,Stack Exchange (outdoors),CC BY-SA 3.0,Is it really necessary to gut a fish?,https://outdoors.stackexchange.com/a/8833,2015-07-20,stackexchange:outdoors:8833,,human,
+h-forum-041,human,main,forum,,222,Stack Exchange (money),CC BY-SA 4.0,Have I saved too much for retirement so far?,https://money.stackexchange.com/a/106915,2019-03-24,stackexchange:money:106915,,human,
+h-forum-042,human,main,forum,,156,Stack Exchange (academia),CC BY-SA 3.0,"What is the best way to ""fire"" my advisor?",https://academia.stackexchange.com/a/98797,2017-11-11,stackexchange:academia:98797,,human,
+h-forum-043,human,main,forum,,114,Stack Exchange (cooking),CC BY-SA 4.0,Wooden cooking layout,https://cooking.stackexchange.com/a/99383,2019-06-05,stackexchange:cooking:99383,,human,
+h-forum-044,human,main,forum,,176,Stack Exchange (diy),CC BY-SA 3.0,Would this air conditioner setup work?,https://diy.stackexchange.com/a/114665,2017-05-14,stackexchange:diy:114665,,human,
+h-forum-045,human,main,forum,,262,Stack Exchange (workplace),CC BY-SA 4.0,Do developer teams put fewer constraints on themselves or have they fewer constraints in terms of work hours?,https://workplace.stackexchange.com/a/123900,2018-12-03,stackexchange:workplace:123900,,human,
+h-forum-046,human,main,forum,,165,Stack Exchange (parenting),CC BY-SA 3.0,Why is my baby suddenly screaming in the bath?,https://parenting.stackexchange.com/a/4060,2012-01-15,stackexchange:parenting:4060,,human,
+h-forum-047,human,main,forum,,162,Stack Exchange (movies),CC BY-SA 4.0,Why did Sandor 'The Hound' Clegane abandon King's Landing in the middle of battle?,https://movies.stackexchange.com/a/11586,2013-05-23,stackexchange:movies:11586,,human,
+h-forum-048,human,main,forum,,201,Stack Exchange (outdoors),CC BY-SA 3.0,"Why is it tiring to ""keep down"" with a slower person on a walk or hike?",https://outdoors.stackexchange.com/a/11363,2016-04-01,stackexchange:outdoors:11363,,human,
+h-forum-049,human,main,forum,,162,Stack Exchange (money),CC BY-SA 3.0,Are lottery tickets ever a wise investment provided the jackpot is large enough?,https://money.stackexchange.com/a/57947,2016-01-10,stackexchange:money:57947,,human,
+h-forum-050,human,main,forum,,229,Stack Exchange (academia),CC BY-SA 3.0,What did a good academic job market for mathematicians look like and could it ever come back?,https://academia.stackexchange.com/a/72642,2016-07-11,stackexchange:academia:72642,,human,
+h-fiction-001,human,main,fiction,,230,Project Gutenberg,Public domain (US),"Falk: A Reminiscence (Conrad, Joseph, 1857-1924)",https://www.gutenberg.org/ebooks/493,unknown (US public domain),gutenberg:493,,human,
+h-fiction-002,human,main,fiction,,97,Project Gutenberg,Public domain (US),"Stover at Yale (Johnson, Owen, 1878-1952; Gruger, Frederic Rodrigo, 1871-1953 [Illustrator])",https://www.gutenberg.org/ebooks/46674,unknown (US public domain),gutenberg:46674,,human,
+h-fiction-003,human,main,fiction,,256,Project Gutenberg,Public domain (US),"For Every Man A Reason (Wilkins, Patrick; Orban, Paul, 1896-1974 [Illustrator])",https://www.gutenberg.org/ebooks/32293,unknown (US public domain),gutenberg:32293,,human,
+h-fiction-004,human,main,fiction,,203,Project Gutenberg,Public domain (US),"Suffered in vain (Clay, Bertha M., 1865-1922)",https://www.gutenberg.org/ebooks/75137,unknown (US public domain),gutenberg:75137,,human,
+h-fiction-005,human,main,fiction,,155,Project Gutenberg,Public domain (US),"The Luck of the Kid (Cullum, Ridgwell, 1867-1943)",https://www.gutenberg.org/ebooks/59113,unknown (US public domain),gutenberg:59113,,human,
+h-fiction-006,human,main,fiction,,301,Project Gutenberg,Public domain (US),"The Jolly Corner (James, Henry, 1843-1916)",https://www.gutenberg.org/ebooks/1190,unknown (US public domain),gutenberg:1190,,human,
+h-fiction-007,human,main,fiction,,301,Project Gutenberg,Public domain (US),"The Cyber and Justice Holmes (Riley, Frank, 1915-1996; Orban, Paul, 1896-1974 [Illustrator])",https://www.gutenberg.org/ebooks/59148,unknown (US public domain),gutenberg:59148,,human,
+h-fiction-008,human,main,fiction,,266,Project Gutenberg,Public domain (US),"Rope (Hall, Holworthy, 1887-1936)",https://www.gutenberg.org/ebooks/29570,unknown (US public domain),gutenberg:29570,,human,
+h-fiction-009,human,main,fiction,,191,Project Gutenberg,Public domain (US),"Lunar Station (Vincent, Harl, 1893-1968; Kelly, J. [Illustrator])",https://www.gutenberg.org/ebooks/64817,unknown (US public domain),gutenberg:64817,,human,
+h-fiction-010,human,main,fiction,,209,Project Gutenberg,Public domain (US),"The Water Ghost and Others (Bangs, John Kendrick, 1862-1922)",https://www.gutenberg.org/ebooks/8377,unknown (US public domain),gutenberg:8377,,human,
+h-fiction-011,human,main,fiction,,302,Project Gutenberg,Public domain (US),"The Re-Creation of Brian Kent (Wright, Harold Bell, 1872-1944)",https://www.gutenberg.org/ebooks/3265,unknown (US public domain),gutenberg:3265,,human,
+h-fiction-012,human,main,fiction,,180,Project Gutenberg,Public domain (US),"Airplane Boys Discover the Secrets of Cuzco (Craine, E. J. (Edith Janice), 1881-)",https://www.gutenberg.org/ebooks/57223,unknown (US public domain),gutenberg:57223,,human,
+h-fiction-013,human,main,fiction,,261,Project Gutenberg,Public domain (US),"Idealia, a Utopian Dream; or, Resthaven (Thompson, H. Alfarata Chapman (Harriet Alfarata Chapman), 1871-1922; Dewey, Melvil, 1851-1931 [Author of introduction, etc.]; Thompson, J. W. (John Wallace), 1844-1940 [Author of introduction, etc.])",https://www.gutenberg.org/ebooks/67641,unknown (US public domain),gutenberg:67641,,human,
+h-fiction-014,human,main,fiction,,278,Project Gutenberg,Public domain (US),"That Lass O' Lowrie's 1877 (Burnett, Frances Hodgson, 1849-1924)",https://www.gutenberg.org/ebooks/25725,unknown (US public domain),gutenberg:25725,,human,
+h-fiction-015,human,main,fiction,,296,Project Gutenberg,Public domain (US),"Mary Louise and Josie O'Gorman (Sampson, Emma Speed, 1868-1947)",https://www.gutenberg.org/ebooks/22532,unknown (US public domain),gutenberg:22532,,human,
+h-fiction-016,human,main,fiction,,308,Project Gutenberg,Public domain (US),"The doom trail (Smith, Arthur D. Howden (Arthur Douglas Howden), 1887-1945)",https://www.gutenberg.org/ebooks/70683,unknown (US public domain),gutenberg:70683,,human,
+h-fiction-017,human,main,fiction,,247,Project Gutenberg,Public domain (US),"Mated from the Morgue: A Tale of the Second Empire (O'Shea, John Augustus, 1840-1905)",https://www.gutenberg.org/ebooks/38008,unknown (US public domain),gutenberg:38008,,human,
+h-fiction-018,human,main,fiction,,247,Project Gutenberg,Public domain (US),"The Freaks of Mayfair (Benson, E. F. (Edward Frederic), 1867-1940; Plank, George, 1882-1965 [Illustrator])",https://www.gutenberg.org/ebooks/57006,unknown (US public domain),gutenberg:57006,,human,
+h-fiction-019,human,main,fiction,,319,Project Gutenberg,Public domain (US),"The Game (London, Jack, 1876-1916)",https://www.gutenberg.org/ebooks/1160,unknown (US public domain),gutenberg:1160,,human,
+h-fiction-020,human,main,fiction,,170,Project Gutenberg,Public domain (US),"Chain of Command (Arr, Stephen, 1921-2012; Ashman, William [Illustrator])",https://www.gutenberg.org/ebooks/32160,unknown (US public domain),gutenberg:32160,,human,
+h-fiction-021,human,main,fiction,,128,Project Gutenberg,Public domain (US),"Three Young Knights (Donnell, Annie Hamilton, 1862-1943)",https://www.gutenberg.org/ebooks/10901,unknown (US public domain),gutenberg:10901,,human,
+h-fiction-022,human,main,fiction,,217,Project Gutenberg,Public domain (US),"By Right of Purchase (Bindloss, Harold, 1866-1945; Dewey, Alfred James, 1874-1958 [Illustrator])",https://www.gutenberg.org/ebooks/36705,unknown (US public domain),gutenberg:36705,,human,
+h-fiction-023,human,main,fiction,,132,Project Gutenberg,Public domain (US),"Dave Dawson with the Eighth Air Force (Bowen, Robert Sidney, 1900-1977)",https://www.gutenberg.org/ebooks/50635,unknown (US public domain),gutenberg:50635,,human,
+h-fiction-024,human,main,fiction,,155,Project Gutenberg,Public domain (US),"The Chequers Being the Natural History of a Public-House, Set Forth in a Loafer's Diary (Runciman, James, 1852-1891)",https://www.gutenberg.org/ebooks/18510,unknown (US public domain),gutenberg:18510,,human,
+h-fiction-025,human,main,fiction,,284,Project Gutenberg,Public domain (US),"In the days of Queen Mary (Crake, E. E. (Edward Ebenezer), -1915; Stacey, W. S. (Walter S.), 1846-1929 [Illustrator])",https://www.gutenberg.org/ebooks/55717,unknown (US public domain),gutenberg:55717,,human,
+h-fiction-026,human,main,fiction,,323,Project Gutenberg,Public domain (US),"The Impossible Voyage Home (Wallace, F. L. (Floyd L.), 1915-2004; Francis, Dick [Illustrator])",https://www.gutenberg.org/ebooks/32805,unknown (US public domain),gutenberg:32805,,human,
+h-fiction-027,human,main,fiction,,264,Project Gutenberg,Public domain (US),"The Wreck of the Grosvenor, Volume 3 of 3 An account of the mutiny of the crew and the loss of the ship when trying to make the Bermudas (Russell, William Clark, 1844-1911)",https://www.gutenberg.org/ebooks/44499,unknown (US public domain),gutenberg:44499,,human,
+h-fiction-028,human,main,fiction,,101,Project Gutenberg,Public domain (US),"Beyond our control (Garrett, Randall, 1927-1987; Kluga, Richard [Illustrator])",https://www.gutenberg.org/ebooks/71821,unknown (US public domain),gutenberg:71821,,human,
+h-fiction-029,human,main,fiction,,191,Project Gutenberg,Public domain (US),"Joan Thursday: A Novel (Vance, Louis Joseph, 1879-1933; Cesare, Oscar Edward, 1885-1948 [Illustrator])",https://www.gutenberg.org/ebooks/36502,unknown (US public domain),gutenberg:36502,,human,
+h-fiction-030,human,main,fiction,,227,Project Gutenberg,Public domain (US),"The Gravity Business (Gunn, James E., 1923-2020; Ashman, William [Illustrator])",https://www.gutenberg.org/ebooks/49897,unknown (US public domain),gutenberg:49897,,human,
+h-fiction-031,human,main,fiction,,124,Project Gutenberg,Public domain (US),"The Friendly Killers (Tenneshaw, S. M.; Berry, D. Bruce, 1924-1998 [Illustrator])",https://www.gutenberg.org/ebooks/65283,unknown (US public domain),gutenberg:65283,,human,
+h-fiction-032,human,main,fiction,,228,Project Gutenberg,Public domain (US),"From Squire to Squatter: A Tale of the Old Land and the New (Stables, Gordon, 1840-1910)",https://www.gutenberg.org/ebooks/38277,unknown (US public domain),gutenberg:38277,,human,
+h-fiction-033,human,main,fiction,,311,Project Gutenberg,Public domain (US),"More Stories of the Three Pigs (Clark, Sarah Grames; Cleaveland, Bess Bruce, 1876-1966 [Illustrator])",https://www.gutenberg.org/ebooks/49141,unknown (US public domain),gutenberg:49141,,human,
+h-fiction-034,human,main,fiction,,285,Project Gutenberg,Public domain (US),"Turning Point (Coppel, Alfred, 1921-2004; Parsons, Philip B. [Illustrator])",https://www.gutenberg.org/ebooks/32104,unknown (US public domain),gutenberg:32104,,human,
+h-fiction-035,human,main,fiction,,114,Project Gutenberg,Public domain (US),"In Silk Attire: A Novel (Black, William, 1841-1898)",https://www.gutenberg.org/ebooks/40111,unknown (US public domain),gutenberg:40111,,human,
+h-fiction-036,human,main,fiction,,323,Project Gutenberg,Public domain (US),"The starmen (Brackett, Leigh, 1915-1978)",https://www.gutenberg.org/ebooks/70310,unknown (US public domain),gutenberg:70310,,human,
+h-fiction-037,human,main,fiction,,133,Project Gutenberg,Public domain (US),"The Worst Joke in the World (Holding, Elisabeth Sanxay, 1889-1955)",https://www.gutenberg.org/ebooks/67373,unknown (US public domain),gutenberg:67373,,human,
+h-fiction-038,human,main,fiction,,138,Project Gutenberg,Public domain (US),"Thirsty blades (Kline, Otis Adelbert, 1891-1946; Price, E. Hoffmann, 1898-1988; Rankin, Hugh, 1878-1956 [Illustrator])",https://www.gutenberg.org/ebooks/73791,unknown (US public domain),gutenberg:73791,,human,
+h-fiction-039,human,main,fiction,,194,Project Gutenberg,Public domain (US),"A Republic Without a President, and Other Stories (Ward, Herbert D. (Herbert Dickinson), 1861-1932)",https://www.gutenberg.org/ebooks/33662,unknown (US public domain),gutenberg:33662,,human,
+h-fiction-040,human,main,fiction,,312,Project Gutenberg,Public domain (US),"The Ranch Girls at Home Again (Vandercook, Margaret, 1876-1958; Coleman, Ralph P. (Ralph Pallen), 1892-1968 [Illustrator])",https://www.gutenberg.org/ebooks/34928,unknown (US public domain),gutenberg:34928,,human,
+h-fiction-041,human,main,fiction,,311,Project Gutenberg,Public domain (US),"A girl and her ways (Le Feuvre, Amy, 1861-1929)",https://www.gutenberg.org/ebooks/75231,unknown (US public domain),gutenberg:75231,,human,
+h-fiction-042,human,main,fiction,,130,Project Gutenberg,Public domain (US),"The famous killer who— (Humphreys, Ray, 1893-1973)",https://www.gutenberg.org/ebooks/79692,unknown (US public domain),gutenberg:79692,,human,
+h-fiction-043,human,main,fiction,,229,Project Gutenberg,Public domain (US),"The Red Miriok (Barnes, Annie Maria, 1857-1933; Newman, George A., 1875-1965 [Illustrator])",https://www.gutenberg.org/ebooks/34810,unknown (US public domain),gutenberg:34810,,human,
+h-fiction-044,human,main,fiction,,307,Project Gutenberg,Public domain (US),"The Blood Red Dawn (Dobie, Charles Caldwell, 1881-1943)",https://www.gutenberg.org/ebooks/11875,unknown (US public domain),gutenberg:11875,,human,
+h-fiction-045,human,main,fiction,,219,Project Gutenberg,Public domain (US),"The Wooden Horse (Walpole, Hugh, 1884-1941)",https://www.gutenberg.org/ebooks/27180,unknown (US public domain),gutenberg:27180,,human,
+h-fiction-046,human,main,fiction,,176,Project Gutenberg,Public domain (US),"David Ives (Pier, Arthur Stanwood, 1874-1966; Wood, Franklin [Illustrator])",https://www.gutenberg.org/ebooks/73016,unknown (US public domain),gutenberg:73016,,human,
+h-fiction-047,human,main,fiction,,186,Project Gutenberg,Public domain (US),"The Gully of Bluemansdyke, and Other stories (Doyle, Arthur Conan, 1859-1930)",https://www.gutenberg.org/ebooks/40848,unknown (US public domain),gutenberg:40848,,human,
+h-fiction-048,human,main,fiction,,158,Project Gutenberg,Public domain (US),"Jerry's Charge Account (Wilson, Hazel Hutchins, 1898-1992; Geer, Charles, 1922-2008 [Illustrator])",https://www.gutenberg.org/ebooks/27211,unknown (US public domain),gutenberg:27211,,human,
+h-fiction-049,human,main,fiction,,304,Project Gutenberg,Public domain (US),"The Girl Scouts at Bellaire; Or, Maid Mary's Awakening (Garis, Lilian, 1873-1954)",https://www.gutenberg.org/ebooks/25626,unknown (US public domain),gutenberg:25626,,human,
+h-fiction-050,human,main,fiction,,174,Project Gutenberg,Public domain (US),"With Beatty off Jutland: A Romance of the Great Sea Fight (Westerman, Percy F. (Percy Francis), 1876-1959; Gillett, Frank, 1874-1927 [Illustrator])",https://www.gutenberg.org/ebooks/39489,unknown (US public domain),gutenberg:39489,,human,
+h-student-001,human,main,student,,215,PERSUADE 2.0,CC BY 4.0,"""A Cowboy Who Rode the Waves""",https://github.com/scrosseye/persuade_corpus_2.0,2010-2020,persuade:AAAOPP13416000059959,,human,grade=6;ell=No;holistic_score=1
+h-student-002,human,main,student,,135,PERSUADE 2.0,CC BY 4.0,Car-free cities,https://github.com/scrosseye/persuade_corpus_2.0,2010-2020,persuade:5059106,,human,grade=10;ell=No;holistic_score=2
+h-student-003,human,main,student,,203,PERSUADE 2.0,CC BY 4.0,Cell phones at school,https://github.com/scrosseye/persuade_corpus_2.0,2010-2020,persuade:2221005827,,human,grade=8;ell=No;holistic_score=3
+h-student-004,human,main,student,,285,PERSUADE 2.0,CC BY 4.0,Community service,https://github.com/scrosseye/persuade_corpus_2.0,2010-2020,persuade:2091004475,,human,grade=8;ell=No;holistic_score=3
+h-student-005,human,main,student,,288,PERSUADE 2.0,CC BY 4.0,Distance learning,https://github.com/scrosseye/persuade_corpus_2.0,2010-2020,persuade:AAAXMP138200001058282125_OR,,human,grade=11;ell=No;holistic_score=5
+h-student-006,human,main,student,,115,PERSUADE 2.0,CC BY 4.0,Does the electoral college work?,https://github.com/scrosseye/persuade_corpus_2.0,2010-2020,persuade:5178489,,human,grade=9;ell=Yes;holistic_score=1
+h-student-007,human,main,student,,167,PERSUADE 2.0,CC BY 4.0,Driverless cars,https://github.com/scrosseye/persuade_corpus_2.0,2010-2020,persuade:AAAOPP13416000004327,,human,grade=10;ell=No;holistic_score=2
+h-student-008,human,main,student,,266,PERSUADE 2.0,CC BY 4.0,Exploring Venus,https://github.com/scrosseye/persuade_corpus_2.0,2010-2020,persuade:AAAVUP14319000082172,,human,grade=10;ell=No;holistic_score=4
+h-student-009,human,main,student,,314,PERSUADE 2.0,CC BY 4.0,Facial action coding system,https://github.com/scrosseye/persuade_corpus_2.0,2010-2020,persuade:AAATRP14318000166069,,human,grade=10;ell=Yes;holistic_score=3
+h-student-010,human,main,student,,155,PERSUADE 2.0,CC BY 4.0,Grades for extracurricular activities,https://github.com/scrosseye/persuade_corpus_2.0,2010-2020,persuade:2171007418,,human,grade=8;ell=No;holistic_score=3
+h-student-011,human,main,student,,197,PERSUADE 2.0,CC BY 4.0,Mandatory extracurricular activities,https://github.com/scrosseye/persuade_corpus_2.0,2010-2020,persuade:AAAXMP138200001128082850_OR,,human,grade=8;ell=No;holistic_score=2
+h-student-012,human,main,student,,276,PERSUADE 2.0,CC BY 4.0,Phones and driving,https://github.com/scrosseye/persuade_corpus_2.0,2010-2020,persuade:5.16164E+12,,human,grade=;ell=;holistic_score=6
+h-student-013,human,main,student,,104,PERSUADE 2.0,CC BY 4.0,Seeking multiple opinions,https://github.com/scrosseye/persuade_corpus_2.0,2010-2020,persuade:AAAXMP138200001070222810_OR,,human,grade=8;ell=No;holistic_score=3
+h-student-014,human,main,student,,216,PERSUADE 2.0,CC BY 4.0,Summer projects,https://github.com/scrosseye/persuade_corpus_2.0,2010-2020,persuade:AAAXMP138200000590122144_OR,,human,grade=11;ell=No;holistic_score=6
+h-student-015,human,main,student,,222,PERSUADE 2.0,CC BY 4.0,The Face on Mars,https://github.com/scrosseye/persuade_corpus_2.0,2010-2020,persuade:AAAOPP13416000109878,,human,grade=8;ell=No;holistic_score=2
+h-student-016,human,main,student,,155,PERSUADE 2.0,CC BY 4.0,"""A Cowboy Who Rode the Waves""",https://github.com/scrosseye/persuade_corpus_2.0,2010-2020,persuade:AAAOPP13416000069402,,human,grade=6;ell=No;holistic_score=3
+h-student-017,human,main,student,,102,PERSUADE 2.0,CC BY 4.0,Car-free cities,https://github.com/scrosseye/persuade_corpus_2.0,2010-2020,persuade:6983620,,human,grade=10;ell=No;holistic_score=3
+h-student-018,human,main,student,,209,PERSUADE 2.0,CC BY 4.0,Cell phones at school,https://github.com/scrosseye/persuade_corpus_2.0,2010-2020,persuade:2431006806,,human,grade=8;ell=No;holistic_score=4
+h-student-019,human,main,student,,229,PERSUADE 2.0,CC BY 4.0,Community service,https://github.com/scrosseye/persuade_corpus_2.0,2010-2020,persuade:2271004239,,human,grade=8;ell=No;holistic_score=2
+h-student-020,human,main,student,,241,PERSUADE 2.0,CC BY 4.0,Distance learning,https://github.com/scrosseye/persuade_corpus_2.0,2010-2020,persuade:AAAXMP138200001126782125_OR,,human,grade=11;ell=No;holistic_score=4
+h-student-021,human,main,student,,225,PERSUADE 2.0,CC BY 4.0,Does the electoral college work?,https://github.com/scrosseye/persuade_corpus_2.0,2010-2020,persuade:5299058,,human,grade=9;ell=No;holistic_score=3
+h-student-022,human,main,student,,322,PERSUADE 2.0,CC BY 4.0,Driverless cars,https://github.com/scrosseye/persuade_corpus_2.0,2010-2020,persuade:AAAOPP13416000005638,,human,grade=10;ell=Yes;holistic_score=3
+h-student-023,human,main,student,,220,PERSUADE 2.0,CC BY 4.0,Exploring Venus,https://github.com/scrosseye/persuade_corpus_2.0,2010-2020,persuade:AAAVUP14319000103275,,human,grade=10;ell=Yes;holistic_score=1
+h-student-024,human,main,student,,331,PERSUADE 2.0,CC BY 4.0,Facial action coding system,https://github.com/scrosseye/persuade_corpus_2.0,2010-2020,persuade:AAATRP14318000863897,,human,grade=10;ell=Yes;holistic_score=3
+h-student-025,human,main,student,,274,PERSUADE 2.0,CC BY 4.0,Grades for extracurricular activities,https://github.com/scrosseye/persuade_corpus_2.0,2010-2020,persuade:2171004427,,human,grade=8;ell=Yes;holistic_score=1
+h-student-026,human,main,student,,159,PERSUADE 2.0,CC BY 4.0,Mandatory extracurricular activities,https://github.com/scrosseye/persuade_corpus_2.0,2010-2020,persuade:AAAXMP138200001848092850_OR,,human,grade=8;ell=No;holistic_score=3
+h-student-027,human,main,student,,151,PERSUADE 2.0,CC BY 4.0,Phones and driving,https://github.com/scrosseye/persuade_corpus_2.0,2010-2020,persuade:5.99189E+12,,human,grade=;ell=;holistic_score=6
+h-student-028,human,main,student,,132,PERSUADE 2.0,CC BY 4.0,Seeking multiple opinions,https://github.com/scrosseye/persuade_corpus_2.0,2010-2020,persuade:AAAXMP138200001876432810_OR,,human,grade=8;ell=No;holistic_score=4
+h-student-029,human,main,student,,319,PERSUADE 2.0,CC BY 4.0,Summer projects,https://github.com/scrosseye/persuade_corpus_2.0,2010-2020,persuade:AAAXMP138200001956202144_OR,,human,grade=11;ell=No;holistic_score=4
+h-student-030,human,main,student,,224,PERSUADE 2.0,CC BY 4.0,The Face on Mars,https://github.com/scrosseye/persuade_corpus_2.0,2010-2020,persuade:AAAOPP13416000053182,,human,grade=8;ell=Yes;holistic_score=2
+h-student-031,human,main,student,,298,PERSUADE 2.0,CC BY 4.0,"""A Cowboy Who Rode the Waves""",https://github.com/scrosseye/persuade_corpus_2.0,2010-2020,persuade:AAAOPP13416000027004,,human,grade=6;ell=;holistic_score=4
+h-student-032,human,main,student,,317,PERSUADE 2.0,CC BY 4.0,Car-free cities,https://github.com/scrosseye/persuade_corpus_2.0,2010-2020,persuade:5153263,,human,grade=10;ell=No;holistic_score=4
+h-student-033,human,main,student,,183,PERSUADE 2.0,CC BY 4.0,Cell phones at school,https://github.com/scrosseye/persuade_corpus_2.0,2010-2020,persuade:2221004332,,human,grade=8;ell=No;holistic_score=2
+h-student-034,human,main,student,,225,PERSUADE 2.0,CC BY 4.0,Distance learning,https://github.com/scrosseye/persuade_corpus_2.0,2010-2020,persuade:AAAXMP138200001731762125_OR,,human,grade=11;ell=No;holistic_score=5
+h-student-035,human,main,student,,275,PERSUADE 2.0,CC BY 4.0,Does the electoral college work?,https://github.com/scrosseye/persuade_corpus_2.0,2010-2020,persuade:5188767,,human,grade=9;ell=No;holistic_score=3
+h-student-036,human,main,student,,178,PERSUADE 2.0,CC BY 4.0,Driverless cars,https://github.com/scrosseye/persuade_corpus_2.0,2010-2020,persuade:AAAOPP13416000044044,,human,grade=10;ell=No;holistic_score=3
+h-student-037,human,main,student,,187,PERSUADE 2.0,CC BY 4.0,Exploring Venus,https://github.com/scrosseye/persuade_corpus_2.0,2010-2020,persuade:AAAVUP14319000016319,,human,grade=10;ell=No;holistic_score=3
+h-student-038,human,main,student,,339,PERSUADE 2.0,CC BY 4.0,Facial action coding system,https://github.com/scrosseye/persuade_corpus_2.0,2010-2020,persuade:AAATRP14318000794036,,human,grade=10;ell=Yes;holistic_score=3
+h-student-039,human,main,student,,304,PERSUADE 2.0,CC BY 4.0,Grades for extracurricular activities,https://github.com/scrosseye/persuade_corpus_2.0,2010-2020,persuade:2141005891,,human,grade=8;ell=No;holistic_score=4
+h-student-040,human,main,student,,271,PERSUADE 2.0,CC BY 4.0,Mandatory extracurricular activities,https://github.com/scrosseye/persuade_corpus_2.0,2010-2020,persuade:AAAXMP138200001052502850_OR,,human,grade=8;ell=No;holistic_score=4
+h-student-041,human,main,student,,299,PERSUADE 2.0,CC BY 4.0,Phones and driving,https://github.com/scrosseye/persuade_corpus_2.0,2010-2020,persuade:5.78953E+12,,human,grade=;ell=;holistic_score=6
+h-student-042,human,main,student,,102,PERSUADE 2.0,CC BY 4.0,Seeking multiple opinions,https://github.com/scrosseye/persuade_corpus_2.0,2010-2020,persuade:AAAXMP138200000767842810_OR,,human,grade=8;ell=No;holistic_score=4
+h-student-043,human,main,student,,165,PERSUADE 2.0,CC BY 4.0,Summer projects,https://github.com/scrosseye/persuade_corpus_2.0,2010-2020,persuade:AAAXMP138200001567662144_OR,,human,grade=11;ell=No;holistic_score=6
+h-student-044,human,main,student,,196,PERSUADE 2.0,CC BY 4.0,The Face on Mars,https://github.com/scrosseye/persuade_corpus_2.0,2010-2020,persuade:AAAOPP13416000102703,,human,grade=8;ell=No;holistic_score=3
+h-student-045,human,main,student,,128,PERSUADE 2.0,CC BY 4.0,"""A Cowboy Who Rode the Waves""",https://github.com/scrosseye/persuade_corpus_2.0,2010-2020,persuade:AAAOPP13416000054284,,human,grade=6;ell=Yes;holistic_score=1
+h-student-046,human,main,student,,305,PERSUADE 2.0,CC BY 4.0,Car-free cities,https://github.com/scrosseye/persuade_corpus_2.0,2010-2020,persuade:5174550,,human,grade=10;ell=No;holistic_score=3
+h-student-047,human,main,student,,123,PERSUADE 2.0,CC BY 4.0,Cell phones at school,https://github.com/scrosseye/persuade_corpus_2.0,2010-2020,persuade:2221004588,,human,grade=8;ell=No;holistic_score=2
+h-student-048,human,main,student,,208,PERSUADE 2.0,CC BY 4.0,Community service,https://github.com/scrosseye/persuade_corpus_2.0,2010-2020,persuade:2241001231,,human,grade=8;ell=No;holistic_score=3
+h-student-049,human,main,student,,145,PERSUADE 2.0,CC BY 4.0,Distance learning,https://github.com/scrosseye/persuade_corpus_2.0,2010-2020,persuade:AAAXMP138200002140212125_OR,,human,grade=11;ell=No;holistic_score=6
+h-student-050,human,main,student,,174,PERSUADE 2.0,CC BY 4.0,Does the electoral college work?,https://github.com/scrosseye/persuade_corpus_2.0,2010-2020,persuade:5299778,,human,grade=9;ell=No;holistic_score=4
+h-ell_probe-001,human,ell_probe,student,,204,PERSUADE 2.0,CC BY 4.0,"""A Cowboy Who Rode the Waves""",https://github.com/scrosseye/persuade_corpus_2.0,2010-2020,persuade:AAAOPP13416000042067,,human,grade=6;ell=Yes;holistic_score=1
+h-ell_probe-002,human,ell_probe,student,,242,PERSUADE 2.0,CC BY 4.0,"""A Cowboy Who Rode the Waves""",https://github.com/scrosseye/persuade_corpus_2.0,2010-2020,persuade:AAAOPP13416000102465,,human,grade=6;ell=No;holistic_score=3
+h-ell_probe-003,human,ell_probe,student,,297,PERSUADE 2.0,CC BY 4.0,Car-free cities,https://github.com/scrosseye/persuade_corpus_2.0,2010-2020,persuade:5075147,,human,grade=10;ell=Yes;holistic_score=3
+h-ell_probe-004,human,ell_probe,student,,200,PERSUADE 2.0,CC BY 4.0,Car-free cities,https://github.com/scrosseye/persuade_corpus_2.0,2010-2020,persuade:5060659,,human,grade=10;ell=No;holistic_score=5
+h-ell_probe-005,human,ell_probe,student,,185,PERSUADE 2.0,CC BY 4.0,Cell phones at school,https://github.com/scrosseye/persuade_corpus_2.0,2010-2020,persuade:2221000698,,human,grade=8;ell=Yes;holistic_score=2
+h-ell_probe-006,human,ell_probe,student,,122,PERSUADE 2.0,CC BY 4.0,Cell phones at school,https://github.com/scrosseye/persuade_corpus_2.0,2010-2020,persuade:2311004354,,human,grade=8;ell=No;holistic_score=4
+h-ell_probe-007,human,ell_probe,student,,155,PERSUADE 2.0,CC BY 4.0,Community service,https://github.com/scrosseye/persuade_corpus_2.0,2010-2020,persuade:2271001094,,human,grade=8;ell=Yes;holistic_score=1
+h-ell_probe-008,human,ell_probe,student,,139,PERSUADE 2.0,CC BY 4.0,Community service,https://github.com/scrosseye/persuade_corpus_2.0,2010-2020,persuade:2241001762,,human,grade=8;ell=No;holistic_score=4
+h-ell_probe-009,human,ell_probe,student,,178,PERSUADE 2.0,CC BY 4.0,Distance learning,https://github.com/scrosseye/persuade_corpus_2.0,2010-2020,persuade:AAAUUP138180000388682125_OR,,human,grade=12;ell=Yes;holistic_score=5
+h-ell_probe-010,human,ell_probe,student,,196,PERSUADE 2.0,CC BY 4.0,Distance learning,https://github.com/scrosseye/persuade_corpus_2.0,2010-2020,persuade:AAAXMP138200001487422125_OR,,human,grade=12;ell=No;holistic_score=5
+h-ell_probe-011,human,ell_probe,student,,147,PERSUADE 2.0,CC BY 4.0,Does the electoral college work?,https://github.com/scrosseye/persuade_corpus_2.0,2010-2020,persuade:5303905,,human,grade=9;ell=Yes;holistic_score=2
+h-ell_probe-012,human,ell_probe,student,,187,PERSUADE 2.0,CC BY 4.0,Does the electoral college work?,https://github.com/scrosseye/persuade_corpus_2.0,2010-2020,persuade:5027379,,human,grade=9;ell=No;holistic_score=4
+h-ell_probe-013,human,ell_probe,student,,216,PERSUADE 2.0,CC BY 4.0,Driverless cars,https://github.com/scrosseye/persuade_corpus_2.0,2010-2020,persuade:AAAOPP13416000046343,,human,grade=10;ell=Yes;holistic_score=2
+h-ell_probe-014,human,ell_probe,student,,263,PERSUADE 2.0,CC BY 4.0,Driverless cars,https://github.com/scrosseye/persuade_corpus_2.0,2010-2020,persuade:AAAOPP13416000036331,,human,grade=10;ell=No;holistic_score=4
+h-ell_probe-015,human,ell_probe,student,,132,PERSUADE 2.0,CC BY 4.0,Exploring Venus,https://github.com/scrosseye/persuade_corpus_2.0,2010-2020,persuade:AAAVUP14319000050881,,human,grade=10;ell=Yes;holistic_score=2
+h-ell_probe-016,human,ell_probe,student,,172,PERSUADE 2.0,CC BY 4.0,Exploring Venus,https://github.com/scrosseye/persuade_corpus_2.0,2010-2020,persuade:AAAVUP14319000037696,,human,grade=10;ell=No;holistic_score=5
+h-ell_probe-017,human,ell_probe,student,,164,PERSUADE 2.0,CC BY 4.0,Facial action coding system,https://github.com/scrosseye/persuade_corpus_2.0,2010-2020,persuade:AAATRP14318000721861,,human,grade=10;ell=Yes;holistic_score=2
+h-ell_probe-018,human,ell_probe,student,,118,PERSUADE 2.0,CC BY 4.0,Facial action coding system,https://github.com/scrosseye/persuade_corpus_2.0,2010-2020,persuade:AAATRP14318000455475,,human,grade=10;ell=No;holistic_score=3
+h-ell_probe-019,human,ell_probe,student,,165,PERSUADE 2.0,CC BY 4.0,Grades for extracurricular activities,https://github.com/scrosseye/persuade_corpus_2.0,2010-2020,persuade:2251004179,,human,grade=8;ell=Yes;holistic_score=3
+h-ell_probe-020,human,ell_probe,student,,196,PERSUADE 2.0,CC BY 4.0,Grades for extracurricular activities,https://github.com/scrosseye/persuade_corpus_2.0,2010-2020,persuade:2171001258,,human,grade=8;ell=No;holistic_score=3
+h-ell_probe-021,human,ell_probe,student,,377,PERSUADE 2.0,CC BY 4.0,Mandatory extracurricular activities,https://github.com/scrosseye/persuade_corpus_2.0,2010-2020,persuade:AAAXMP138200000923612850_OR,,human,grade=8;ell=Yes;holistic_score=2
+h-ell_probe-022,human,ell_probe,student,,259,PERSUADE 2.0,CC BY 4.0,Mandatory extracurricular activities,https://github.com/scrosseye/persuade_corpus_2.0,2010-2020,persuade:AAAXMP138200001017842850_OR,,human,grade=8;ell=No;holistic_score=3
+h-ell_probe-023,human,ell_probe,student,,240,PERSUADE 2.0,CC BY 4.0,Seeking multiple opinions,https://github.com/scrosseye/persuade_corpus_2.0,2010-2020,persuade:AAAXMP138200002207732810_OR,,human,grade=8;ell=Yes;holistic_score=2
+h-ell_probe-024,human,ell_probe,student,,224,PERSUADE 2.0,CC BY 4.0,Seeking multiple opinions,https://github.com/scrosseye/persuade_corpus_2.0,2010-2020,persuade:AAAXMP138200001236962810_OR,,human,grade=8;ell=No;holistic_score=4
+h-ell_probe-025,human,ell_probe,student,,178,PERSUADE 2.0,CC BY 4.0,Summer projects,https://github.com/scrosseye/persuade_corpus_2.0,2010-2020,persuade:AAAXMP138200001832062144_OR,,human,grade=11;ell=Yes;holistic_score=2
+h-ell_probe-026,human,ell_probe,student,,298,PERSUADE 2.0,CC BY 4.0,Summer projects,https://github.com/scrosseye/persuade_corpus_2.0,2010-2020,persuade:AAAXMP138200001059072144_OR,,human,grade=11;ell=No;holistic_score=5
+h-ell_probe-027,human,ell_probe,student,,259,PERSUADE 2.0,CC BY 4.0,The Face on Mars,https://github.com/scrosseye/persuade_corpus_2.0,2010-2020,persuade:AAAOPP13416000046665,,human,grade=8;ell=Yes;holistic_score=4
+h-ell_probe-028,human,ell_probe,student,,217,PERSUADE 2.0,CC BY 4.0,The Face on Mars,https://github.com/scrosseye/persuade_corpus_2.0,2010-2020,persuade:AAAOPP13416000083002,,human,grade=8;ell=No;holistic_score=3
+h-ell_probe-029,human,ell_probe,student,,279,PERSUADE 2.0,CC BY 4.0,"""A Cowboy Who Rode the Waves""",https://github.com/scrosseye/persuade_corpus_2.0,2010-2020,persuade:AAAOPP13416000041984,,human,grade=6;ell=Yes;holistic_score=1
+h-ell_probe-030,human,ell_probe,student,,253,PERSUADE 2.0,CC BY 4.0,"""A Cowboy Who Rode the Waves""",https://github.com/scrosseye/persuade_corpus_2.0,2010-2020,persuade:AAAOPP13416000036767,,human,grade=6;ell=No;holistic_score=2
+h-ell_probe-031,human,ell_probe,student,,146,PERSUADE 2.0,CC BY 4.0,Car-free cities,https://github.com/scrosseye/persuade_corpus_2.0,2010-2020,persuade:5185410,,human,grade=10;ell=Yes;holistic_score=2
+h-ell_probe-032,human,ell_probe,student,,198,PERSUADE 2.0,CC BY 4.0,Car-free cities,https://github.com/scrosseye/persuade_corpus_2.0,2010-2020,persuade:5355817,,human,grade=10;ell=No;holistic_score=5
+h-ell_probe-033,human,ell_probe,student,,188,PERSUADE 2.0,CC BY 4.0,Cell phones at school,https://github.com/scrosseye/persuade_corpus_2.0,2010-2020,persuade:2021000071,,human,grade=8;ell=Yes;holistic_score=3
+h-ell_probe-034,human,ell_probe,student,,124,PERSUADE 2.0,CC BY 4.0,Cell phones at school,https://github.com/scrosseye/persuade_corpus_2.0,2010-2020,persuade:2431006466,,human,grade=8;ell=No;holistic_score=4
+h-ell_probe-035,human,ell_probe,student,,136,PERSUADE 2.0,CC BY 4.0,Community service,https://github.com/scrosseye/persuade_corpus_2.0,2010-2020,persuade:2081005576,,human,grade=8;ell=Yes;holistic_score=2
+h-ell_probe-036,human,ell_probe,student,,198,PERSUADE 2.0,CC BY 4.0,Community service,https://github.com/scrosseye/persuade_corpus_2.0,2010-2020,persuade:2091007652,,human,grade=8;ell=No;holistic_score=2
+h-ell_probe-037,human,ell_probe,student,,111,PERSUADE 2.0,CC BY 4.0,Distance learning,https://github.com/scrosseye/persuade_corpus_2.0,2010-2020,persuade:AAAUUP138180000091162125_OR,,human,grade=12;ell=Yes;holistic_score=3
+h-ell_probe-038,human,ell_probe,student,,275,PERSUADE 2.0,CC BY 4.0,Distance learning,https://github.com/scrosseye/persuade_corpus_2.0,2010-2020,persuade:AAAXMP138200001876182125_OR,,human,grade=12;ell=No;holistic_score=4
+h-ell_probe-039,human,ell_probe,student,,221,PERSUADE 2.0,CC BY 4.0,Does the electoral college work?,https://github.com/scrosseye/persuade_corpus_2.0,2010-2020,persuade:5079788,,human,grade=9;ell=Yes;holistic_score=1
+h-ell_probe-040,human,ell_probe,student,,250,PERSUADE 2.0,CC BY 4.0,Does the electoral college work?,https://github.com/scrosseye/persuade_corpus_2.0,2010-2020,persuade:5188706,,human,grade=9;ell=No;holistic_score=5
+h-ell_probe-041,human,ell_probe,student,,176,PERSUADE 2.0,CC BY 4.0,Driverless cars,https://github.com/scrosseye/persuade_corpus_2.0,2010-2020,persuade:AAAOPP13416000105113,,human,grade=10;ell=Yes;holistic_score=4
+h-ell_probe-042,human,ell_probe,student,,173,PERSUADE 2.0,CC BY 4.0,Driverless cars,https://github.com/scrosseye/persuade_corpus_2.0,2010-2020,persuade:AAAOPP13416000002878,,human,grade=10;ell=No;holistic_score=3
+h-ell_probe-043,human,ell_probe,student,,218,PERSUADE 2.0,CC BY 4.0,Exploring Venus,https://github.com/scrosseye/persuade_corpus_2.0,2010-2020,persuade:AAAVUP14319000101694,,human,grade=10;ell=Yes;holistic_score=2
+h-ell_probe-044,human,ell_probe,student,,181,PERSUADE 2.0,CC BY 4.0,Exploring Venus,https://github.com/scrosseye/persuade_corpus_2.0,2010-2020,persuade:AAAVUP14319000096216,,human,grade=10;ell=No;holistic_score=5
+h-ell_probe-045,human,ell_probe,student,,150,PERSUADE 2.0,CC BY 4.0,Facial action coding system,https://github.com/scrosseye/persuade_corpus_2.0,2010-2020,persuade:AAATRP14318000784352,,human,grade=10;ell=Yes;holistic_score=3
+h-ell_probe-046,human,ell_probe,student,,205,PERSUADE 2.0,CC BY 4.0,Facial action coding system,https://github.com/scrosseye/persuade_corpus_2.0,2010-2020,persuade:AAATRP14318000616447,,human,grade=10;ell=No;holistic_score=3
+h-ell_probe-047,human,ell_probe,student,,219,PERSUADE 2.0,CC BY 4.0,Grades for extracurricular activities,https://github.com/scrosseye/persuade_corpus_2.0,2010-2020,persuade:2171000634,,human,grade=8;ell=Yes;holistic_score=3
+h-ell_probe-048,human,ell_probe,student,,246,PERSUADE 2.0,CC BY 4.0,Grades for extracurricular activities,https://github.com/scrosseye/persuade_corpus_2.0,2010-2020,persuade:2171004745,,human,grade=8;ell=No;holistic_score=2
+h-ell_probe-049,human,ell_probe,student,,126,PERSUADE 2.0,CC BY 4.0,Mandatory extracurricular activities,https://github.com/scrosseye/persuade_corpus_2.0,2010-2020,persuade:AAAXMP138200001228282850_OR,,human,grade=8;ell=Yes;holistic_score=3
+h-ell_probe-050,human,ell_probe,student,,171,PERSUADE 2.0,CC BY 4.0,Mandatory extracurricular activities,https://github.com/scrosseye/persuade_corpus_2.0,2010-2020,persuade:AAAXMP138200001270712850_OR,,human,grade=8;ell=No;holistic_score=5
+h-ell_probe-051,human,ell_probe,student,,271,PERSUADE 2.0,CC BY 4.0,Seeking multiple opinions,https://github.com/scrosseye/persuade_corpus_2.0,2010-2020,persuade:AAAXMP138200001090062810_OR,,human,grade=8;ell=Yes;holistic_score=3
+h-ell_probe-052,human,ell_probe,student,,243,PERSUADE 2.0,CC BY 4.0,Seeking multiple opinions,https://github.com/scrosseye/persuade_corpus_2.0,2010-2020,persuade:AAAXMP138200000485102810_OR,,human,grade=8;ell=No;holistic_score=3
+h-ell_probe-053,human,ell_probe,student,,167,PERSUADE 2.0,CC BY 4.0,Summer projects,https://github.com/scrosseye/persuade_corpus_2.0,2010-2020,persuade:AAAXMP138200001813742144_OR,,human,grade=11;ell=Yes;holistic_score=1
+h-ell_probe-054,human,ell_probe,student,,213,PERSUADE 2.0,CC BY 4.0,Summer projects,https://github.com/scrosseye/persuade_corpus_2.0,2010-2020,persuade:AAAXMP138200001025112144_OR,,human,grade=11;ell=No;holistic_score=5
+h-ell_probe-055,human,ell_probe,student,,212,PERSUADE 2.0,CC BY 4.0,The Face on Mars,https://github.com/scrosseye/persuade_corpus_2.0,2010-2020,persuade:AAAOPP13416000111074,,human,grade=8;ell=Yes;holistic_score=3
+h-ell_probe-056,human,ell_probe,student,,284,PERSUADE 2.0,CC BY 4.0,The Face on Mars,https://github.com/scrosseye/persuade_corpus_2.0,2010-2020,persuade:AAAOPP13416000052581,,human,grade=8;ell=No;holistic_score=5
+h-ell_probe-057,human,ell_probe,student,,220,PERSUADE 2.0,CC BY 4.0,"""A Cowboy Who Rode the Waves""",https://github.com/scrosseye/persuade_corpus_2.0,2010-2020,persuade:AAAOPP13416000217973,,human,grade=6;ell=Yes;holistic_score=2
+h-ell_probe-058,human,ell_probe,student,,170,PERSUADE 2.0,CC BY 4.0,"""A Cowboy Who Rode the Waves""",https://github.com/scrosseye/persuade_corpus_2.0,2010-2020,persuade:AAAOPP13416000074175,,human,grade=6;ell=No;holistic_score=3
+h-ell_probe-059,human,ell_probe,student,,367,PERSUADE 2.0,CC BY 4.0,Car-free cities,https://github.com/scrosseye/persuade_corpus_2.0,2010-2020,persuade:5154140,,human,grade=10;ell=Yes;holistic_score=3
+h-ell_probe-060,human,ell_probe,student,,124,PERSUADE 2.0,CC BY 4.0,Car-free cities,https://github.com/scrosseye/persuade_corpus_2.0,2010-2020,persuade:5355307,,human,grade=10;ell=No;holistic_score=4
+h-ell_probe-061,human,ell_probe,student,,245,PERSUADE 2.0,CC BY 4.0,Cell phones at school,https://github.com/scrosseye/persuade_corpus_2.0,2010-2020,persuade:2311000081,,human,grade=8;ell=Yes;holistic_score=3
+h-ell_probe-062,human,ell_probe,student,,226,PERSUADE 2.0,CC BY 4.0,Cell phones at school,https://github.com/scrosseye/persuade_corpus_2.0,2010-2020,persuade:2431005117,,human,grade=8;ell=No;holistic_score=1
+h-ell_probe-063,human,ell_probe,student,,196,PERSUADE 2.0,CC BY 4.0,Community service,https://github.com/scrosseye/persuade_corpus_2.0,2010-2020,persuade:2241001843,,human,grade=8;ell=Yes;holistic_score=3
+h-ell_probe-064,human,ell_probe,student,,106,PERSUADE 2.0,CC BY 4.0,Community service,https://github.com/scrosseye/persuade_corpus_2.0,2010-2020,persuade:2091004751,,human,grade=8;ell=No;holistic_score=4
+h-ell_probe-065,human,ell_probe,student,,279,PERSUADE 2.0,CC BY 4.0,Distance learning,https://github.com/scrosseye/persuade_corpus_2.0,2010-2020,persuade:AAAUUP138180000077122125_OR,,human,grade=12;ell=Yes;holistic_score=3
+h-ell_probe-066,human,ell_probe,student,,240,PERSUADE 2.0,CC BY 4.0,Distance learning,https://github.com/scrosseye/persuade_corpus_2.0,2010-2020,persuade:AAAXMP138200001877192125_OR,,human,grade=12;ell=No;holistic_score=3
+h-ell_probe-067,human,ell_probe,student,,173,PERSUADE 2.0,CC BY 4.0,Does the electoral college work?,https://github.com/scrosseye/persuade_corpus_2.0,2010-2020,persuade:5028889,,human,grade=9;ell=Yes;holistic_score=2
+h-ell_probe-068,human,ell_probe,student,,197,PERSUADE 2.0,CC BY 4.0,Does the electoral college work?,https://github.com/scrosseye/persuade_corpus_2.0,2010-2020,persuade:5053875,,human,grade=9;ell=No;holistic_score=2
+h-ell_probe-069,human,ell_probe,student,,282,PERSUADE 2.0,CC BY 4.0,Driverless cars,https://github.com/scrosseye/persuade_corpus_2.0,2010-2020,persuade:AAAOPP13416000048285,,human,grade=10;ell=Yes;holistic_score=3
+h-ell_probe-070,human,ell_probe,student,,131,PERSUADE 2.0,CC BY 4.0,Driverless cars,https://github.com/scrosseye/persuade_corpus_2.0,2010-2020,persuade:AAAOPP13416000001063,,human,grade=10;ell=No;holistic_score=1
+h-ell_probe-071,human,ell_probe,student,,225,PERSUADE 2.0,CC BY 4.0,Exploring Venus,https://github.com/scrosseye/persuade_corpus_2.0,2010-2020,persuade:AAAVUP14319000050075,,human,grade=10;ell=Yes;holistic_score=4
+h-ell_probe-072,human,ell_probe,student,,207,PERSUADE 2.0,CC BY 4.0,Exploring Venus,https://github.com/scrosseye/persuade_corpus_2.0,2010-2020,persuade:AAAVUP14319000035744,,human,grade=10;ell=No;holistic_score=5
+h-ell_probe-073,human,ell_probe,student,,151,PERSUADE 2.0,CC BY 4.0,Facial action coding system,https://github.com/scrosseye/persuade_corpus_2.0,2010-2020,persuade:AAATRP14318001016811,,human,grade=10;ell=Yes;holistic_score=2
+h-ell_probe-074,human,ell_probe,student,,163,PERSUADE 2.0,CC BY 4.0,Facial action coding system,https://github.com/scrosseye/persuade_corpus_2.0,2010-2020,persuade:AAATRP14318000354571,,human,grade=10;ell=No;holistic_score=4
+h-ell_probe-075,human,ell_probe,student,,154,PERSUADE 2.0,CC BY 4.0,Grades for extracurricular activities,https://github.com/scrosseye/persuade_corpus_2.0,2010-2020,persuade:2171001479,,human,grade=8;ell=Yes;holistic_score=4
+h-ell_probe-076,human,ell_probe,student,,135,PERSUADE 2.0,CC BY 4.0,Grades for extracurricular activities,https://github.com/scrosseye/persuade_corpus_2.0,2010-2020,persuade:2171005997,,human,grade=8;ell=No;holistic_score=3
+h-ell_probe-077,human,ell_probe,student,,211,PERSUADE 2.0,CC BY 4.0,Mandatory extracurricular activities,https://github.com/scrosseye/persuade_corpus_2.0,2010-2020,persuade:AAAXMP138200000568592850_OR,,human,grade=8;ell=Yes;holistic_score=2
+h-ell_probe-078,human,ell_probe,student,,311,PERSUADE 2.0,CC BY 4.0,Mandatory extracurricular activities,https://github.com/scrosseye/persuade_corpus_2.0,2010-2020,persuade:AAAXMP138200001822852850_OR,,human,grade=8;ell=No;holistic_score=5
+h-ell_probe-079,human,ell_probe,student,,316,PERSUADE 2.0,CC BY 4.0,Seeking multiple opinions,https://github.com/scrosseye/persuade_corpus_2.0,2010-2020,persuade:AAAXMP138200000629972810_OR,,human,grade=8;ell=Yes;holistic_score=4
+h-ell_probe-080,human,ell_probe,student,,301,PERSUADE 2.0,CC BY 4.0,Seeking multiple opinions,https://github.com/scrosseye/persuade_corpus_2.0,2010-2020,persuade:AAAXMP138200002004562810_OR,,human,grade=8;ell=No;holistic_score=5
+h-ell_probe-081,human,ell_probe,student,,243,PERSUADE 2.0,CC BY 4.0,Summer projects,https://github.com/scrosseye/persuade_corpus_2.0,2010-2020,persuade:AAAXMP138200001040232144_OR,,human,grade=11;ell=Yes;holistic_score=2
+h-ell_probe-082,human,ell_probe,student,,146,PERSUADE 2.0,CC BY 4.0,Summer projects,https://github.com/scrosseye/persuade_corpus_2.0,2010-2020,persuade:AAAXMP138200001748752144_OR,,human,grade=11;ell=No;holistic_score=5
+h-ell_probe-083,human,ell_probe,student,,220,PERSUADE 2.0,CC BY 4.0,The Face on Mars,https://github.com/scrosseye/persuade_corpus_2.0,2010-2020,persuade:AAAOPP13416000103040,,human,grade=8;ell=Yes;holistic_score=2
+h-ell_probe-084,human,ell_probe,student,,206,PERSUADE 2.0,CC BY 4.0,The Face on Mars,https://github.com/scrosseye/persuade_corpus_2.0,2010-2020,persuade:AAAOPP13416000110999,,human,grade=8;ell=No;holistic_score=1
+h-ell_probe-085,human,ell_probe,student,,195,PERSUADE 2.0,CC BY 4.0,"""A Cowboy Who Rode the Waves""",https://github.com/scrosseye/persuade_corpus_2.0,2010-2020,persuade:AAAOPP13416000074354,,human,grade=6;ell=Yes;holistic_score=1
+h-ell_probe-086,human,ell_probe,student,,261,PERSUADE 2.0,CC BY 4.0,"""A Cowboy Who Rode the Waves""",https://github.com/scrosseye/persuade_corpus_2.0,2010-2020,persuade:AAAOPP13416000088148,,human,grade=6;ell=No;holistic_score=3
+h-ell_probe-087,human,ell_probe,student,,137,PERSUADE 2.0,CC BY 4.0,Car-free cities,https://github.com/scrosseye/persuade_corpus_2.0,2010-2020,persuade:5080630,,human,grade=10;ell=Yes;holistic_score=1
+h-ell_probe-088,human,ell_probe,student,,161,PERSUADE 2.0,CC BY 4.0,Car-free cities,https://github.com/scrosseye/persuade_corpus_2.0,2010-2020,persuade:5035472,,human,grade=10;ell=No;holistic_score=2
+h-ell_probe-089,human,ell_probe,student,,158,PERSUADE 2.0,CC BY 4.0,Cell phones at school,https://github.com/scrosseye/persuade_corpus_2.0,2010-2020,persuade:2221002046,,human,grade=8;ell=Yes;holistic_score=2
+h-ell_probe-090,human,ell_probe,student,,164,PERSUADE 2.0,CC BY 4.0,Cell phones at school,https://github.com/scrosseye/persuade_corpus_2.0,2010-2020,persuade:2431004315,,human,grade=8;ell=No;holistic_score=2
+h-ell_probe-091,human,ell_probe,student,,171,PERSUADE 2.0,CC BY 4.0,Community service,https://github.com/scrosseye/persuade_corpus_2.0,2010-2020,persuade:2091003797,,human,grade=8;ell=Yes;holistic_score=1
+h-ell_probe-092,human,ell_probe,student,,225,PERSUADE 2.0,CC BY 4.0,Community service,https://github.com/scrosseye/persuade_corpus_2.0,2010-2020,persuade:2271003968,,human,grade=8;ell=No;holistic_score=5
+h-ell_probe-093,human,ell_probe,student,,261,PERSUADE 2.0,CC BY 4.0,Distance learning,https://github.com/scrosseye/persuade_corpus_2.0,2010-2020,persuade:AAAXMP138200001086312125_OR,,human,grade=11;ell=Yes;holistic_score=4
+h-ell_probe-094,human,ell_probe,student,,129,PERSUADE 2.0,CC BY 4.0,Distance learning,https://github.com/scrosseye/persuade_corpus_2.0,2010-2020,persuade:AAAXMP138200001846412125_OR,,human,grade=11;ell=No;holistic_score=4
+h-ell_probe-095,human,ell_probe,student,,140,PERSUADE 2.0,CC BY 4.0,Does the electoral college work?,https://github.com/scrosseye/persuade_corpus_2.0,2010-2020,persuade:5184793,,human,grade=9;ell=Yes;holistic_score=2
+h-ell_probe-096,human,ell_probe,student,,162,PERSUADE 2.0,CC BY 4.0,Does the electoral college work?,https://github.com/scrosseye/persuade_corpus_2.0,2010-2020,persuade:5062208,,human,grade=9;ell=No;holistic_score=2
+h-ell_probe-097,human,ell_probe,student,,109,PERSUADE 2.0,CC BY 4.0,Driverless cars,https://github.com/scrosseye/persuade_corpus_2.0,2010-2020,persuade:AAAOPP13416000105927,,human,grade=10;ell=Yes;holistic_score=3
+h-ell_probe-098,human,ell_probe,student,,214,PERSUADE 2.0,CC BY 4.0,Driverless cars,https://github.com/scrosseye/persuade_corpus_2.0,2010-2020,persuade:AAAOPP13416000108003,,human,grade=10;ell=No;holistic_score=2
+h-ell_probe-099,human,ell_probe,student,,194,PERSUADE 2.0,CC BY 4.0,Exploring Venus,https://github.com/scrosseye/persuade_corpus_2.0,2010-2020,persuade:AAAVUP14319000120613,,human,grade=10;ell=Yes;holistic_score=1
+h-ell_probe-100,human,ell_probe,student,,187,PERSUADE 2.0,CC BY 4.0,Exploring Venus,https://github.com/scrosseye/persuade_corpus_2.0,2010-2020,persuade:AAAVUP14319000040392,,human,grade=10;ell=No;holistic_score=3
+h-imitation_probe-001,human,imitation_probe,student,,217,PERSUADE 2.0,CC BY 4.0,"""A Cowboy Who Rode the Waves""",https://github.com/scrosseye/persuade_corpus_2.0,2010-2020,persuade:AAAOPP13416000060070,,human,grade=6;ell=No;holistic_score=1
+h-imitation_probe-002,human,imitation_probe,student,,134,PERSUADE 2.0,CC BY 4.0,Cell phones at school,https://github.com/scrosseye/persuade_corpus_2.0,2010-2020,persuade:2221007803,,human,grade=8;ell=No;holistic_score=3
+h-imitation_probe-003,human,imitation_probe,student,,142,PERSUADE 2.0,CC BY 4.0,Community service,https://github.com/scrosseye/persuade_corpus_2.0,2010-2020,persuade:2241002645,,human,grade=8;ell=No;holistic_score=2
+h-imitation_probe-004,human,imitation_probe,student,,128,PERSUADE 2.0,CC BY 4.0,Distance learning,https://github.com/scrosseye/persuade_corpus_2.0,2010-2020,persuade:AAAXMP138200001477052125_OR,,human,grade=11;ell=No;holistic_score=6
+h-imitation_probe-005,human,imitation_probe,student,,219,PERSUADE 2.0,CC BY 4.0,Does the electoral college work?,https://github.com/scrosseye/persuade_corpus_2.0,2010-2020,persuade:5083348,,human,grade=9;ell=No;holistic_score=3
+h-imitation_probe-006,human,imitation_probe,student,,252,PERSUADE 2.0,CC BY 4.0,Driverless cars,https://github.com/scrosseye/persuade_corpus_2.0,2010-2020,persuade:AAAOPP13416000123154,,human,grade=10;ell=No;holistic_score=5
+h-imitation_probe-007,human,imitation_probe,student,,185,PERSUADE 2.0,CC BY 4.0,Exploring Venus,https://github.com/scrosseye/persuade_corpus_2.0,2010-2020,persuade:AAAVUP14319000038381,,human,grade=10;ell=No;holistic_score=3
+h-imitation_probe-008,human,imitation_probe,student,,276,PERSUADE 2.0,CC BY 4.0,Facial action coding system,https://github.com/scrosseye/persuade_corpus_2.0,2010-2020,persuade:AAATRP14318001044789,,human,grade=10;ell=No;holistic_score=5
+h-imitation_probe-009,human,imitation_probe,student,,196,PERSUADE 2.0,CC BY 4.0,Grades for extracurricular activities,https://github.com/scrosseye/persuade_corpus_2.0,2010-2020,persuade:2171004044,,human,grade=8;ell=No;holistic_score=4
+h-imitation_probe-010,human,imitation_probe,student,,206,PERSUADE 2.0,CC BY 4.0,Mandatory extracurricular activities,https://github.com/scrosseye/persuade_corpus_2.0,2010-2020,persuade:AAAXMP138200002140782850_OR,,human,grade=8;ell=No;holistic_score=2
+h-imitation_probe-011,human,imitation_probe,student,,215,PERSUADE 2.0,CC BY 4.0,Phones and driving,https://github.com/scrosseye/persuade_corpus_2.0,2010-2020,persuade:5.22797E+12,,human,grade=;ell=;holistic_score=3
+h-imitation_probe-012,human,imitation_probe,student,,330,PERSUADE 2.0,CC BY 4.0,Seeking multiple opinions,https://github.com/scrosseye/persuade_corpus_2.0,2010-2020,persuade:AAAXMP138200002057712810_OR,,human,grade=8;ell=No;holistic_score=4
+h-imitation_probe-013,human,imitation_probe,student,,185,PERSUADE 2.0,CC BY 4.0,Summer projects,https://github.com/scrosseye/persuade_corpus_2.0,2010-2020,persuade:AAAXMP138200001329652144_OR,,human,grade=11;ell=No;holistic_score=5
+h-imitation_probe-014,human,imitation_probe,student,,166,PERSUADE 2.0,CC BY 4.0,The Face on Mars,https://github.com/scrosseye/persuade_corpus_2.0,2010-2020,persuade:AAAOPP13416000041396,,human,grade=8;ell=No;holistic_score=2
+h-imitation_probe-015,human,imitation_probe,student,,185,PERSUADE 2.0,CC BY 4.0,"""A Cowboy Who Rode the Waves""",https://github.com/scrosseye/persuade_corpus_2.0,2010-2020,persuade:AAAOPP13416000020490,,human,grade=6;ell=No;holistic_score=1
+h-imitation_probe-016,human,imitation_probe,student,,188,PERSUADE 2.0,CC BY 4.0,Car-free cities,https://github.com/scrosseye/persuade_corpus_2.0,2010-2020,persuade:5025356,,human,grade=10;ell=No;holistic_score=2
+h-imitation_probe-017,human,imitation_probe,student,,175,PERSUADE 2.0,CC BY 4.0,Cell phones at school,https://github.com/scrosseye/persuade_corpus_2.0,2010-2020,persuade:2311002319,,human,grade=8;ell=No;holistic_score=3
+h-imitation_probe-018,human,imitation_probe,student,,130,PERSUADE 2.0,CC BY 4.0,Community service,https://github.com/scrosseye/persuade_corpus_2.0,2010-2020,persuade:2081007081,,human,grade=8;ell=No;holistic_score=3
+h-imitation_probe-019,human,imitation_probe,student,,167,PERSUADE 2.0,CC BY 4.0,Distance learning,https://github.com/scrosseye/persuade_corpus_2.0,2010-2020,persuade:AAAXMP138200001071812125_OR,,human,grade=11;ell=No;holistic_score=5
+h-imitation_probe-020,human,imitation_probe,student,,322,PERSUADE 2.0,CC BY 4.0,Does the electoral college work?,https://github.com/scrosseye/persuade_corpus_2.0,2010-2020,persuade:5171548,,human,grade=9;ell=No;holistic_score=4
+h-imitation_probe-021,human,imitation_probe,student,,246,PERSUADE 2.0,CC BY 4.0,Driverless cars,https://github.com/scrosseye/persuade_corpus_2.0,2010-2020,persuade:AAAOPP13416000009568,,human,grade=10;ell=No;holistic_score=3
+h-imitation_probe-022,human,imitation_probe,student,,224,PERSUADE 2.0,CC BY 4.0,Exploring Venus,https://github.com/scrosseye/persuade_corpus_2.0,2010-2020,persuade:AAAVUP14319000149751,,human,grade=10;ell=No;holistic_score=4
+h-imitation_probe-023,human,imitation_probe,student,,167,PERSUADE 2.0,CC BY 4.0,Facial action coding system,https://github.com/scrosseye/persuade_corpus_2.0,2010-2020,persuade:AAATRP14318000348672,,human,grade=10;ell=Yes;holistic_score=2
+h-imitation_probe-024,human,imitation_probe,student,,243,PERSUADE 2.0,CC BY 4.0,Grades for extracurricular activities,https://github.com/scrosseye/persuade_corpus_2.0,2010-2020,persuade:2421005157,,human,grade=8;ell=No;holistic_score=3
+h-imitation_probe-025,human,imitation_probe,student,,317,PERSUADE 2.0,CC BY 4.0,Mandatory extracurricular activities,https://github.com/scrosseye/persuade_corpus_2.0,2010-2020,persuade:AAAXMP138200002145662850_OR,,human,grade=8;ell=Yes;holistic_score=2
+h-imitation_probe-026,human,imitation_probe,student,,232,PERSUADE 2.0,CC BY 4.0,Phones and driving,https://github.com/scrosseye/persuade_corpus_2.0,2010-2020,persuade:3.86018E+12,,human,grade=;ell=;holistic_score=3
+h-imitation_probe-027,human,imitation_probe,student,,285,PERSUADE 2.0,CC BY 4.0,Seeking multiple opinions,https://github.com/scrosseye/persuade_corpus_2.0,2010-2020,persuade:AAAXMP138200000713502810_OR,,human,grade=8;ell=No;holistic_score=4
+h-imitation_probe-028,human,imitation_probe,student,,209,PERSUADE 2.0,CC BY 4.0,Summer projects,https://github.com/scrosseye/persuade_corpus_2.0,2010-2020,persuade:AAAXMP138200001750922144_OR,,human,grade=11;ell=No;holistic_score=5
+h-imitation_probe-029,human,imitation_probe,student,,137,PERSUADE 2.0,CC BY 4.0,The Face on Mars,https://github.com/scrosseye/persuade_corpus_2.0,2010-2020,persuade:AAAOPP13416000046220,,human,grade=8;ell=No;holistic_score=3
+h-imitation_probe-030,human,imitation_probe,student,,117,PERSUADE 2.0,CC BY 4.0,"""A Cowboy Who Rode the Waves""",https://github.com/scrosseye/persuade_corpus_2.0,2010-2020,persuade:AAAOPP13416000146090,,human,grade=6;ell=No;holistic_score=2
+a-fiction-001,ai,main,fiction,plain,285,"Claude Fable 5.2, written directly for this project",none claimed,,,,a-fiction-001,h-fiction-008,w1,
+a-fiction-002,ai,main,fiction,plain,131,"Claude Fable 5.2, written directly for this project",none claimed,,,,a-fiction-002,h-fiction-031,w2,
+a-fiction-003,ai,main,fiction,plain,335,"Claude Fable 5.2, written directly for this project",none claimed,,,,a-fiction-003,h-fiction-036,w3,
+a-fiction-004,ai,main,fiction,plain,318,"Claude Fable 5.2, written directly for this project",none claimed,,,,a-fiction-004,h-fiction-041,w4,
+a-fiction-005,ai,main,fiction,plain,162,"Claude Fable 5.2, written directly for this project",none claimed,,,,a-fiction-005,h-fiction-005,w5,
+a-fiction-006,ai,main,fiction,plain,321,"Claude Fable 5.2, written directly for this project",none claimed,,,,a-fiction-006,h-fiction-015,w6,
+a-fiction-007,ai,main,fiction,plain,276,"Claude Fable 5.2, written directly for this project",none claimed,,,,a-fiction-007,h-fiction-003,w1,
+a-fiction-008,ai,main,fiction,plain,311,"Claude Fable 5.2, written directly for this project",none claimed,,,,a-fiction-008,h-fiction-016,w2,
+a-fiction-009,ai,main,fiction,plain,300,"Claude Fable 5.2, written directly for this project",none claimed,,,,a-fiction-009,h-fiction-025,w3,
+a-fiction-010,ai,main,fiction,plain,180,"Claude Fable 5.2, written directly for this project",none claimed,,,,a-fiction-010,h-fiction-046,w4,
+a-fiction-011,ai,main,fiction,plain,308,"Claude Fable 5.2, written directly for this project",none claimed,,,,a-fiction-011,h-fiction-034,w5,
+a-fiction-012,ai,main,fiction,plain,333,"Claude Fable 5.2, written directly for this project",none claimed,,,,a-fiction-012,h-fiction-019,w6,
+a-fiction-013,ai,main,fiction,plain,137,"Claude Fable 5.2, written directly for this project",none claimed,,,,a-fiction-013,h-fiction-023,w1,
+a-fiction-014,ai,main,fiction,plain,142,"Claude Fable 5.2, written directly for this project",none claimed,,,,a-fiction-014,h-fiction-038,w2,
+a-fiction-015,ai,main,fiction,plain,201,"Claude Fable 5.2, written directly for this project",none claimed,,,,a-fiction-015,h-fiction-029,w3,
+a-fiction-016,ai,main,fiction,plain,285,"Claude Fable 5.2, written directly for this project",none claimed,,,,a-fiction-016,h-fiction-027,w4,
+a-fiction-017,ai,main,fiction,plain,330,"Claude Fable 5.2, written directly for this project",none claimed,,,,a-fiction-017,h-fiction-040,w5,
+a-fiction-018,ai,main,fiction,plain,158,"Claude Fable 5.2, written directly for this project",none claimed,,,,a-fiction-018,h-fiction-024,w6,
+a-fiction-019,ai,main,fiction,student,198,"Claude Fable 5.2, written directly for this project",none claimed,,,,a-fiction-019,h-fiction-009,w1,
+a-fiction-020,ai,main,fiction,student,99,"Claude Fable 5.2, written directly for this project",none claimed,,,,a-fiction-020,h-fiction-002,w2,
+a-fiction-021,ai,main,fiction,student,314,"Claude Fable 5.2, written directly for this project",none claimed,,,,a-fiction-021,h-fiction-007,w3,
+a-fiction-022,ai,main,fiction,student,233,"Claude Fable 5.2, written directly for this project",none claimed,,,,a-fiction-022,h-fiction-022,w4,
+a-fiction-023,ai,main,fiction,student,320,"Claude Fable 5.2, written directly for this project",none claimed,,,,a-fiction-023,h-fiction-011,w5,
+a-fiction-024,ai,main,fiction,student,268,"Claude Fable 5.2, written directly for this project",none claimed,,,,a-fiction-024,h-fiction-017,w6,
+a-fiction-025,ai,main,fiction,student,186,"Claude Fable 5.2, written directly for this project",none claimed,,,,a-fiction-025,h-fiction-020,w1,
+a-fiction-026,ai,main,fiction,student,135,"Claude Fable 5.2, written directly for this project",none claimed,,,,a-fiction-026,h-fiction-042,w2,
+a-fiction-027,ai,main,fiction,anti_ai,208,"Claude Fable 5.2, written directly for this project",none claimed,,,,a-fiction-027,h-fiction-010,w3,
+a-fiction-028,ai,main,fiction,anti_ai,133,"Claude Fable 5.2, written directly for this project",none claimed,,,,a-fiction-028,h-fiction-021,w4,
+a-fiction-029,ai,main,fiction,anti_ai,242,"Claude Fable 5.2, written directly for this project",none claimed,,,,a-fiction-029,h-fiction-030,w5,
+a-fiction-030,ai,main,fiction,anti_ai,325,"Claude Fable 5.2, written directly for this project",none claimed,,,,a-fiction-030,h-fiction-049,w6,
+a-fiction-031,ai,main,fiction,anti_ai,262,"Claude Fable 5.2, written directly for this project",none claimed,,,,a-fiction-031,h-fiction-018,w1,
+a-fiction-032,ai,main,fiction,anti_ai,190,"Claude Fable 5.2, written directly for this project",none claimed,,,,a-fiction-032,h-fiction-012,w2,
+a-fiction-033,ai,main,fiction,anti_ai,273,"Claude Fable 5.2, written directly for this project",none claimed,,,,a-fiction-033,h-fiction-013,w3,
+a-fiction-034,ai,main,fiction,anti_ai,221,"Claude Fable 5.2, written directly for this project",none claimed,,,,a-fiction-034,h-fiction-045,w4,
+a-fiction-035,ai,main,fiction,casual,331,"Claude Fable 5.2, written directly for this project",none claimed,,,,a-fiction-035,h-fiction-033,w5,
+a-fiction-036,ai,main,fiction,casual,323,"Claude Fable 5.2, written directly for this project",none claimed,,,,a-fiction-036,h-fiction-006,w6,
+a-fiction-037,ai,main,fiction,casual,246,"Claude Fable 5.2, written directly for this project",none claimed,,,,a-fiction-037,h-fiction-001,w1,
+a-fiction-038,ai,main,fiction,casual,136,"Claude Fable 5.2, written directly for this project",none claimed,,,,a-fiction-038,h-fiction-037,w2,
+a-fiction-039,ai,main,fiction,casual,104,"Claude Fable 5.2, written directly for this project",none claimed,,,,a-fiction-039,h-fiction-028,w3,
+a-fiction-040,ai,main,fiction,casual,195,"Claude Fable 5.2, written directly for this project",none claimed,,,,a-fiction-040,h-fiction-047,w4,
+a-fiction-041,ai,main,fiction,casual,207,"Claude Fable 5.2, written directly for this project",none claimed,,,,a-fiction-041,h-fiction-039,w5,
+a-fiction-042,ai,main,fiction,casual,287,"Claude Fable 5.2, written directly for this project",none claimed,,,,a-fiction-042,h-fiction-014,w6,
+a-fiction-043,ai,main,fiction,paraphrase,320,"Claude Fable 5.2, written directly for this project",none claimed,,,,a-fiction-017,h-fiction-040,w0,
+a-fiction-044,ai,main,fiction,paraphrase,154,"Claude Fable 5.2, written directly for this project",none claimed,,,,a-fiction-018,h-fiction-024,w0,
+a-fiction-045,ai,main,fiction,paraphrase,293,"Claude Fable 5.2, written directly for this project",none claimed,,,,a-fiction-004,h-fiction-041,w0,
+a-fiction-046,ai,main,fiction,paraphrase,207,"Claude Fable 5.2, written directly for this project",none claimed,,,,a-fiction-015,h-fiction-029,w0,
+a-fiction-047,ai,main,fiction,paraphrase,289,"Claude Fable 5.2, written directly for this project",none claimed,,,,a-fiction-016,h-fiction-027,w0,
+a-fiction-048,ai,main,fiction,paraphrase,185,"Claude Fable 5.2, written directly for this project",none claimed,,,,a-fiction-010,h-fiction-046,w0,
+a-fiction-049,ai,main,fiction,paraphrase,137,"Claude Fable 5.2, written directly for this project",none claimed,,,,a-fiction-013,h-fiction-023,w0,
+a-fiction-050,ai,main,fiction,paraphrase,291,"Claude Fable 5.2, written directly for this project",none claimed,,,,a-fiction-009,h-fiction-025,w0,
+a-forum-001,ai,main,forum,plain,215,"Claude Fable 5.2, written directly for this project",none claimed,,,,a-forum-001,h-forum-017,w1,
+a-forum-002,ai,main,forum,plain,149,"Claude Fable 5.2, written directly for this project",none claimed,,,,a-forum-002,h-forum-008,w2,
+a-forum-003,ai,main,forum,plain,142,"Claude Fable 5.2, written directly for this project",none claimed,,,,a-forum-003,h-forum-019,w3,
+a-forum-004,ai,main,forum,plain,157,"Claude Fable 5.2, written directly for this project",none claimed,,,,a-forum-004,h-forum-016,w4,
+a-forum-005,ai,main,forum,plain,228,"Claude Fable 5.2, written directly for this project",none claimed,,,,a-forum-005,h-forum-020,w5,
+a-forum-006,ai,main,forum,plain,164,"Claude Fable 5.2, written directly for this project",none claimed,,,,a-forum-006,h-forum-030,w6,
+a-forum-007,ai,main,forum,plain,158,"Claude Fable 5.2, written directly for this project",none claimed,,,,a-forum-007,h-forum-027,w1,
+a-forum-008,ai,main,forum,plain,112,"Claude Fable 5.2, written directly for this project",none claimed,,,,a-forum-008,h-forum-043,w2,
+a-forum-009,ai,main,forum,plain,100,"Claude Fable 5.2, written directly for this project",none claimed,,,,a-forum-009,h-forum-025,w3,
+a-forum-010,ai,main,forum,plain,124,"Claude Fable 5.2, written directly for this project",none claimed,,,,a-forum-010,h-forum-007,w4,
+a-forum-011,ai,main,forum,plain,112,"Claude Fable 5.2, written directly for this project",none claimed,,,,a-forum-011,h-forum-023,w5,
+a-forum-012,ai,main,forum,plain,139,"Claude Fable 5.2, written directly for this project",none claimed,,,,a-forum-012,h-forum-026,w6,
+a-forum-013,ai,main,forum,plain,228,"Claude Fable 5.2, written directly for this project",none claimed,,,,a-forum-013,h-forum-041,w1,
+a-forum-014,ai,main,forum,plain,113,"Claude Fable 5.2, written directly for this project",none claimed,,,,a-forum-014,h-forum-034,w2,
+a-forum-015,ai,main,forum,plain,86,"Claude Fable 5.2, written directly for this project",none claimed,,,,a-forum-015,h-forum-033,w3,
+a-forum-016,ai,main,forum,plain,319,"Claude Fable 5.2, written directly for this project",none claimed,,,,a-forum-016,h-forum-015,w4,
+a-forum-017,ai,main,forum,plain,213,"Claude Fable 5.2, written directly for this project",none claimed,,,,a-forum-017,h-forum-011,w5,
+a-forum-018,ai,main,forum,plain,115,"Claude Fable 5.2, written directly for this project",none claimed,,,,a-forum-018,h-forum-037,w6,
+a-forum-019,ai,main,forum,student,245,"Claude Fable 5.2, written directly for this project",none claimed,,,,a-forum-019,h-forum-050,w1,
+a-forum-020,ai,main,forum,student,189,"Claude Fable 5.2, written directly for this project",none claimed,,,,a-forum-020,h-forum-010,w2,
+a-forum-021,ai,main,forum,student,104,"Claude Fable 5.2, written directly for this project",none claimed,,,,a-forum-021,h-forum-005,w3,
+a-forum-022,ai,main,forum,student,162,"Claude Fable 5.2, written directly for this project",none claimed,,,,a-forum-022,h-forum-002,w4,
+a-forum-023,ai,main,forum,student,170,"Claude Fable 5.2, written directly for this project",none claimed,,,,a-forum-023,h-forum-029,w5,
+a-forum-024,ai,main,forum,student,103,"Claude Fable 5.2, written directly for this project",none claimed,,,,a-forum-024,h-forum-039,w6,
+a-forum-025,ai,main,forum,student,174,"Claude Fable 5.2, written directly for this project",none claimed,,,,a-forum-025,h-forum-046,w1,
+a-forum-026,ai,main,forum,student,112,"Claude Fable 5.2, written directly for this project",none claimed,,,,a-forum-026,h-forum-006,w2,
+a-forum-027,ai,main,forum,anti_ai,138,"Claude Fable 5.2, written directly for this project",none claimed,,,,a-forum-027,h-forum-036,w3,
+a-forum-028,ai,main,forum,anti_ai,212,"Claude Fable 5.2, written directly for this project",none claimed,,,,a-forum-028,h-forum-048,w4,
+a-forum-029,ai,main,forum,anti_ai,166,"Claude Fable 5.2, written directly for this project",none claimed,,,,a-forum-029,h-forum-047,w5,
+a-forum-030,ai,main,forum,anti_ai,144,"Claude Fable 5.2, written directly for this project",none claimed,,,,a-forum-030,h-forum-001,w6,
+a-forum-031,ai,main,forum,anti_ai,169,"Claude Fable 5.2, written directly for this project",none claimed,,,,a-forum-031,h-forum-012,w1,
+a-forum-032,ai,main,forum,anti_ai,170,"Claude Fable 5.2, written directly for this project",none claimed,,,,a-forum-032,h-forum-031,w2,
+a-forum-033,ai,main,forum,anti_ai,307,"Claude Fable 5.2, written directly for this project",none claimed,,,,a-forum-033,h-forum-035,w3,
+a-forum-034,ai,main,forum,anti_ai,167,"Claude Fable 5.2, written directly for this project",none claimed,,,,a-forum-034,h-forum-042,w4,
+a-forum-035,ai,main,forum,casual,277,"Claude Fable 5.2, written directly for this project",none claimed,,,,a-forum-035,h-forum-045,w5,
+a-forum-036,ai,main,forum,casual,92,"Claude Fable 5.2, written directly for this project",none claimed,,,,a-forum-036,h-forum-038,w6,
+a-forum-037,ai,main,forum,casual,207,"Claude Fable 5.2, written directly for this project",none claimed,,,,a-forum-037,h-forum-022,w1,
+a-forum-038,ai,main,forum,casual,149,"Claude Fable 5.2, written directly for this project",none claimed,,,,a-forum-038,h-forum-009,w2,
+a-forum-039,ai,main,forum,casual,122,"Claude Fable 5.2, written directly for this project",none claimed,,,,a-forum-039,h-forum-040,w3,
+a-forum-040,ai,main,forum,casual,156,"Claude Fable 5.2, written directly for this project",none claimed,,,,a-forum-040,h-forum-024,w4,
+a-forum-041,ai,main,forum,casual,172,"Claude Fable 5.2, written directly for this project",none claimed,,,,a-forum-041,h-forum-049,w5,
+a-forum-042,ai,main,forum,casual,178,"Claude Fable 5.2, written directly for this project",none claimed,,,,a-forum-042,h-forum-044,w6,
+a-forum-043,ai,main,forum,paraphrase,228,"Claude Fable 5.2, written directly for this project",none claimed,,,,a-forum-001,h-forum-017,w0,
+a-forum-044,ai,main,forum,paraphrase,137,"Claude Fable 5.2, written directly for this project",none claimed,,,,a-forum-003,h-forum-019,w0,
+a-forum-045,ai,main,forum,paraphrase,147,"Claude Fable 5.2, written directly for this project",none claimed,,,,a-forum-004,h-forum-016,w0,
+a-forum-046,ai,main,forum,paraphrase,232,"Claude Fable 5.2, written directly for this project",none claimed,,,,a-forum-005,h-forum-020,w0,
+a-forum-047,ai,main,forum,paraphrase,109,"Claude Fable 5.2, written directly for this project",none claimed,,,,a-forum-014,h-forum-034,w0,
+a-forum-048,ai,main,forum,paraphrase,145,"Claude Fable 5.2, written directly for this project",none claimed,,,,a-forum-002,h-forum-008,w0,
+a-forum-049,ai,main,forum,paraphrase,108,"Claude Fable 5.2, written directly for this project",none claimed,,,,a-forum-008,h-forum-043,w0,
+a-forum-050,ai,main,forum,paraphrase,108,"Claude Fable 5.2, written directly for this project",none claimed,,,,a-forum-018,h-forum-037,w0,
+a-student-001,ai,main,student,plain,219,"Claude Fable 5.2, written directly for this project",none claimed,,,,a-student-001,h-student-034,w1,
+a-student-002,ai,main,student,plain,200,"Claude Fable 5.2, written directly for this project",none claimed,,,,a-student-002,h-student-044,w2,
+a-student-003,ai,main,student,plain,324,"Claude Fable 5.2, written directly for this project",none claimed,,,,a-student-003,h-student-029,w3,
+a-student-004,ai,main,student,plain,109,"Claude Fable 5.2, written directly for this project",none claimed,,,,a-student-004,h-student-017,w4,
+a-student-005,ai,main,student,plain,228,"Claude Fable 5.2, written directly for this project",none claimed,,,,a-student-005,h-student-019,w5,
+a-student-006,ai,main,student,plain,215,"Claude Fable 5.2, written directly for this project",none claimed,,,,a-student-006,h-student-015,w6,
+a-student-007,ai,main,student,plain,235,"Claude Fable 5.2, written directly for this project",none claimed,,,,a-student-007,h-student-021,w1,
+a-student-008,ai,main,student,plain,132,"Claude Fable 5.2, written directly for this project",none claimed,,,,a-student-008,h-student-047,w2,
+a-student-009,ai,main,student,plain,286,"Claude Fable 5.2, written directly for this project",none claimed,,,,a-student-009,h-student-005,w3,
+a-student-010,ai,main,student,plain,285,"Claude Fable 5.2, written directly for this project",none claimed,,,,a-student-010,h-student-040,w4,
+a-student-011,ai,main,student,plain,148,"Claude Fable 5.2, written directly for this project",none claimed,,,,a-student-011,h-student-027,w5,
+a-student-012,ai,main,student,plain,158,"Claude Fable 5.2, written directly for this project",none claimed,,,,a-student-012,h-student-026,w6,
+a-student-013,ai,main,student,plain,332,"Claude Fable 5.2, written directly for this project",none claimed,,,,a-student-013,h-student-009,w1,
+a-student-014,ai,main,student,plain,304,"Claude Fable 5.2, written directly for this project",none claimed,,,,a-student-014,h-student-046,w2,
+a-student-015,ai,main,student,plain,324,"Claude Fable 5.2, written directly for this project",none claimed,,,,a-student-015,h-student-022,w3,
+a-student-016,ai,main,student,plain,120,"Claude Fable 5.2, written directly for this project",none claimed,,,,a-student-016,h-student-006,w4,
+a-student-017,ai,main,student,plain,213,"Claude Fable 5.2, written directly for this project",none claimed,,,,a-student-017,h-student-018,w5,
+a-student-018,ai,main,student,plain,218,"Claude Fable 5.2, written directly for this project",none claimed,,,,a-student-018,h-student-001,w6,
+a-student-019,ai,main,student,student,355,"Claude Fable 5.2, written directly for this project",none claimed,,,,a-student-019,h-student-038,w1,
+a-student-020,ai,main,student,student,163,"Claude Fable 5.2, written directly for this project",none claimed,,,,a-student-020,h-student-010,w2,
+a-student-021,ai,main,student,student,224,"Claude Fable 5.2, written directly for this project",none claimed,,,,a-student-021,h-student-014,w3,
+a-student-022,ai,main,student,student,335,"Claude Fable 5.2, written directly for this project",none claimed,,,,a-student-022,h-student-032,w4,
+a-student-023,ai,main,student,student,142,"Claude Fable 5.2, written directly for this project",none claimed,,,,a-student-023,h-student-002,w5,
+a-student-024,ai,main,student,student,112,"Claude Fable 5.2, written directly for this project",none claimed,,,,a-student-024,h-student-013,w6,
+a-student-025,ai,main,student,student,105,"Claude Fable 5.2, written directly for this project",none claimed,,,,a-student-025,h-student-042,w1,
+a-student-026,ai,main,student,student,282,"Claude Fable 5.2, written directly for this project",none claimed,,,,a-student-026,h-student-012,w2,
+a-student-027,ai,main,student,anti_ai,170,"Claude Fable 5.2, written directly for this project",none claimed,,,,a-student-027,h-student-043,w3,
+a-student-028,ai,main,student,anti_ai,283,"Claude Fable 5.2, written directly for this project",none claimed,,,,a-student-028,h-student-025,w4,
+a-student-029,ai,main,student,anti_ai,229,"Claude Fable 5.2, written directly for this project",none claimed,,,,a-student-029,h-student-030,w5,
+a-student-030,ai,main,student,anti_ai,151,"Claude Fable 5.2, written directly for this project",none claimed,,,,a-student-030,h-student-049,w6,
+a-student-031,ai,main,student,anti_ai,306,"Claude Fable 5.2, written directly for this project",none claimed,,,,a-student-031,h-student-041,w1,
+a-student-032,ai,main,student,anti_ai,181,"Claude Fable 5.2, written directly for this project",none claimed,,,,a-student-032,h-student-033,w2,
+a-student-033,ai,main,student,anti_ai,288,"Claude Fable 5.2, written directly for this project",none claimed,,,,a-student-033,h-student-004,w3,
+a-student-034,ai,main,student,anti_ai,131,"Claude Fable 5.2, written directly for this project",none claimed,,,,a-student-034,h-student-028,w4,
+a-student-035,ai,main,student,casual,288,"Claude Fable 5.2, written directly for this project",none claimed,,,,a-student-035,h-student-035,w5,
+a-student-036,ai,main,student,casual,187,"Claude Fable 5.2, written directly for this project",none claimed,,,,a-student-036,h-student-050,w6,
+a-student-037,ai,main,student,casual,160,"Claude Fable 5.2, written directly for this project",none claimed,,,,a-student-037,h-student-016,w1,
+a-student-038,ai,main,student,casual,174,"Claude Fable 5.2, written directly for this project",none claimed,,,,a-student-038,h-student-007,w2,
+a-student-039,ai,main,student,casual,195,"Claude Fable 5.2, written directly for this project",none claimed,,,,a-student-039,h-student-037,w3,
+a-student-040,ai,main,student,casual,230,"Claude Fable 5.2, written directly for this project",none claimed,,,,a-student-040,h-student-023,w4,
+a-student-041,ai,main,student,casual,220,"Claude Fable 5.2, written directly for this project",none claimed,,,,a-student-041,h-student-048,w5,
+a-student-042,ai,main,student,casual,310,"Claude Fable 5.2, written directly for this project",none claimed,,,,a-student-042,h-student-031,w6,
+a-student-043,ai,main,student,paraphrase,139,"Claude Fable 5.2, written directly for this project",none claimed,,,,a-student-011,h-student-027,w0,
+a-student-044,ai,main,student,paraphrase,212,"Claude Fable 5.2, written directly for this project",none claimed,,,,a-student-007,h-student-021,w0,
+a-student-045,ai,main,student,paraphrase,293,"Claude Fable 5.2, written directly for this project",none claimed,,,,a-student-013,h-student-009,w0,
+a-student-046,ai,main,student,paraphrase,212,"Claude Fable 5.2, written directly for this project",none claimed,,,,a-student-005,h-student-019,w0,
+a-student-047,ai,main,student,paraphrase,205,"Claude Fable 5.2, written directly for this project",none claimed,,,,a-student-006,h-student-015,w0,
+a-student-048,ai,main,student,paraphrase,292,"Claude Fable 5.2, written directly for this project",none claimed,,,,a-student-014,h-student-046,w0,
+a-student-049,ai,main,student,paraphrase,199,"Claude Fable 5.2, written directly for this project",none claimed,,,,a-student-017,h-student-018,w0,
+a-student-050,ai,main,student,paraphrase,266,"Claude Fable 5.2, written directly for this project",none claimed,,,,a-student-009,h-student-005,w0,
+a-imitation-001,ai,imitation_probe,student,imitation,222,"Claude Fable 5.2, written directly for this project",none claimed,,,,a-imitation-001,h-imitation_probe-001,w1,
+a-imitation-002,ai,imitation_probe,student,imitation,140,"Claude Fable 5.2, written directly for this project",none claimed,,,,a-imitation-002,h-imitation_probe-002,w2,
+a-imitation-003,ai,imitation_probe,student,imitation,149,"Claude Fable 5.2, written directly for this project",none claimed,,,,a-imitation-003,h-imitation_probe-003,w3,
+a-imitation-004,ai,imitation_probe,student,imitation,127,"Claude Fable 5.2, written directly for this project",none claimed,,,,a-imitation-004,h-imitation_probe-004,w4,
+a-imitation-005,ai,imitation_probe,student,imitation,228,"Claude Fable 5.2, written directly for this project",none claimed,,,,a-imitation-005,h-imitation_probe-005,w5,
+a-imitation-006,ai,imitation_probe,student,imitation,246,"Claude Fable 5.2, written directly for this project",none claimed,,,,a-imitation-006,h-imitation_probe-006,w6,
+a-imitation-007,ai,imitation_probe,student,imitation,201,"Claude Fable 5.2, written directly for this project",none claimed,,,,a-imitation-007,h-imitation_probe-007,w1,
+a-imitation-008,ai,imitation_probe,student,imitation,284,"Claude Fable 5.2, written directly for this project",none claimed,,,,a-imitation-008,h-imitation_probe-008,w2,
+a-imitation-009,ai,imitation_probe,student,imitation,195,"Claude Fable 5.2, written directly for this project",none claimed,,,,a-imitation-009,h-imitation_probe-009,w3,
+a-imitation-010,ai,imitation_probe,student,imitation,217,"Claude Fable 5.2, written directly for this project",none claimed,,,,a-imitation-010,h-imitation_probe-010,w4,
+a-imitation-011,ai,imitation_probe,student,imitation,229,"Claude Fable 5.2, written directly for this project",none claimed,,,,a-imitation-011,h-imitation_probe-011,w5,
+a-imitation-012,ai,imitation_probe,student,imitation,350,"Claude Fable 5.2, written directly for this project",none claimed,,,,a-imitation-012,h-imitation_probe-012,w6,
+a-imitation-013,ai,imitation_probe,student,imitation,199,"Claude Fable 5.2, written directly for this project",none claimed,,,,a-imitation-013,h-imitation_probe-013,w1,
+a-imitation-014,ai,imitation_probe,student,imitation,175,"Claude Fable 5.2, written directly for this project",none claimed,,,,a-imitation-014,h-imitation_probe-014,w2,
+a-imitation-015,ai,imitation_probe,student,imitation,199,"Claude Fable 5.2, written directly for this project",none claimed,,,,a-imitation-015,h-imitation_probe-015,w3,
+a-imitation-016,ai,imitation_probe,student,imitation,191,"Claude Fable 5.2, written directly for this project",none claimed,,,,a-imitation-016,h-imitation_probe-016,w4,
+a-imitation-017,ai,imitation_probe,student,imitation,170,"Claude Fable 5.2, written directly for this project",none claimed,,,,a-imitation-017,h-imitation_probe-017,w5,
+a-imitation-018,ai,imitation_probe,student,imitation,139,"Claude Fable 5.2, written directly for this project",none claimed,,,,a-imitation-018,h-imitation_probe-018,w6,
+a-imitation-019,ai,imitation_probe,student,imitation,171,"Claude Fable 5.2, written directly for this project",none claimed,,,,a-imitation-019,h-imitation_probe-019,w1,
+a-imitation-020,ai,imitation_probe,student,imitation,342,"Claude Fable 5.2, written directly for this project",none claimed,,,,a-imitation-020,h-imitation_probe-020,w2,
+a-imitation-021,ai,imitation_probe,student,imitation,256,"Claude Fable 5.2, written directly for this project",none claimed,,,,a-imitation-021,h-imitation_probe-021,w3,
+a-imitation-022,ai,imitation_probe,student,imitation,231,"Claude Fable 5.2, written directly for this project",none claimed,,,,a-imitation-022,h-imitation_probe-022,w4,
+a-imitation-023,ai,imitation_probe,student,imitation,180,"Claude Fable 5.2, written directly for this project",none claimed,,,,a-imitation-023,h-imitation_probe-023,w5,
+a-imitation-024,ai,imitation_probe,student,imitation,261,"Claude Fable 5.2, written directly for this project",none claimed,,,,a-imitation-024,h-imitation_probe-024,w6,
+a-imitation-025,ai,imitation_probe,student,imitation,338,"Claude Fable 5.2, written directly for this project",none claimed,,,,a-imitation-025,h-imitation_probe-025,w1,
+a-imitation-026,ai,imitation_probe,student,imitation,245,"Claude Fable 5.2, written directly for this project",none claimed,,,,a-imitation-026,h-imitation_probe-026,w2,
+a-imitation-027,ai,imitation_probe,student,imitation,304,"Claude Fable 5.2, written directly for this project",none claimed,,,,a-imitation-027,h-imitation_probe-027,w3,
+a-imitation-028,ai,imitation_probe,student,imitation,217,"Claude Fable 5.2, written directly for this project",none claimed,,,,a-imitation-028,h-imitation_probe-028,w4,
+a-imitation-029,ai,imitation_probe,student,imitation,147,"Claude Fable 5.2, written directly for this project",none claimed,,,,a-imitation-029,h-imitation_probe-029,w5,
+a-imitation-030,ai,imitation_probe,student,imitation,120,"Claude Fable 5.2, written directly for this project",none claimed,,,,a-imitation-030,h-imitation_probe-030,w6,

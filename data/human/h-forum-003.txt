@@ -1,0 +1,13 @@
+Transactions don't have to use real money. An alternative to real money is to use some sort of tokens (this is often called the "token system") - poker chips work well for this (they have denominations, are colourful, cheap, and look roughly like coins), but you can use anything really.
+
+Advantages over real money are that you control the price of rewards, and what rewards are possible.
+
+Rather than having real money to spend on things, you can spend tokens on things that money can't buy: an extra story at bedtime, a walk to the park, and so on. Young kids are happy with these rewards, and they don't really cost you anything (the extra story or walk is probably as enjoyable for you as the kid). Things that really cost money generally require a lot of tokens.
+
+A good practice for the tokens may be to only give tokens for chores or behavior that helps the household, not personal tasks or behavior such as cleaning their own room or sleeping in their own bed. The tokens should never have a cash value. They should only be for extra privileges (sleeping in parents bed) other non-tangibles.
+
+As the sleeping-in-own-bed issue is resolved, the number of tokens gained can be reduced (or the cost of rewards can be increased) until the token doesn't really gain anything. (In real life, prices do increase, so this doesn't teach false financial lessons). This makes it easier to wean the kid off rewards for each behaviour.
+
+Alternatively, something that I do is to require increasingly good behaviour for the same number of tokens. For example, when toilet training if there were no accidents for one day, that was one token. Once that was achieved, no accidents for two days in a row gained one token; then three days in a row, and so forth.
+
+(I used the Fibonacci sequence: 1,1,2,3,5,8,13,21... so that fairly quickly so many days are required that it's just normal behaviour and no-one remembers about the reward, plus we get to learn about interesting sequences of numbers).

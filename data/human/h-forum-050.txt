@@ -1,0 +1,7 @@
+First, some historical perspective: Francis Sowerby Macaulay and Hermann Schubert, two mathematicians from the late 19th century whose names you still hear repeatedly these days if you come anywhere near algebraic geometry, both taught high school.
+
+Second, a counting perspective: Research university professors probably average a doctoral student at least every five years, with some averaging more than one a year. This means every professor produces somewhere between 6 to 40 replacements over the course of their career. Assuming no change in the number of jobs, only one of those replacements will get a research university professorship.
+
+Third, a practical perspective: It's hard to imagine research in mathematics, especially but not only pure mathematics, having direct practical benefit to many people. That means the amount of funding purely for research tends to be rather small. Even at research universities, teaching is an important rationale for paying a professor's salary, and the benefits to teaching are an important justification for research.
+
+What happened between the 1950s and 1980s, particularly in the US, was an enormous expansion in higher education along with a massive increase in research funding. The US went from having about 5% of its 20-year-olds going to college to about 50%. Assuming a corresponding increase in the number of professors, this meant a professor could advise 10 PhD students and have every one of them get a job.
