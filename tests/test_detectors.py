@@ -3,7 +3,7 @@ import pytest
 
 torch = pytest.importorskip("torch")
 
-from statproject.detectors import binoculars_ratio, sampling_discrepancy
+from src.detectors import binoculars_ratio, sampling_discrepancy
 
 
 def test_sampling_discrepancy_by_hand():

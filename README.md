@@ -151,16 +151,6 @@ Only the two best supervised detectors can see the essays the original project r
 
 Word count alone gives an AUC of 0.53. The em-dash difference doesn't move any detector. AUC by writing session (each of the six sessions plus the paraphrases) ranges from 0.57 to 0.70 for Desklib and 0.50 to 0.64 for Fakespot, so no one writing session is carrying the results. Detector scores are only loosely related: the two zero-shot detectors built on the same model correlate at 0.65, but Desklib correlates with the others at between -0.10 and 0.34.
 
-## What didn't work
-
-Dropping Wikimedia: the collection was slow enough that I gave up on news, encyclopedia and speech text, which are genres detectors are often benchmarked on.
-
-Three of the six writing sessions were cut off by a usage limit. All their passages existed, but I couldn't get their reports, and one session's overlong passages needed trimming by hand.
-
-Binoculars is not Binoculars. The paper's models don't fit in 12 GB of GPU memory, so mine uses a pair of 1.5B Qwen models. It could be weaker than the published version for that reason alone, and I haven't tested it.
-
-I expected the detectors that were trained to resist paraphrasing to do better against paraphrased text. RADAR's score is below chance on everything I gave it, and I can't tell whether that is because Claude's writing is far from the Vicuna text it was trained on, or because its human training text (web pages) is far from forum answers, fiction and student essays.
-
 ## Limits
 
 There is one AI vendor, and the text comes from two of its recent models (Fable 5.2 for the 156 passages, Sonnet 5.5 for the 24 paraphrases) that were told to write in specific ways. Detectors tuned against other models may behave differently, and Claude's attempts at "sloppy" and "student" writing are its own interpretation. Six writing sessions of one model aren't six independent writers.

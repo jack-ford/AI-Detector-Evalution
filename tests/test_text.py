@@ -1,4 +1,4 @@
-from statproject.text import cut_passage, html_paragraphs, normalize, split_sentences
+from src.text import cut_passage, html_paragraphs, normalize, split_sentences
 
 
 def test_split_sentences_keeps_titles_and_initials_together():

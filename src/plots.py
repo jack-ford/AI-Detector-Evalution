@@ -50,8 +50,10 @@ def _style() -> None:
         "axes.edgecolor": INK_SECONDARY, "axes.linewidth": 0.6,
         "grid.color": GRID, "grid.linewidth": 0.6,
         "axes.spines.top": False, "axes.spines.right": False,
-        "font.size": 8, "axes.titlesize": 8.5, "axes.labelsize": 8,
-        "xtick.labelsize": 7.5, "ytick.labelsize": 7.5, "legend.fontsize": 7.5,
+        # STIX is bundled with matplotlib and matches the Times body text of the paper.
+        "font.family": "STIXGeneral", "mathtext.fontset": "stix",
+        "font.size": 9, "axes.titlesize": 9.5, "axes.labelsize": 9,
+        "xtick.labelsize": 8.5, "ytick.labelsize": 8.5, "legend.fontsize": 8.5,
         "legend.frameon": False, "pdf.fonttype": 42, "ps.fonttype": 42,
     })
 
@@ -220,7 +222,7 @@ def human_percentile_boxes(main: pd.DataFrame) -> None:
         Line2D([], [], marker="s", linestyle="", color=color, alpha=0.7, markersize=6, label=family)
         for family, color in FAMILY_COLOR.items()
     ]
-    fig.legend(handles=handles, loc="upper right", ncol=2, bbox_to_anchor=(1.0, 0.99), columnspacing=1.0)
+    fig.legend(handles=handles, loc="upper right", ncol=2, bbox_to_anchor=(1.0, -0.06), columnspacing=1.0)
     _save(fig, "fig3_human_percentile")
 
 

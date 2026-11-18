@@ -2,7 +2,7 @@ import numpy as np
 import pytest
 from scipy.stats import mannwhitneyu
 
-from statproject import stats
+from src import stats
 
 
 def test_auc_by_hand():
