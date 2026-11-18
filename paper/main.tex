@@ -36,7 +36,7 @@
 \title{Evaluating Open-Source AI-Text Detectors\\on Matched Human and AI Writing}
 
 \author{\IEEEauthorblockN{Jack Ford}
-\IEEEauthorblockA{\textit{Independent Researcherl}\\
+\IEEEauthorblockA{\textit{Independent Researcher}\\
 jackbarkerford@gmail.coom}}
 
 \maketitle
@@ -285,9 +285,6 @@ AUC by writing batch ranges from 0.57 to 0.70 for Desklib and from 0.50 to 0.64 
 \textit{Limitations.} All AI text comes from two models of one vendor, told to write in specific ways; their interpretation of ``sloppy'' and ``student'' is their own, and detectors tuned against other generators may behave differently. We cover three genres, with 150 passages per class and 24 per style, so style intervals are wide. We resample human and AI documents independently, which ignores the one-to-one matching. Percentile bootstrap intervals degrade when an estimate sits at zero (several catch rates are exactly 0\% with an interval of 0--0\%, meaning too small to measure). Holm correction is applied within each family of tests, and there are several families. PERSUADE's English-learner flag is coarse and self-reported, and its quality score runs from 1 to 6. We did not check publication years for each Gutenberg book. Our Binoculars is a smaller-model variant. Commercial detectors were out of scope, and nothing here says how they would do.
 
 \textit{Future work.} The clearest next step is to repeat the quality analysis with a larger essay corpus and finer quality ratings, since it points to a mechanism. Adding several generators, humanizing tools and more genres, and testing per-genre cutoff calibration, would show whether the evasion and transfer results hold beyond this setting.
-
-\section*{Statement on AI Assistance}
-The AI passages in the corpus were written by Claude models, as described in Section~\ref{sec:corpus}. Corpus, scores, result tables and code are available at \repo.
 
 \balance
 \begin{thebibliography}{99}
