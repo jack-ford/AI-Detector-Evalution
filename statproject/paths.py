@@ -9,12 +9,12 @@ SCORES_DIR = DATA / "scores"
 METADATA = DATA / "metadata.csv"
 ASSIGNMENTS = AI_DIR / "assignments.csv"
 
-LEGACY_ESSAYS = DATA / "legacy" / "essays"
-LEGACY_SAPLING_RAW = DATA / "legacy" / "sapling_raw"
-LEGACY_CHUNKS = DATA / "legacy" / "chunks.csv"
+REWRITE_ESSAYS = DATA / "rewrites" / "essays"
+REWRITE_CHUNKS = DATA / "rewrites" / "chunks.csv"
 
 RESULTS = ROOT / "results"
 TABLES = RESULTS / "tables"
+MANIFEST = RESULTS / "manifest.json"
 FIGURES = RESULTS / "figures"
 
 # Downloads that are too big or too boring to commit (Gutenberg catalog, PERSUADE csv).

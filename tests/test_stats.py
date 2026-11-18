@@ -162,3 +162,26 @@ def test_stratified_correlation_ignores_between_stratum_differences():
     assert stats.stratified_correlation_pvalue(x, y, strata, n_perm=999) > 0.05
     related = x + rng.normal(scale=0.5, size=120)
     assert stats.stratified_correlation_pvalue(x, related, strata, n_perm=999) < 0.01
+
+
+def test_stratified_group_pvalue_ignores_composition_but_finds_real_effects():
+    # Group A is concentrated in the high stratum, where scores are high for
+    # everyone. Pooled, A looks much higher; within strata there is no gap.
+    rng = np.random.default_rng(6)
+    strata = np.repeat([0, 1], 80)
+    in_group = np.concatenate([rng.random(80) < 0.15, rng.random(80) < 0.85])
+    noise = rng.normal(size=160)
+    scores = noise + 3 * strata
+
+    def pooled_gap(group):
+        return scores[group].mean() - scores[~group].mean()
+
+    def within_gap(values):
+        return lambda group: np.mean([
+            values[(strata == s) & group].mean() - values[(strata == s) & ~group].mean() for s in (0, 1)
+        ])
+
+    assert pooled_gap(in_group) > 1.5
+    assert stats.stratified_group_pvalue(within_gap(scores), in_group, strata, n_perm=999) > 0.05
+    shifted = noise + 3 * strata + 1.5 * in_group
+    assert stats.stratified_group_pvalue(within_gap(shifted), in_group, strata, n_perm=999) < 0.01

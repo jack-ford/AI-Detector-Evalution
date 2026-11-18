@@ -1,24 +1,14 @@
-# Can an AI detector spot AI writing?
+# Can free AI-text detectors catch AI writing?
 
-This started as a senior stats project about Sapling AI's detector. The first version took five student essays, had an AI rewrite them to different degrees, cut them into 100-word chunks, sent the chunks to Sapling, and then asked whether Sapling's score landed near the share of AI the essay was supposed to contain. That last part was the wrong question. A detector doesn't claim to measure a percentage, so testing it against one tells you little. The question that matters is simpler: given a piece of text, can the score tell human writing from AI writing, and what does it cost in wrongly accused humans?
+Nine open-source detectors, 300 matched human and AI passages, and one result that surprised me: a single sentence asking the AI to avoid sounding like AI took five of the six detectors that beat chance on plain AI text to worse than chance. The best detector I tested, Desklib's DeBERTa-v3-large, catches 28% of AI passages at a 5% false positive rate. Several others catch almost none. RADAR and the two 2019 GPT-2 detectors are not weak so much as backwards, scoring modern chatbot text as more human than real human text.
 
-The rebuilt project asks only that. It also has a problem the old one couldn't escape: Sapling's API costs money, so Sapling was never run on anything new. Its 119 original scores are a fixed dataset, and everything else here uses free detectors that run on a laptop GPU.
-
-The short version is that the free detectors do much worse than I expected, and the original Sapling results are not as flattering as the old README said.
-
-## What was wrong with the first version
-
-Reading the old code turned up a few real problems. `analysis.py` read from a folder (`stat_results`) that didn't exist, while the data was in `detection_results`. The condition check for the z-test had an operator-precedence bug (`not (a) and (b)` where `not (a and b)` was meant). The docstring in `detection.py` said Winston while the code called Sapling. The z-tests treated six chunks from one essay as six independent observations, which overstates the evidence, and with five essays the whole thing was fragile anyway. Compiled `__pycache__` files were committed. Results were saved as Python dict reprs and read back with `ast.literal_eval`.
-
-The old README concluded that Sapling could tell, with statistical significance, whether an essay was fully generated or heavily edited. The old tables did show the other side (only a third of the human chunks were classed correctly), but the writeup leaned on the AI half. Two thirds of the human chunks got flagged, and that deserved more than a footnote.
-
-`detection.py` was also the only code that talked to Sapling, and it skipped cached results by checking the wrong directory, so running it twice would have re-sent every chunk. It's deleted. Nothing in this repo can call Sapling now.
+The project started as a senior stats project: five student essays, rewritten by an AI at different degrees, cut into 100-word chunks and scored by a detector. It asked whether the detector's score matched the percentage of AI the essay was supposed to contain, which is the wrong question, since detectors don't claim to measure a percentage. The version here asks only whether the score can tell human writing from AI writing, and what that costs in wrongly accused humans. The first version's code went with the old question (it also had a few bugs: a wrong data directory, an operator-precedence mistake in a validity check, and six chunks of one essay treated as six independent observations). It's in the git history if you want it.
 
 ## How the data was built
 
-Human text comes from three open sources, all written before 2021 so that no model could have touched it: Stack Exchange answers (CC BY-SA), public-domain fiction from Project Gutenberg, and PERSUADE 2.0, a corpus of essays by US students in grades 6 to 12 (CC BY 4.0). I took 50 passages from each, 80 to 400 words, cut at sentence boundaries. Source, license, URL and date for every passage are in `data/metadata.csv`. I had planned news, encyclopedia and speech genres from Wikimedia too, but Wikimedia limits scripts without contact details to 10 requests a minute and that collection was crawling, so I dropped it. That leaves three genres, which is thinner than I wanted.
+Human text comes from three open sources, all written before 2021 so that no chatbot could have touched it: Stack Exchange answers (CC BY-SA), public-domain fiction from Project Gutenberg, and PERSUADE 2.0, a corpus of essays by US students in grades 6 to 12 (CC BY 4.0). I took 50 passages from each (plus extra student essays for two side checks), roughly 80 to 380 words, cut at sentence boundaries. Source, license, URL and date for every passage are in `data/metadata.csv`. I had planned news, encyclopedia and speech genres from Wikimedia too, but Wikimedia limits scripts without contact details to 10 requests a minute and the collection was crawling, so I dropped it. Three genres is thinner than I wanted.
 
-AI text was written directly by Claude (Anthropic's model, Fable 5.2, the model running this session). No API, no local model and no script produced any of it. Each of the 180 passages is a file a model wrote by hand after reading an instruction. The 156 non-paraphrase passages were written in six parallel writing sessions, each given the same instructions, about 26 passages each; the 24 paraphrases were written afterwards in the main session. Three of the six sessions hit a usage limit and were cut off after saving all their files but before reporting back. I checked their lengths and shortened six overlong passages from one of them by deleting sentences by hand. I can't vouch for what those three sessions did beyond what the files show. The exact instruction for every passage is in `data/ai/assignments.csv`.
+AI text was written directly by Claude (Anthropic's model, Fable 5.2, the model running this session). No API, no local model and no script produced any of it; each of the 180 passages is a file the model wrote by hand after reading an instruction. The 156 non-paraphrase passages were written in six parallel writing sessions of about 26 passages each, and the 24 paraphrases were written afterwards in the main session. Three of the six sessions hit a usage limit after saving all their files but before reporting back. I checked their lengths and shortened six overlong passages from one of them by deleting sentences by hand, so I can't vouch for what those three sessions did beyond what the files show. The exact instruction for every passage is in `data/ai/assignments.csv`.
 
 Each AI passage is tied to a specific human passage, its twin, and was asked to match that passage's subject, length, and position in its document (the opening of a forum answer, the middle of a chapter) without reusing its wording. The instruction came in five flavors, and the point of those is to make the hard cases hard:
 
@@ -30,161 +20,175 @@ Each AI passage is tied to a specific human passage, its twin, and was asked to 
 | casual | write fast and sloppy, typos and run-ons included | 24 |
 | paraphrase | reword an earlier plain passage, same content and length | 24 |
 
-Length and genre are controlled by construction. Every AI passage was written to its twin's word count, and came out between 0.92 and 1.10 times its target (mean ratio by style from 0.99 to 1.05, `results/tables/length_match.csv`). Word count alone separates the two groups with an AUC of 0.53 (95% interval 0.46 to 0.60), so length isn't what any detector is picking up. One leftover difference: 62% of the human fiction passages contain an em dash (Gutenberg writes them as double hyphens, which I converted) against 8% of the AI fiction passages. I checked whether the detectors care, and they don't detectably: among human fiction passages, those with and without a dash score about the same (AUC of 0.49 for Fakespot, interval 0.31 to 0.65).
-
-The corpus:
+Length and genre are controlled by construction. Every AI passage was written to its twin's word count and came out between 0.92 and 1.10 times its target (`results/tables/length_match.csv`). Word count alone separates the two groups with an AUC of 0.53 (95% interval 0.46 to 0.60), so length isn't what any detector is picking up. One leftover difference: 62% of the human fiction passages contain an em dash (Gutenberg writes them as double hyphens, which I converted) against 8% of the AI fiction passages. No detector's scores differ detectably between human fiction passages with and without one (every interval includes 0.5).
 
 | Set | Human | AI | Used for |
 |---|---|---|---|
-| main | 150 (50 forum, 50 fiction, 50 student) | 150 (50 per genre) | everything except the two below |
-| English-learner probe | 100 | none | do detectors flag non-native writers? |
-| imitation probe | 30 real student essays | 30 AI imitations, one per essay | can the AI imitate a specific student? |
+| main | 150 (50 forum, 50 fiction, 50 student) | 150 (50 per genre) | nearly everything |
+| English-learner probe | 100 student essays | none | do detectors flag non-native writers? |
+| imitation probe | 30 student essays | 30 AI imitations, one per essay | can the AI imitate a specific student? |
+| essay rewrites | 5 student newspaper essays | the same 5 rewritten by an AI at 25%, 75% and 100% | does detection track the share of AI? |
 
-The original five essays and their Sapling scores are kept as a separate labeled subset: 30 human chunks, 30 fully-AI chunks, and 59 chunks from the "25%" and "75%" hybrid versions. The hybrids have no clean label, so they only appear in one clearly marked side analysis.
+The essay-rewrite set is the original project's data: 118 chunks of about 100 words. Its human essays were written in 2024, after chatbots were widely available, so their label is the authors' word and not a date. The 25% and 75% versions are hybrids with no clean label, so they only appear in one analysis that doesn't need one.
+
+## The detectors
+
+All free, all run locally on a laptop GPU, none used to write any text. Every score is oriented so that higher means more AI-like.
+
+| Detector | Type, year | Notes |
+|---|---|---|
+| Desklib DeBERTa-v3-large | supervised, 2025 | fine-tuned on the RAID benchmark; MIT license |
+| Fakespot RoBERTa-base | supervised, 2025 | trained on recent chat-model output; Apache-2.0 |
+| RADAR RoBERTa-large | supervised, 2023 | trained against a paraphraser, on Vicuna-7B text; non-commercial license |
+| HC3 RoBERTa-base | supervised, 2023 | trained on ChatGPT answers (the HC3 corpus); license not stated |
+| OpenAI RoBERTa-large and -base | supervised, 2019 | trained on GPT-2 output; MIT; kept as dated baselines |
+| Binoculars | zero-shot, 2024 | my implementation with a Qwen2.5-1.5B and Qwen2.5-1.5B-Instruct pair, not the paper's Falcon-7B pair, which won't fit on this GPU |
+| Fast-DetectGPT | zero-shot, 2024 | scored with GPT-Neo-2.7B |
+| Log-likelihood | zero-shot, 2019 | the classic perplexity detector, same model |
+
+I checked the label direction for every classifier against its authors' own code, because RADAR's result below is extreme enough that a flipped label would be an obvious suspect. RADAR's own hosted demo computes the probability of AI text from output index 0, which is what I use. OpenAI's server code unpacks its output as (fake, real). The two zero-shot formulas are tested against hand calculations in `tests/`. Model commit hashes are in `data/scores/models.json`.
 
 ## What was measured
 
-Every detector gives a score where higher means more AI-like. I treat it as a ranking and ask how well the ranking separates the two groups, since a detector's absolute scale tells you nothing about whether it works.
+Every detector produces a score, and I treat it as a ranking: how well does it separate the two groups, regardless of what the number means? The main metric is ROC-AUC, the chance that a random AI passage outscores a random human one. 0.5 is a coin flip, 1.0 is perfect, and below 0.5 means the detector is backwards.
 
-The main number is ROC-AUC: the chance that a random AI passage scores above a random human one. 0.5 is a coin flip and 1.0 is perfect. Below 0.5 means the detector is backwards.
+The number that matters in practice is the share of AI text caught at a fixed false positive rate. Accusing a human is the expensive mistake, so I set the cutoff to allow 1% or 5% of human passages through and report what share of AI passages exceed it. Where a detector outputs something shaped like a probability, I also report what a 0.5 cutoff does.
 
-The number that matters in practice is the true positive rate at a fixed false positive rate. Accusing a human of using AI is the expensive mistake, so I fix the false positive rate at 1% or 5% (by choosing the cutoff from the human scores) and report what share of AI text gets caught. A detector that's only good at a 50% false positive rate is useless for the job.
-
-The plain binary hit rate at a 0.5 cutoff appears once, for the three detectors that output something shaped like a probability. It's reported with an interval but nothing is built on it.
-
-All intervals are 95% bootstrap intervals that resample whole source documents, not passages: chunks of one essay move together, and a paraphrase moves with the passage it paraphrases. Human and AI documents are resampled separately so group sizes stay fixed. The p-values come from permutation tests that shuffle group labels between documents, or, for paraphrases against their sources, an exact or Monte Carlo sign-flip test. Within each family of tests I adjust with Holm's method. The statistics are in `statproject/stats.py` and are tested against hand-computed cases in `tests/`.
-
-The local detectors, used only to score text:
-
-- RoBERTa (Fakespot, 2025): a fine-tuned RoBERTa classifier trained on output from recent chat models.
-- RoBERTa (OpenAI, 2019): OpenAI's GPT-2 era detector, kept as a dated baseline. I confirmed against OpenAI's own server code that class 0 is "fake", so the score really is P(AI).
-- Fast-DetectGPT: a zero-shot method that asks whether text is unusually probable compared with what the scoring model, GPT-Neo 2.7B, would typically write. My implementation of the formula is tested against hand calculations and against a simulation where text sampled from the model should score like a standard normal.
-- Log-likelihood: the classic average token log-probability under the same model, the old "perplexity detector."
+All intervals are 95% bootstrap intervals that resample whole source documents, not passages: a paraphrase moves with the passage it paraphrases, and the five rewrite essays resample as five units. Human and AI documents are resampled separately so group sizes stay fixed. P-values come from permutation tests that shuffle group labels between documents, or from a paired sign-flip test for paraphrases against their sources, and I adjust with Holm's method within each family of tests. The statistics are in `statproject/stats.py` and tested against hand-computed cases in `tests/`.
 
 ## Results
 
-### Sapling on the original essays
+### Overall
 
-This is the only data Sapling saw, and it's 5 essays.
+![Overview](results/figures/fig1_overview.png)
 
-| | Sapling |
-|---|---|
-| AUC, human vs fully-AI chunks | 0.85 (0.75 to 0.95) |
-| AI chunks caught at 5% false positives | 47% (20% to 80%) |
-| AI chunks caught at 1% false positives | 27% (13% to 77%) |
-| Flagged at the 0.5 cutoff | 100% of AI chunks, 67% of human chunks |
-| Hit rate at 0.5 | 67% (53% to 80%) |
+*Figure 1. Nine detectors on 150 human and 150 AI passages. (a) ROC-AUC with 95% bootstrap intervals. (b) Share of AI passages caught when the cutoff allows 5% of human passages through.*
 
-So the ranking is decent and the cutoff is bad. Sapling put every AI chunk above 0.5 and also flagged 20 of the 30 human chunks, and the human essays are not equally affected: essays 1 and 4 were flagged in every chunk, while essay 3 was flagged in a third. Mean score per essay and version:
-
-| Essay | Human | "25% AI" | "75% AI" | Fully AI |
-|---|---|---|---|---|
-| 1 | 0.88 | 0.99 | 0.98 | 0.98 |
-| 2 | 0.69 | 0.37 | 0.90 | 0.90 |
-| 3 | 0.40 | 0.01 | 1.00 | 1.00 |
-| 4 | 0.97 | 0.94 | 0.99 | 1.00 |
-| 5 | 0.48 | 0.25 | 0.98 | 0.94 |
-
-In every one of the five essays the AI version outscored the human original, and in three of them (2, 3 and 5) the lightly AI-edited version scored lower than the human original did. The hybrid side analysis agrees: against the human originals, the 25% versions have an AUC of 0.43 (0.20 to 0.67), meaning no detectable signal, while the 75% versions reach 0.86 (0.73 to 0.97). The essays that got a bit of AI help read as more human to Sapling than the untouched human ones.
-
-Five essays out of five in the right direction sounds convincing, and the exact paired test says p = 0.0625. That is the smallest p-value a five-essay sign test can produce, so this sample cannot reach significance at 0.05 whatever the data look like. It supports "probably better than chance" and not much more.
-
-### The free detectors on the new corpus
-
-On the 150 human and 150 AI passages, the detectors were far worse than the original essays suggested.
-
-| Detector | AUC | AI caught at 5% FPR | AI caught at 1% FPR | Holm p for AUC = 0.5 |
-|---|---|---|---|---|
-| RoBERTa (Fakespot) | 0.58 (0.51 to 0.64) | 10% (5% to 18%) | 7% | 0.078 |
-| Fast-DetectGPT | 0.56 (0.49 to 0.63) | 14% (8% to 23%) | 7% | 0.139 |
-| Log-likelihood | 0.50 (0.43 to 0.57) | 11% (3% to 18%) | 4% | 0.949 |
-| RoBERTa (OpenAI 2019) | 0.38 (0.31 to 0.45) | 5% (1% to 8%) | 1% | 0.001 |
-
-Averaged over everything, three of the four can't be told apart from a coin flip, and the fourth is significantly worse than one. The 2019 detector is backwards: it rates modern chatbot text as more human than the human text. At the 0.5 cutoff Fakespot flagged 13% of human passages and 24% of AI passages, a hit rate of 55% (51% to 60%).
-
-The twin comparison says the same thing from another angle. Pairing each AI passage with the human passage it was written to match, the AI one scored higher only 52% of the time for Fakespot (44% to 60%) and 56% of the time for Fast-DetectGPT (48% to 65%).
-
-The averages hide a lot, though, which is where it gets interesting.
-
-![ROC curves](results/figures/roc_curves.png)
-
-### Where detection works and where it breaks
-
-Genre. The same detector is good in one genre and wrong-way-round in another. Fakespot on student essays reaches an AUC of 0.79 (0.70 to 0.88), and on plain-prompted AI essays specifically, 0.94 (0.88 to 0.98) with 56% caught at a 5% false positive rate. On forum answers its AUC is 0.46 and on fiction 0.44. Fast-DetectGPT does best on fiction (0.67, and 0.76 for plain prompts) and is clearly backwards on forum answers (0.30, interval 0.21 to 0.41). Why, I can't say for certain. My guess is that forum answers are short, informal and written in the plain, predictable phrasing these methods read as machine-like, so the human answers look more AI-like than the AI ones did. The student-essay result is the one case where a free detector does what it's advertised to do, and it happens to be the genre the original project used.
-
-![AUC by genre](results/figures/auc_by_genre.png)
-
-Length. Longer passages are easier: for passages of 250 words or more, Fakespot reaches an AUC of 0.67 (0.56 to 0.78) and Fast-DetectGPT 0.72 (0.61 to 0.83), against about 0.5 for the 150 to 249 word range. Length is tangled up with genre here (more than half of the passages under 150 words are forum answers), so I wouldn't read this as a clean length effect.
-
-Writing style. This is the clearest result in the project. Against all 150 human passages:
-
-| AI passages written as | n | Fakespot AUC | Fast-DetectGPT AUC | Log-likelihood AUC | Fakespot catches at 5% FPR |
+| Detector | Family, year | AUC | Caught at 5% FPR | Caught at 1% FPR | Holm p |
 |---|---|---|---|---|---|
-| plain | 54 | 0.72 (0.65 to 0.79) | 0.64 (0.55 to 0.73) | 0.62 (0.53 to 0.70) | 20% |
-| student | 24 | 0.72 (0.61 to 0.82) | 0.82 (0.74 to 0.89) | 0.81 (0.71 to 0.89) | 17% |
-| anti_ai | 24 | 0.37 (0.29 to 0.47) | 0.37 (0.24 to 0.49) | 0.33 (0.24 to 0.43) | 0% |
-| casual | 24 | 0.35 (0.25 to 0.44) | 0.48 (0.36 to 0.60) | 0.19 (0.12 to 0.27) | 0% |
-| paraphrase | 24 | 0.54 (0.44 to 0.64) | 0.42 (0.31 to 0.54) | 0.42 (0.32 to 0.53) | 0% |
+| Desklib DeBERTa-v3-large | supervised, 2025 | 0.63 (0.56 to 0.70) | 28% (16% to 39%) | 18% | 0.003 |
+| Fakespot RoBERTa-base | supervised, 2025 | 0.58 (0.51 to 0.64) | 10% (5% to 18%) | 7% | 0.130 |
+| RADAR RoBERTa-large | supervised, 2023 | 0.18 (0.13 to 0.23) | 0% (0% to 1%) | 0% | <0.001 |
+| HC3 RoBERTa-base | supervised, 2023 | 0.52 (0.46 to 0.60) | 2% (0% to 8%) | 1% | 1.000 |
+| OpenAI RoBERTa-large (GPT-2) | supervised, 2019 | 0.27 (0.21 to 0.33) | 0% (0% to 2%) | 0% | <0.001 |
+| OpenAI RoBERTa-base (GPT-2) | supervised, 2019 | 0.38 (0.32 to 0.45) | 4% (1% to 8%) | 2% | 0.003 |
+| Binoculars (Qwen2.5-1.5B) | zero-shot, 2024 | 0.50 (0.44 to 0.57) | 7% (2% to 17%) | 3% | 1.000 |
+| Fast-DetectGPT (GPT-Neo-2.7B) | zero-shot, 2024 | 0.56 (0.49 to 0.63) | 14% (8% to 23%) | 7% | 0.279 |
+| Log-likelihood (GPT-Neo-2.7B) | zero-shot, 2019 | 0.50 (0.43 to 0.57) | 11% (3% to 18%) | 4% | 1.000 |
 
-Telling the model to avoid AI phrasing, or to write sloppily, pushed the AUC to or below the coin-flip line for every detector: for most of them, these passages look more human than the real human text. Compared with plain AI text, the drop in Fakespot's score was about 0.37 for both styles (Holm-adjusted p = 0.002 each). Paraphrasing a plain passage lowered the score in 18 of 24 pairs for Fakespot (mean drop 0.29, Holm p = 0.014), in 21 of 24 for Fast-DetectGPT, and in all 24 for log-likelihood. At 5% false positives, Fakespot catches none of the anti-AI, casual or paraphrased passages.
+The p-value tests whether the AUC differs from 0.5. Only Desklib is significantly above chance, and its lead over the next best detector is not itself significant (difference in AUC of 0.06 from Fakespot, interval -0.02 to 0.14). Three detectors are significantly below chance: RADAR and the two OpenAI models. They're backwards. RADAR, which was trained to resist paraphrasing, scores real human text as AI more often than it scores the AI passages: at a 0.5 cutoff it flags 32% of human passages and 2% of AI ones. It flags 44% of the student essays and 48% of the forum answers I took from real people, which is the clearest false positive result in the project. The 2019 detectors never flag the AI text because that text is nothing like GPT-2's.
 
-"Write like a high school student" did not help the AI hide. For Fakespot the scores don't differ from plain AI text (Holm p = 1), and for the two likelihood-based detectors the student-voice text was easier to catch, not harder (Holm p = 0.025 for log-likelihood; 0.16 for Fast-DetectGPT). The imitation probe, where Claude wrote an essay to match one specific real student's level of polish and mistakes, tells a mixed story: Fast-DetectGPT still caught it (AUC 0.85, interval 0.73 to 0.93, with 50% caught at 5% false positives) while Fakespot mostly did not (AUC 0.60, 0.44 to 0.73). My guess, which I haven't tested, is that deliberate errors don't change how predictable the underlying word choices are, while the instruction to be concrete and unpolished does.
+Pairing each AI passage with its own human twin gives the same ranking: Desklib scored the AI passage higher in 70% of pairs (62% to 78%) while RADAR did in 11% (6% to 17%).
 
-![AI caught by writing style](results/figures/detection_by_style.png)
+### One sentence changes everything
 
-### False positives
+![Style matrix](results/figures/fig2_style.png)
 
-At the 0.5 cutoff, Fakespot flagged 20 of the 150 human passages (13%): 11 of the 50 fiction passages (22%), 5 of 50 student essays (10%), and 4 of 50 forum answers (8%). Fast-DetectGPT and log-likelihood don't output a probability, so there's no 0.5 to apply; at the cutoff that allows 5% of all human passages to be flagged, the human passages that exceed it are 8% of fiction, 4% of student essays and 2% of forum answers for Fakespot.
+*Figure 2. ROC-AUC against all 150 human passages, by how the AI passages were written. Bold means the 95% interval excludes 0.5. Blue means the detector ranks AI text higher, red means it ranks AI text lower than human text.*
 
-![Fakespot scores on human text](results/figures/human_scores_by_genre.png)
+| Detector | plain (n=54) | student (24) | anti_ai (24) | casual (24) | paraphrase (24) |
+|---|---|---|---|---|---|
+| Desklib DeBERTa-v3-large | 0.67 / 37% | 0.91 / 58% | 0.30 / 0% | 0.67 / 21% | 0.57 / 12% |
+| Fakespot RoBERTa-base | 0.72 / 20% | 0.72 / 17% | 0.37 / 0% | 0.35 / 0% | 0.54 / 0% |
+| HC3 RoBERTa-base | 0.63 / 6% | 0.60 / 0% | 0.53 / 0% | 0.13 / 0% | 0.60 / 0% |
+| Binoculars (Qwen2.5-1.5B) | 0.61 / 9% | 0.60 / 12% | 0.22 / 0% | 0.47 / 8% | 0.50 / 0% |
+| Fast-DetectGPT (GPT-Neo-2.7B) | 0.64 / 20% | 0.82 / 33% | 0.37 / 0% | 0.48 / 8% | 0.42 / 0% |
+| Log-likelihood (GPT-Neo-2.7B) | 0.62 / 15% | 0.81 / 38% | 0.33 / 0% | 0.19 / 0% | 0.42 / 0% |
 
-The flagged passages are not what I expected. I tested whether flagged human text differed in length, sentence and word length, commas, contractions, first-person pronouns, quotation marks, digits or vocabulary variety (ten simple features of each passage), and compared within genre so that "fiction is long and commas are common" didn't masquerade as a finding. After Holm adjustment nothing survives. The nominal hits are weak: longer passages scored slightly lower (within-genre rank correlation of -0.17 for Fakespot, p = 0.04 before adjustment, 1.0 after). Whatever makes a human passage look AI-like to these detectors, a simple surface feature doesn't capture it. The 20 are 11 fiction passages, 5 student essays and 4 forum answers, including one about travel safety during COVID and one about splitting a boulder. I couldn't find anything else that unites them.
+*Each cell is AUC / share of AI passages caught at 5% false positives. The three detectors that are already backwards on plain AI text (RADAR and the two OpenAI models) are in Figure 2 and `results/tables/by_style.csv`.*
 
-English learners. A well-known worry is that detectors flag non-native writers. I compared 50 essays by students marked as English language learners to 50 non-learner essays on the same prompt at the same grade level, all human. I didn't see it. Fakespot scored the learner essays lower: a learner essay outscored its non-learner counterpart only 24% of the time (15% to 34%), 0% of learner essays were flagged at 0.5 against 14% of the others, and the difference is significant after correction (Holm p < 0.001). Log-likelihood agrees (27%, Holm p = 0.001). The 2019 detector and Fast-DetectGPT show nothing. My guess is that these essays are short, error-filled and plainly written, which looks human to a detector trained on fluent chatbot output, but I haven't tested that. It also says nothing about Sapling.
+Six detectors beat chance on plain AI text. For five of them, telling the model to avoid AI phrasing cut the score significantly (Holm-adjusted p of 0.004 or 0.005 for Desklib, Fakespot, Binoculars, Fast-DetectGPT and log-likelihood), and at that point none catches a single one of the 24 passages at 5% false positives. Desklib falls from an AUC of 0.67 (0.58 to 0.77) on plain text to 0.30 (0.20 to 0.41); the AI passages become more human-looking than the average human passage. Asking for sloppy, casual writing hurts Fakespot, HC3 and log-likelihood the same way. Paraphrasing a plain passage lowers Fakespot's score in 18 of 24 pairs (Holm p = 0.038), Fast-DetectGPT's in 21 of 24 and log-likelihood's in all 24 (both Holm p = 0.004); for Desklib, HC3 and Binoculars the paraphrase effect is not distinguishable from zero.
 
-### Does Sapling agree with the free detectors?
+"Write like a high school student" did not help the AI hide. For Fakespot it changed nothing, and for Desklib, Fast-DetectGPT and log-likelihood the student-voice passages scored higher than plain ones, so they were easier to catch, though none of those differences survives the multiple-comparison correction (smallest Holm p is 0.074). I think I know why, but I haven't tested it: sloppy-but-ordinary prose is still fluent, regular prose, while "avoid the tells" asks for the specific, concrete word choices that make text less predictable.
 
-Only on the 119 original chunks, and only partly. Fakespot is the one that tracks Sapling: Spearman correlation 0.48 (0.29 to 0.62), and the same call at 0.5 on 82% of chunks. On those same human-versus-AI chunks Fakespot's AUC is 0.87 (0.72 to 0.98), with heavily overlapping intervals against Sapling's 0.85. The other three disagree: the 2019 detector correlates negatively with Sapling (-0.31), and Fast-DetectGPT and log-likelihood show no relationship (-0.07 and -0.21, both intervals including zero). On the original essays the zero-shot detectors score below chance as well (AUC 0.37 and 0.26), which is a good reason not to treat them as stand-ins for Sapling.
+![Percentile boxes](results/figures/fig3_human_percentile.png)
 
-## What didn't work or surprised me
+*Figure 3. The same effect on one scale. Each score is restated as the share of the 150 human passages that score below it, so 0.95 marks the 5% false-positive cutoff for every detector. A box left of the dashed line is mostly missed.*
 
-I assumed the free detectors would roughly match Sapling and give me a way to estimate how Sapling would do on the new corpus. They don't, so I can't estimate that, and I haven't tried.
+### Where it works: student essays
 
-I expected style tricks to help the AI a bit. They help it a lot. The size of the drop from asking for sloppy or non-AI-sounding prose surprised me more than anything else here, partly because the instruction is a single sentence.
+![Genre matrix](results/figures/fig4_genre.png)
 
-I expected English learners to be the false positive story. They were the opposite.
+*Figure 4. ROC-AUC by genre, for all AI passages (left) and for plain-prompted AI only (right). Rows are in the same order as Figure 2.*
 
-Getting the human text took longer than anything else, mostly because of the rate limit on Wikimedia. Dropping that source left a corpus with only three genres, and one of them (public-domain fiction, mostly 1880s to 1950s) is not a great match for the AI pastiche it's paired with.
+Every detector that works at all works on student essays, and on student essays only. On plain-prompted AI essays, Desklib reaches an AUC of 0.96 (0.90 to 1.00), catching 78% of them at 5% false positives, and Fakespot 0.94 (0.88 to 0.98) and 56%. Binoculars, Fast-DetectGPT and log-likelihood score 0.79 or better there. On plain-prompted forum answers the best are Desklib at 0.70 and Fakespot at 0.66, and Fast-DetectGPT is backwards at 0.25. On fiction nothing but Fast-DetectGPT (0.76) beats chance. The student-essay genre is the one in which most of these detectors were trained and benchmarked, and it is the one the original project used.
+
+### A cutoff does not travel
+
+If you tune a detector to allow 5% false positives on one kind of writing and then use that cutoff on another, the false positive rate is not 5%. I chose each cutoff on the human text of two genres and applied it to the third. Holding out student essays, eight of the nine detectors exceeded the 5% target in their point estimates: Desklib 18% (2% to 33%), HC3 18% (4% to 33%) and log-likelihood 22% (3% to 36%) at the top. Because the cutoffs came from forum answers and fiction, essays by real students got flagged at several times the intended rate by the three at the top. The opposite direction costs recall: Desklib catches 70% of AI essays with the transferred cutoff but 4% of AI fiction.
+
+![Threshold transfer](results/figures/fig5_threshold_transfer.png)
+
+*Figure 5. Cutoff chosen to allow 5% false positives on the human text of the other two genres (dashed line: the 5% target), then applied to the held-out genre. (a) False positive rate on the held-out genre's human passages. (b) Share of that genre's AI passages caught.*
+
+### What gets flagged on the human side
+
+![Human side](results/figures/fig6_human_side.png)
+
+*Figure 6. (a) Share of human passages called AI at a 0.5 cutoff; zero-shot detectors have no such cutoff. (b) Probability that an English-learner essay scores higher than a non-learner essay on the same prompt at the same grade; 0.5 means no difference. (c) Rank correlation between a human essay's quality score and its detector score, within prompt.*
+
+Two things surprised me here. A well-known worry is that detectors flag non-native writers, and I didn't see it. I compared 50 essays by students marked as English language learners with 50 non-learner essays on the same prompts at the same grade, all human. Fakespot scored the learner essay higher only 24% of the time (15% to 34%; Holm p = 0.001), 0% of learner essays were flagged at a 0.5 cutoff against 14% of the others, and HC3, Binoculars and log-likelihood agree. The other five detectors show no difference.
+
+The second finding is a likely reason. Across all 180 human PERSUADE essays in the corpus, better essays score as more AI-like within a prompt. PERSUADE gives each essay a holistic quality score from 1 to 6, and the rank correlation with the detector score is 0.42 (0.29 to 0.53) for Fakespot, 0.39 (0.26 to 0.52) for log-likelihood and 0.34 (0.19 to 0.46) for HC3, all with Holm p near 0.001. The learner essays in this sample were rated lower (mean 2.4 against 3.5), so "polish looks like AI" and "learners look more human" may be one effect. Mostly. Comparing learners and non-learners only within the same quality score, HC3's gap shrinks from 20 percentile points to 9 and is no longer significant, but Fakespot's stays at 25 points (Holm p = 0.006) and Binoculars' at 20 (p = 0.040). A coarse 1-to-6 score can't fully account for quality, so I wouldn't claim the quality story explains everything.
+
+What I can say plainly is that these detectors err toward calling poorly written human text human, so any cost here falls on fluent writers, not on learners.
+
+Surface features of the passage don't explain which human passages get flagged. I tested ten simple ones (length, sentence and word length, commas, contractions, first-person pronouns, quotation marks, digits, vocabulary variety), comparing within genre. After correction only length survives, and only for two detectors: shorter human passages score higher with Desklib (rank correlation -0.40) and RADAR (-0.51).
+
+### The imitation probe
+
+Claude was asked to write an essay in the voice of one specific real student, matching their level of polish and mistakes, for 30 students. Three detectors still caught it: Desklib (AUC 0.86, interval 0.76 to 0.95), Binoculars (0.85, 0.75 to 0.93) and Fast-DetectGPT (0.85, 0.73 to 0.93), the last two catching 50% of the imitations at 5% false positives. Fakespot did not (0.60, 0.44 to 0.73). Deliberately bad writing does not hide the AI from detectors that can read predictability, and "avoid the tells" is a different instruction from "write badly."
+
+### Partial AI use in the original essays
+
+![Rewrites](results/figures/fig7_rewrites.png)
+
+*Figure 7. Mean detector score for each of five essays (thin lines) and on average (thick line), at 0%, 25%, 75% and 100% intended AI involvement.*
+
+Only the two best supervised detectors can see the essays the original project rewrote. Against the human originals, the fully AI-rewritten chunks reach an AUC of 0.93 (0.86 to 0.99) with Desklib, catching 83% at 5% false positives, and 0.87 (0.76 to 0.96) with Fakespot, catching 70%. All seven other detectors are below 0.5 here. Light AI editing is invisible: the 25% versions score 0.59 for Desklib and 0.53 for Fakespot against the human originals, but the 75% versions, an AI draft edited by a human, jump to 0.94 and 0.90. Desklib's and Fakespot's scores rise steadily with the intended share of AI (within-essay rank correlation 0.65 and 0.56, Holm p = 0.001), while RADAR, HC3 and the OpenAI models trend in the wrong direction. Five essays is too few for the intervals to be reliable, and the human essays are from 2024.
+
+### Checks
+
+Word count alone gives an AUC of 0.53. The em-dash difference doesn't move any detector. AUC by writing session (each of the six sessions plus the paraphrases) ranges from 0.57 to 0.70 for Desklib and 0.50 to 0.64 for Fakespot, so no one writing session is carrying the results. Detector scores are only loosely related: the two zero-shot detectors built on the same model correlate at 0.65, but Desklib correlates with the others at between -0.10 and 0.34.
+
+## What didn't work
+
+Dropping Wikimedia: the collection was slow enough that I gave up on news, encyclopedia and speech text, which are genres detectors are often benchmarked on.
+
+Three of the six writing sessions were cut off by a usage limit. All their passages existed, but I couldn't get their reports, and one session's overlong passages needed trimming by hand.
+
+Binoculars is not Binoculars. The paper's models don't fit in 12 GB of GPU memory, so mine uses a pair of 1.5B Qwen models. It could be weaker than the published version for that reason alone, and I haven't tested it.
+
+I expected the detectors that were trained to resist paraphrasing to do better against paraphrased text. RADAR's score is below chance on everything I gave it, and I can't tell whether that is because Claude's writing is far from the Vicuna text it was trained on, or because its human training text (web pages) is far from forum answers, fiction and student essays.
 
 ## Limits
 
-Sapling was only ever tested on five essays. Nothing here supports a claim about how Sapling does on forum answers, fiction, or any other student's essays, and the interval on its true positive rate at 5% false positives runs from 20% to 80%.
+There is one AI writer, and it is a recent frontier model that was told to write in specific ways. Detectors tuned against other models may behave differently, and Claude's attempts at "sloppy" and "student" writing are its own interpretation. Six writing sessions of one model aren't six independent writers.
 
-There is one AI writer, and it is a recent frontier model told to write in specific ways. Detectors trained on, or tuned against, other models may behave differently, and Claude's attempts at "sloppy" or "student" writing are its own interpretation of those instructions. Six writing sessions of the same model aren't six independent writers. Per-session AUCs for Fakespot ranged from 0.50 to 0.64 with overlapping intervals, so no session stands out.
+Three genres, 150 passages per class, and 24 per style are small. The style intervals are wide, and several of the style comparisons are between cells of 24.
 
-The analysis violates some assumptions. The human and AI passages are matched on topic and length, but I resample the two groups independently, which ignores the pairing. Style comparisons use 24 passages per cell, so those intervals are wide. A percentile bootstrap breaks down when the estimate sits at zero (several true positive rates are exactly 0% with an interval of 0% to 0%, which should be read as "too small to measure," not "known to be zero"). The p-values are Monte Carlo with 10,000 permutations, so none can be smaller than about 0.0001; "p < 0.001" in the text means that. And I ran many comparisons: I corrected within each family, but there are several families, and a few of the quieter results here would not survive being counted together.
+The analysis violates some assumptions. The human and AI passages are matched on topic and length, but I resample the two groups independently, which ignores the pairing. A percentile bootstrap degrades when an estimate sits at zero (several catch rates are exactly 0% with an interval of 0% to 0%, which means "too small to measure"). Permutation p-values use 10,000 shuffles, so none can be smaller than about 0.0001. Holm correction is applied within each family of tests, and there are several families; a few of the quieter results would not survive being counted together.
 
-The English-learner flag in PERSUADE is coarse and self-reported. The human text was filtered by date or by source, but I didn't check publication years for each Gutenberg book individually, and PERSUADE's dates come from the authors' description, not my own check.
+The English-learner flag in PERSUADE is coarse and self-reported, and its quality score runs 1 to 6. I didn't check publication years for each Gutenberg book, and PERSUADE's dates come from the authors' description, not my own check. The explanations I give for genre and style effects are guesses.
+
+Nothing here says how any commercial detector would do. These are nine open models.
 
 ## Reproducing
 
-The corpus and all scores are committed, so the evaluation reruns without downloading anything beyond two Hugging Face models if you want to rescore.
+The corpus and all scores are committed, so the tables and figures rerun without downloading anything.
 
 ```bash
 python -m venv .venv
 .venv/Scripts/python -m pip install -r requirements.txt
+.venv/Scripts/python -m statproject evaluate   # results/tables and results/manifest.json, about 5 minutes
+.venv/Scripts/python -m statproject figures    # results/figures, PDF and PNG
+.venv/Scripts/python -m pytest                 # statistics, text handling, and the detector formulas
 ```
 
-For a GPU, install `torch` from pytorch.org first so pip doesn't pull the CPU build. Then:
+For a GPU, install `torch` from pytorch.org first so pip doesn't pull the CPU build. To rescore everything yourself, `python -m statproject score` downloads the models (about 24 GB in the Hugging Face cache) and takes about 6 minutes on a laptop GPU; `--only` limits it to named detectors.
 
-```bash
-python -m statproject score      # runs the four local detectors over every text (downloads three models, about 12 GB)
-python -m statproject evaluate   # writes results/tables and results/figures
-python -m pytest                 # statistics, text handling, and the Fast-DetectGPT formula
-```
+`python -m statproject collect` re-downloads the human passages, but the Stack Exchange and Gutenberg listings change over time, so a fresh run gives different passages; the committed `data/` is the dataset. It refuses to run if `data/metadata.csv` exists. The AI passages cannot be regenerated, because the model wrote them by hand; `data/ai/assignments.csv` records what each was asked to do. `build-rewrites`, `plan-ai` and `register-ai` are the steps that built the chunk file, the plan, and the metadata.
 
-`python -m statproject collect` re-downloads the human passages, but the Stack Exchange and Gutenberg listings change over time, so a fresh run will give different passages from the committed ones; the committed `data/` is the dataset. The collect command refuses to run if `data/metadata.csv` exists. The AI passages cannot be regenerated, because the model wrote them by hand; `data/ai/assignments.csv` records what each was asked to do. `plan-ai` and `register-ai` are the two steps used to build that file and fold the written passages into the metadata.
+No API key is needed for anything, and the code makes no calls to any paid service.
 
-No API key is needed for anything, and nothing in the code contacts Sapling.
-
-Layout: `data/human` and `data/ai` hold the passages, `data/metadata.csv` the one table that describes them, `data/scores` the local detector scores, `data/legacy` the original essays, their raw Sapling results and `chunks.csv` (the same results as a single file). Code is in `statproject/`, one module per job (`sources/`, `collect`, `assignments`, `detectors`, `features`, `stats`, `evaluate`, `plots`) with `cli.py` as the entry point.
+Layout: `data/human` and `data/ai` hold the passages, `data/metadata.csv` describes them, `data/scores` holds each detector's scores and model revisions, `data/rewrites` holds the original essays and their chunks. Code is in `statproject/`, one module per job (`sources/`, `collect`, `assignments`, `registry`, `detectors`, `scoring`, `features`, `stats`, `evaluate`, `plots`), with `cli.py` as the entry point. Two supplementary figures, ROC curves for every detector split by plain and evasive AI text and the correlation matrix among detectors, are in `results/figures` as `figS1_roc` and `figS2_correlations`.

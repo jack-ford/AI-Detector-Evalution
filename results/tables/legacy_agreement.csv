@@ -1,5 +1,0 @@
-detector,spearman_with_sapling,lo,hi,same_call_at_0.5
-roberta_fakespot,0.4827,0.2924,0.6148,0.8151
-roberta_openai,-0.3056,-0.3857,-0.1575,0.2773
-fast_detectgpt,-0.0685,-0.4196,0.2847,
-log_likelihood,-0.2079,-0.4210,0.1114,

@@ -1,6 +1,5 @@
-"""Reading and writing the passage corpus and the cached Sapling results."""
+"""Reading and writing the passage corpus and the essay-rewrite set."""
 
-import ast
 import csv
 import logging
 from pathlib import Path
@@ -8,7 +7,7 @@ from pathlib import Path
 import pandas as pd
 
 from . import paths
-from .text import word_count
+from .text import normalize, word_count
 
 log = logging.getLogger(__name__)
 
@@ -16,9 +15,12 @@ METADATA_COLUMNS = [
     "id", "label", "subset", "genre", "prompt_style", "n_words", "source", "license",
     "title", "url", "date", "cluster", "pair_id", "writer", "detail",
 ]
-# In the original study each essay exists in four versions, named by the share
-# of AI involvement the authors intended.
-LEGACY_LABELS = {0: "human", 25: "mixed", 75: "mixed", 100: "ai"}
+# The rewrite set has each of five essays in four versions, named by the share
+# of AI involvement the authors intended; 25 and 75 are hybrids with no clean label.
+REWRITE_LABELS = {0: "human", 25: "mixed", 75: "mixed", 100: "ai"}
+CHUNK_WORDS = 100
+MIN_CHUNK_WORDS = 80
+MAX_CHUNKS = 6
 
 
 def passage_path(passage_id: str) -> Path:
@@ -45,35 +47,33 @@ def load_texts(ids: pd.Series) -> pd.Series:
     return pd.Series([read_passage(i) for i in ids], index=ids.index)
 
 
-def convert_legacy_results() -> pd.DataFrame:
-    """Turn the original detection_results files into one csv.
-
-    Those files are Python dict reprs, one per 100-word chunk. The chunk text is
-    kept exactly as it was sent to Sapling (the original script stripped
-    newlines without inserting spaces, so some sentences run together).
-    """
+def build_rewrite_chunks() -> pd.DataFrame:
+    """Cut each essay version into consecutive 100-word chunks, six at most."""
     rows = []
-    for path in sorted(paths.LEGACY_SAPLING_RAW.glob("*.txt")):
-        record = ast.literal_eval(path.read_text(encoding="utf-8"))
-        essay, percent_ai, chunk = (int(part) for part in path.stem.split("-"))
-        rows.append({
-            "id": record["chunk_id"],
-            "essay": essay,
-            "percent_ai": percent_ai,
-            "chunk": chunk,
-            "label": LEGACY_LABELS[percent_ai],
-            "n_words": word_count(record["text"]),
-            "sapling": record["ai_score"],
-            "text": record["text"],
-        })
-    chunks = pd.DataFrame(rows).sort_values(["essay", "percent_ai", "chunk"])
-    chunks.to_csv(paths.LEGACY_CHUNKS, index=False)
-    log.info("wrote %d cached Sapling results to %s", len(chunks), paths.LEGACY_CHUNKS)
+    for path in sorted(paths.REWRITE_ESSAYS.glob("*.txt")):
+        essay, percent_ai = (int(part) for part in path.stem.split("-"))
+        words = normalize(path.read_text(encoding="utf-8")).split()
+        for k in range(MAX_CHUNKS):
+            chunk = words[k * CHUNK_WORDS:(k + 1) * CHUNK_WORDS]
+            if len(chunk) < MIN_CHUNK_WORDS:
+                break
+            rows.append({
+                "id": f"{essay}-{percent_ai}-{k + 1}",
+                "essay": essay,
+                "percent_ai": percent_ai,
+                "chunk": k + 1,
+                "label": REWRITE_LABELS[percent_ai],
+                "n_words": len(chunk),
+                "text": " ".join(chunk),
+            })
+    chunks = pd.DataFrame(rows)
+    chunks.to_csv(paths.REWRITE_CHUNKS, index=False)
+    log.info("wrote %d essay chunks to %s", len(chunks), paths.REWRITE_CHUNKS)
     return chunks
 
 
-def load_legacy_chunks() -> pd.DataFrame:
-    return pd.read_csv(paths.LEGACY_CHUNKS)
+def load_rewrite_chunks() -> pd.DataFrame:
+    return pd.read_csv(paths.REWRITE_CHUNKS)
 
 
 def load_scores() -> pd.DataFrame:

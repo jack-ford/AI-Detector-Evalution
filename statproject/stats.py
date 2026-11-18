@@ -140,6 +140,28 @@ def cluster_permutation_pvalue(
     return (hits + 1) / (n_perm + 1)
 
 
+def stratified_group_pvalue(
+    statistic: Callable[[np.ndarray], float],
+    in_group: np.ndarray,
+    strata: np.ndarray,
+    n_perm: int = 10000,
+    seed: int = 0,
+) -> float:
+    """Two-sided p-value for statistic(in_group), shuffling group membership only
+    among rows of the same stratum, so the group sizes in each stratum stay fixed."""
+    in_group = np.asarray(in_group, dtype=bool)
+    members = [np.flatnonzero(np.asarray(strata) == value) for value in np.unique(strata)]
+    rng = np.random.default_rng(seed)
+    observed = abs(statistic(in_group))
+    hits = 0
+    for _ in range(n_perm):
+        shuffled = in_group.copy()
+        for rows in members:
+            shuffled[rows] = in_group[rng.permutation(rows)]
+        hits += abs(statistic(shuffled)) >= observed
+    return (hits + 1) / (n_perm + 1)
+
+
 def sign_flip_pvalue(differences: np.ndarray) -> float:
     """Exact two-sided paired test: under the null each difference is as likely
     to be negative as positive, so enumerate all 2^n sign patterns."""

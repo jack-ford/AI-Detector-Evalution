@@ -3,7 +3,7 @@ import pytest
 
 torch = pytest.importorskip("torch")
 
-from statproject.detectors import sampling_discrepancy
+from statproject.detectors import binoculars_ratio, sampling_discrepancy
 
 
 def test_sampling_discrepancy_by_hand():
@@ -33,3 +33,29 @@ def test_text_sampled_from_the_model_scores_like_a_standard_normal():
     ]
     assert np.mean(curvatures) == pytest.approx(0, abs=0.2)
     assert np.std(curvatures) == pytest.approx(1, abs=0.15)
+
+
+def test_binoculars_ratio_by_hand():
+    observer = torch.zeros(1, 2)
+    performer = torch.tensor([[0.8, 0.2]]).log()
+    ratio = binoculars_ratio(observer, performer, torch.tensor([1]))
+    log_perplexity = -np.log(0.2)
+    cross_perplexity = -(0.5 * np.log(0.8) + 0.5 * np.log(0.2))
+    assert ratio == pytest.approx(log_perplexity / cross_perplexity, rel=1e-5)
+
+
+def test_binoculars_ratio_is_near_one_for_text_the_models_would_write():
+    # With identical models and tokens drawn from their shared distribution,
+    # the log-perplexity and the cross-perplexity have the same expectation.
+    generator = torch.Generator().manual_seed(1)
+    logits = torch.randn(600, 40, generator=generator)
+    tokens = torch.multinomial(logits.softmax(-1), 1, generator=generator).squeeze(-1)
+    assert binoculars_ratio(logits, logits, tokens) == pytest.approx(1.0, abs=0.08)
+
+
+def test_binoculars_ratio_is_lower_for_more_predictable_text():
+    generator = torch.Generator().manual_seed(2)
+    logits = torch.randn(600, 40, generator=generator)
+    likely = logits.argmax(-1)
+    unlikely = logits.argmin(-1)
+    assert binoculars_ratio(logits, logits, likely) < binoculars_ratio(logits, logits, unlikely)

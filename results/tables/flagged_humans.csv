@@ -1,0 +1,78 @@
+id,genre,n_words,source,n_detectors_flagging,desklib,roberta_fakespot,radar,chatgpt_roberta,openai_large,openai_base
+h-student-042,student,102,PERSUADE 2.0,5,0.9213,0.8870,0.9920,0.9975,0.3592,0.9305
+h-student-027,student,151,PERSUADE 2.0,4,0.5810,0.9249,0.9190,0.9975,0.0286,0.0140
+h-student-039,student,304,PERSUADE 2.0,4,0.2361,0.7103,0.9657,0.9991,0.1213,0.9998
+h-forum-030,forum,154,Stack Exchange (travel),3,0.5602,0.9207,0.8593,0.0072,0.0006,0.0006
+h-forum-019,forum,140,Stack Exchange (diy),3,0.0265,0.7952,0.0553,0.8573,0.6893,0.0421
+h-student-029,student,319,PERSUADE 2.0,3,0.0108,0.1051,0.9695,0.9990,0.0164,0.9832
+h-student-010,student,155,PERSUADE 2.0,3,0.7773,0.0546,0.6337,0.3238,0.0065,0.6276
+h-fiction-028,fiction,101,Project Gutenberg,3,0.3346,0.9826,0.9770,0.7841,0.0021,0.0009
+h-student-020,student,241,PERSUADE 2.0,3,0.0182,0.9569,0.9517,0.9980,0.0005,0.0002
+h-student-047,student,123,PERSUADE 2.0,3,0.8750,0.0037,0.9893,0.9850,0.0045,0.1954
+h-student-049,student,145,PERSUADE 2.0,3,0.5986,0.4189,0.9747,0.9991,0.0007,0.0190
+h-student-034,student,225,PERSUADE 2.0,3,0.0637,0.8275,0.8614,0.9972,0.0005,0.0003
+h-forum-006,forum,104,Stack Exchange (money),2,0.9773,0.0746,0.8069,0.0003,0.0005,0.0020
+h-fiction-023,fiction,132,Project Gutenberg,2,0.1091,0.3223,0.8714,0.9958,0.0016,0.0004
+h-student-011,student,197,PERSUADE 2.0,2,0.4378,0.0002,0.5577,0.9800,0.0007,0.0002
+h-student-031,student,298,PERSUADE 2.0,2,0.0049,0.0010,0.7870,0.9978,0.0281,0.0048
+h-student-045,student,128,PERSUADE 2.0,2,0.9182,0.0005,0.9165,0.0063,0.0014,0.0277
+h-student-028,student,132,PERSUADE 2.0,2,0.3013,0.2761,0.9851,0.6068,0.0712,0.0174
+h-forum-033,forum,83,Stack Exchange (money),2,0.3172,0.5222,0.9401,0.0200,0.0007,0.0101
+h-fiction-014,fiction,278,Project Gutenberg,2,0.8209,0.9922,0.1266,0.0316,0.1553,0.0004
+h-forum-024,forum,148,Stack Exchange (travel),2,0.6409,0.1260,0.5567,0.0786,0.0029,0.4946
+h-forum-034,forum,111,Stack Exchange (cooking),2,0.4949,0.1076,0.9776,0.9946,0.0276,0.0022
+h-forum-038,forum,88,Stack Exchange (movies),2,0.2445,0.0026,0.9787,0.0156,0.4263,0.6419
+h-forum-007,forum,115,Stack Exchange (cooking),2,0.0141,0.0105,0.9473,0.9850,0.0038,0.0070
+h-forum-031,forum,166,Stack Exchange (parenting),2,0.9075,0.5128,0.4937,0.0079,0.0006,0.0002
+h-forum-001,forum,138,Stack Exchange (travel),1,0.0096,0.0046,0.8340,0.2986,0.0009,0.0002
+h-forum-005,forum,99,Stack Exchange (gardening),1,0.0335,0.1165,0.7512,0.0380,0.0005,0.0002
+h-forum-010,forum,184,Stack Exchange (workplace),1,0.0057,0.0232,0.8446,0.0006,0.0069,0.0002
+h-forum-004,forum,120,Stack Exchange (movies),1,0.0148,0.0063,0.7184,0.0005,0.0015,0.0002
+h-forum-018,forum,84,Stack Exchange (travel),1,0.0825,0.0021,0.8801,0.0004,0.0005,0.0002
+h-forum-017,forum,210,Stack Exchange (cooking),1,0.0127,0.0121,0.1064,0.9991,0.0038,0.0002
+h-forum-016,forum,149,Stack Exchange (academia),1,0.0119,0.0070,0.9874,0.0015,0.0035,0.0003
+h-forum-013,forum,86,Stack Exchange (gardening),1,0.0751,0.0012,0.8433,0.0073,0.0006,0.0002
+h-forum-011,forum,203,Stack Exchange (parenting),1,0.0217,0.0044,0.0793,0.9983,0.0006,0.0011
+h-forum-012,forum,162,Stack Exchange (movies),1,0.2514,0.0339,0.6180,0.0472,0.0009,0.0002
+h-forum-032,forum,101,Stack Exchange (movies),1,0.0341,0.0134,0.5338,0.0333,0.0005,0.0023
+h-forum-036,forum,133,Stack Exchange (workplace),1,0.0281,0.2833,0.9939,0.0648,0.2519,0.1296
+h-forum-037,forum,110,Stack Exchange (parenting),1,0.0510,0.0147,0.7146,0.0116,0.0007,0.0029
+h-forum-029,forum,156,Stack Exchange (academia),1,0.0731,0.2557,0.9332,0.0168,0.0024,0.0003
+h-forum-027,forum,150,Stack Exchange (movies),1,0.0416,0.0423,0.3241,0.7676,0.0120,0.0365
+h-forum-026,forum,136,Stack Exchange (parenting),1,0.0116,0.4454,0.9538,0.0095,0.0005,0.0002
+h-forum-025,forum,96,Stack Exchange (workplace),1,0.0296,0.0532,0.9987,0.0516,0.0005,0.0002
+h-forum-028,forum,107,Stack Exchange (outdoors),1,0.4446,0.4727,0.9700,0.3577,0.0742,0.0004
+h-forum-023,forum,104,Stack Exchange (outdoors),1,0.0666,0.0131,0.8039,0.0226,0.0007,0.0004
+h-forum-021,forum,123,Stack Exchange (movies),1,0.0328,0.0052,0.1756,0.9991,0.0006,0.0002
+h-fiction-040,fiction,312,Project Gutenberg,1,0.0022,0.5123,0.0131,0.1307,0.0047,0.0027
+h-fiction-037,fiction,133,Project Gutenberg,1,0.0395,0.9377,0.3211,0.0412,0.0032,0.0026
+h-fiction-033,fiction,311,Project Gutenberg,1,0.0036,0.3181,0.0405,0.9950,0.0008,0.0005
+h-fiction-030,fiction,227,Project Gutenberg,1,0.0195,0.2084,0.0803,0.9875,0.0067,0.0089
+h-fiction-027,fiction,264,Project Gutenberg,1,0.0180,0.5775,0.0248,0.2933,0.0005,0.0018
+h-fiction-022,fiction,217,Project Gutenberg,1,0.0112,0.2937,0.0258,0.9734,0.0020,0.0018
+h-fiction-012,fiction,180,Project Gutenberg,1,0.0118,0.7017,0.2411,0.0296,0.0237,0.0019
+h-fiction-020,fiction,170,Project Gutenberg,1,0.0389,0.5322,0.3418,0.1603,0.0066,0.0004
+h-forum-047,forum,162,Stack Exchange (movies),1,0.0268,0.4158,0.2444,0.8597,0.0005,0.0003
+h-fiction-002,fiction,97,Project Gutenberg,1,0.0163,0.0737,0.1157,0.0382,0.1011,0.9988
+h-fiction-008,fiction,266,Project Gutenberg,1,0.0049,0.7390,0.0360,0.0010,0.0533,0.0086
+h-fiction-003,fiction,256,Project Gutenberg,1,0.2251,0.2876,0.0258,0.7305,0.0016,0.0002
+h-forum-040,forum,113,Stack Exchange (outdoors),1,0.2279,0.1209,0.6145,0.2057,0.0006,0.0009
+h-fiction-045,fiction,219,Project Gutenberg,1,0.0530,0.7152,0.1587,0.2414,0.0390,0.0045
+h-student-003,student,203,PERSUADE 2.0,1,0.3330,0.0250,0.7358,0.3100,0.0005,0.0002
+h-fiction-042,fiction,130,Project Gutenberg,1,0.0123,0.8467,0.0436,0.0156,0.0009,0.0003
+h-student-018,student,209,PERSUADE 2.0,1,0.0722,0.0015,0.1575,0.9886,0.0005,0.0002
+h-student-017,student,102,PERSUADE 2.0,1,0.0578,0.0044,0.9945,0.0020,0.0005,0.0198
+h-student-015,student,222,PERSUADE 2.0,1,0.0144,0.0003,0.8073,0.0003,0.0005,0.0002
+h-student-014,student,216,PERSUADE 2.0,1,0.0141,0.1816,0.1867,0.9991,0.0005,0.0002
+h-student-013,student,104,PERSUADE 2.0,1,0.0056,0.0004,0.9854,0.0149,0.0007,0.0002
+h-student-006,student,115,PERSUADE 2.0,1,0.7012,0.2166,0.2682,0.1511,0.0017,0.0014
+h-student-008,student,266,PERSUADE 2.0,1,0.0763,0.0748,0.1846,0.9917,0.0035,0.0007
+h-student-009,student,314,PERSUADE 2.0,1,0.0344,0.0002,0.7946,0.0003,0.0010,0.0003
+h-student-002,student,135,PERSUADE 2.0,1,0.0386,0.0003,0.8634,0.0009,0.0005,0.0002
+h-fiction-046,fiction,176,Project Gutenberg,1,0.0536,0.9768,0.0559,0.3635,0.0013,0.2198
+h-student-026,student,159,PERSUADE 2.0,1,0.0201,0.0012,0.6111,0.0268,0.0005,0.0010
+h-student-022,student,322,PERSUADE 2.0,1,0.6042,0.0003,0.2169,0.0136,0.0006,0.0003
+h-student-032,student,317,PERSUADE 2.0,1,0.0136,0.0014,0.5921,0.0003,0.0005,0.0003
+h-student-030,student,224,PERSUADE 2.0,1,0.0087,0.0008,0.4198,0.6532,0.0005,0.0003
+h-student-038,student,339,PERSUADE 2.0,1,0.5960,0.0002,0.1980,0.0009,0.0400,0.0002
+h-student-033,student,183,PERSUADE 2.0,1,0.3818,0.0087,0.5750,0.1963,0.0007,0.0004
